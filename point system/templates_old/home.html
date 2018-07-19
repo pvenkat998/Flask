@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery-latest.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery.tablesorter.js') }}"></script>
+{% from "_formhelpers.html" import render_field %}
+
+<script type="text/javascript" language="javascript" src="{{ url_for('static', filename='tablefilter.js') }}"></script>
+<html lang="en">
+<style>html {zoom:110%;}
+	th.headerSortUp {
+    background-image: url({{url_for('static', filename='small_asc.gif')}});
+    background-color: #3399FF;
+}
+th.headerSortDown {
+    background-image:url({{url_for('static', filename='small_desc.gif')}});
+    background-color: #3399FF;
+}
+th.header {
+		background-image:url( {{url_for('static', filename='sort1.png')}});
+    cursor: pointer;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding-left: 20px;
+    border-right: 1px solid #dad9c7;
+    margin-left: -1px;
+
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>{{userid}}</title>
+	    <a href="{{ url_for('.quar')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="home" value="home" ><b>HOME</b></a>
+	    <a href="{{ url_for('.week')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="thisweek" value="thisweek" ><b>今週</b></a>
+	    <a href="{{ url_for('.home1')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="thisq" value="thisq" ><b>全部</b></a>
+	<right>
+	    <a href="{{ url_for('.logout')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="logout" value="logout" ><b>ログアウト</b></a></right>
+		<form method="post" name="form" action="{{ url_for('.datesel')}}">
+                                                           <br>
+                  <dl  class="contact-us pattern-bg">
+
+                              <div class="col-sm-6">
+                                 <div class="form-group">
+                                  {{ render_field(form.startdate)}}
+                                 </div>
+							  </div>
+					  			<div class="col-sm-6">
+                                 <div class="form-group">
+                                  {{ render_field(form.enddate)}}
+                                 </div>
+							  </div></dl>
+							<button  type="submit" name="datesearch" value="datesearch" >
+                                                                  検索</button>
+
+					</form>
+                                <div class="tab-content">
+					                <div class="tab-pane" id="home">
+
+											<H2 style="color:#F06143"><p> <b> <span class=" ">顧問</span></b></p></H2>
+											<table id="t3" class="tablesorter">
+
+												<thead>
+													<th style="color:#157F83">ID</th>
+													<th style="color:#157F83">部署</th>
+													<th style="color:#157F83">Q</th>
+													<th style="color:#157F83">営業日</th>
+													<th style="color:#157F83">ユーザーID</th>
+													<th style="color:#157F83">名前</th>
+
+													<th style="color:#157F83">Label</th>
+													<th style="color:#157F83">日付</th>
+													<th style="color:#157F83">リストタイプ</th>
+													<th style="color:#157F83">電話数</th>
+													<th style="color:#157F83">つな数</th>
+													<th style="color:#157F83">アポ</th>
+
+													<th style="color:#157F83">初回営業</th>
+													<th style="color:#157F83">再訪設定</th>
+
+													<th style="color:#157F83">面談設定</th>
+													<th style="color:#157F83">面談実施</th>
+													<th style="color:#157F83">受注</th>
+													<th style="color:#157F83">ポイント</th>
+											</thead>
+										  {% for row in data %}
+											<tr>
+											{% for d in row %}
+												<td >{{ d }}</td>
+												{% endfor %}
+											</tr>
+										  {% endfor %}
+										  </table>
+                                    </div></div>
+</head>
+<body>
+
+</body>
+
+<script>var filtersConfig = {
+																										  // instruct TableFilter location to import ressources from
+																										  base_path: 'https://unpkg.com/tablefilter@latest/dist/tablefilter/',
+																										  col_7: 'none',col_0:"none",col_1:"none",col_2: "none",
+																										  col_3: "none",col_4: "none",col_5: "none",col_6: "none",
+																										  col_8: "select",	  col_9: 'none',col_10:"none",col_11:"none",col_12: "none",
+																										  col_13: "none",col_14: "none",col_15: "none",col_16: "none",col_17:"none",
+
+																										  display_all_text: " [ Show all ] ",
+																										  sort_select:true,
+																										  alternate_rows: true,
+																								//		  rows_counter: true,
+																										  btn_reset: true,
+																								//		  loader: true,
+																								//		  mark_active_columns: true,
+																								//	      highlight_keywords: true,
+																										  no_results_message: true,
+																										  col_types: [
+																											'number', 'string', 'number','number','string','string','string','date','string','number', 'number', 'number','number','number','number','number','number','number',
+																										      ],
+
+																										  col_widths: ['45px','60px','65px','60px','90px','72px','80px','100px','100px','60px','60px','60px','60px','60px','60px','60px','60px','60px'],
+
+																											   extensions: [{
+																												name: 'sort',
+																												images_path: 'https://unpkg.com/tablefilter@latest/dist/tablefilter/style/themes/'
+																											  }]
+																											};
+
+
+																										var tf3 = new TableFilter('t3',filtersConfig);
+																										tf3.init();
+
+</script>
+
+<script>
+$("#t3").tablesorter({
+     headers: {
+         17: { sorter: 'digit' } // column number, type
+     }
+ });
+    </script>
+}
+</html>

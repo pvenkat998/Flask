@@ -1,0 +1,26 @@
+<doctype html>
+    <html>    <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}">
+
+<title>New Robot - Database</title>
+        <h1 class="w3-xxxlarge w3-text-red"><b>新ロボット追加</b></h1>
+
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+    <dl>
+                        <legend></legend>
+
+        {{ render_field(form.robotname) }}
+        {{ render_field(form.iraisha) }}
+        {{ render_field(form.busho) }}
+        {{ render_field(form.developer) }}
+        {{ render_field(form.last_mod) }}
+        {{ render_field(form.kansei) }}
+        {{ render_field(form.sakujikan) }}
+    </dl>
+    <button class="w3-button w3-border w3-black"><b>  <div class="w3-display-hover"></div>
+
+<input type=submit value="保存"></b></button>
+    <dl></dl>
+</form>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery-latest.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery.tablesorter.js') }}"></script>
+{% from "_formhelpers.html" import render_field %}
+
+<script type="text/javascript" language="javascript" src="{{ url_for('static', filename='tablefilter.js') }}"></script>
+<html lang="en">
+<style>
+th {
+  text-align:center;
+}
+
+td {
+  width: 100px;
+}
+html {zoom:110%;}
+	th.headerSortUp {
+    background-image: url({{url_for('static', filename='small_asc.gif')}});
+    background-color: #3399FF;
+}
+th.headerSortDown {
+    background-image:url({{url_for('static', filename='small_desc.gif')}});
+    background-color: #3399FF;
+}
+th.header {
+		background-image:url( {{url_for('static', filename='sort1.png')}});
+    cursor: pointer;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding-left: 20px;
+    border-right: 1px solid #dad9c7;
+    margin-left: -1px;
+
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+</style>
+<				>
+    <meta charset="UTF-8">
+    <title>{{userid}}</title>
+	    <a href="{{ url_for('.quar')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="home" value="home" ><b>HOME</b></a>
+	    <a href="{{ url_for('.week')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="thisweek" value="thisweek" ><b>今週</b></a>
+	    <a href="{{ url_for('.home1')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="thisq" value="thisq" ><b>全部</b></a>
+	<right>
+	    <a href="{{ url_for('.logout')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="logout" value="logout" ><b>ログアウト</b></a></right>
+		<form method="post" name="form" action="{{ url_for('.datesel')}}">
+                                                           <br>
+                  <dl  class="contact-us pattern-bg">
+
+                              <div class="col-sm-6">
+                                 <div class="form-group">
+                                  {{ render_field(form.startdate)}}
+                                 </div>
+							  </div>
+					  			<div class="col-sm-6">
+                                 <div class="form-group">
+                                  {{ render_field(form.enddate)}}
+                                 </div>
+							  </div></dl>
+							<button  type="submit" name="datesearch" value="datesearch" >
+                                                                  検索</button>
+
+					</form> 							<button id="btnHide" type="button" name="btnHide" value="btnHide" >
+                                                                  Hide Column button</button>  <button> <button2 id="btnshow" type="button" name="btnshow" value="btnshow" >
+															Show Column button</button2></button> <input type="button" value="Refresh Page" onClick="window.location.reload()">
+
+
+
+
+									<div id="togglers"></div>
+
+                                <div class="tab-content">
+					                <div class="tab-pane" id="home">
+
+											<H2 style="color:#F06143"><p> <b> <span class=" ">顧問</span></b></p></H2>
+										<table id="table" class="tablesorter"  class="table" data-toggle="table" data-show-columns="true">
+
+												<thead>
+													<th style="color:#157F83">期間進捗</th>
+													<th style="color:#157F83">日付</th>
+													<th style="color:#157F83">アポ数</th>
+
+													<th style="color:#157F83" colspan="2" id="j1">電話数</th>
+													<th style="color:#157F83" colspan="2" id="j2">つな数</th>
+													<th style="color:#157F83" colspan="2" id="j3">アポ</th>
+													<th style="color:#157F83" colspan="2"id="j4">初回営業</th>
+													<th style="color:#157F83" colspan="2"id="j5">再訪設定</th>
+													<th style="color:#157F83" colspan="2"id="j6">面談設定</th>
+													<th style="color:#157F83" colspan="2"id="j7">面談実施</th>
+													<th style="color:#157F83" colspan="2"id="j8">受注</th>
+
+													<th style="color:#157F83" colspan="2" id="j9">ポイント</th>
+
+													<th style="color:#157F83" id="ed">編集</th>
+													<tr><th></th><th></th>><th></th><th >目標</th><th >実績</th>
+														<th>目標</th><th>実績</th>
+														<th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th></tr>
+
+											</thead>
+
+                                            {% for row in week1 %}
+											<tr>
+											{% for d in row %}
+												<td align="center">{{ d }}</td>
+
+												{% endfor %}
+										  {% for d in row  %}
+													{% if loop.index0 < 1 %}
+
+												<td><button><button1  name="button" type="button"  class="btn btn-primary a-btn-slide-text">
+                                                                                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b>
+                                                                                        <span><strong>編集</strong></span></b></button1></button></td>
+														{% endif %}
+
+										  {% endfor %}
+											</tr>
+										  {% endfor %}
+										  </table>
+										  <table id="tablelo1" class="tablesorter"  class="table" data-toggle="table" data-show-columns="true">
+
+												<thead>
+													<th style="color:#157F83">期間進捗</th>
+													<th style="color:#157F83">日付</th>
+													<th style="color:#157F83">アポ数</th>
+
+													<th style="color:#157F83" colspan="2" id="j11">電話数</th>
+													<th style="color:#157F83" colspan="2" id="j12">つな数</th>
+													<th style="color:#157F83" colspan="2" id="j13">アポ</th>
+													<th style="color:#157F83" colspan="2"id="j14">初回営業</th>
+													<th style="color:#157F83" colspan="2"id="j15">再訪設定</th>
+													<th style="color:#157F83" colspan="2"id="j16">面談設定</th>
+													<th style="color:#157F83" colspan="2"id="j17">面談実施</th>
+													<th style="color:#157F83" colspan="2"id="j18">受注</th>
+
+													<th style="color:#157F83" colspan="2" id="j19">ポイント</th>
+
+													<th style="color:#157F83" id="1ed">編集</th>
+													<tr><th></th><th></th>><th></th><th >目標</th><th >実績</th>
+														<th>目標</th><th>実績</th>
+														<th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th></tr>
+
+											</thead>
+
+                                            {% for row in weekl1 %}
+											<tr>
+											{% for d in row %}
+												<td align="center">{{ d }}</td>
+
+												{% endfor %}
+										  {% for d in row  %}
+													{% if loop.index0 < 1 %}
+
+												<td><button><button1  name="button" type="button"  class="btn btn-primary a-btn-slide-text">
+                                                                                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b>
+                                                                                        <span><strong>編集</strong></span></b></button1></button></td>
+														{% endif %}
+
+										  {% endfor %}
+											</tr>
+										  {% endfor %}
+										  </table>
+
+                                    </div></div>
+</head>
+<script type="text/javascript">
+	$(function() {
+	$('#btnshow').click(function() {
+
+               $('td:nth-child(4),th:nth-child(20)').show();
+               $('td:nth-child(6),th:nth-child(18)').show();   // tsuna yotei
+               $('td:nth-child(8),th:nth-child(16)').show();
+               $('td:nth-child(10),th:nth-child(14)').show();   // tsuna yotei
+               $('td:nth-child(12),th:nth-child(12)').show();
+               $('td:nth-child(14),th:nth-child(10)').show();   // tsuna yotei
+               $('td:nth-child(16),th:nth-child(8)').show();   // tsuna yotei
+               $('td:nth-child(18),th:nth-child(6)').show();
+               $('td:nth-child(20),th:nth-child(4)').show();   // tsuna yotei
+               $('td:nth-child(22),th:nth-child(111)').show();   // tsuna yotei
+ 			   $("#j2").attr('colspan',2);
+ 			   $("#j1").attr('colspan',2);
+ 			   $("#j3").attr('colspan',2);
+ 			   $("#j4").attr('colspan',2);
+ 			   $("#j5").attr('colspan',2);
+ 			   $("#j6").attr('colspan',2);
+ 			   $("#j7").attr('colspan',2);
+ 			   $("#j8").attr('colspan',2);
+ 			   $("#j9").attr('colspan',2);
+		});
+	});
+    </script>
+<script  type="text/javascript">
+	$(function() {
+	$('button1').click(function(e) {
+
+	  var name = ($(e.target.closest('tr')).text());
+	  name = name.replace(/[\r\n]/g, " ");
+	  var obj ={};
+	  obj[name]= 1;
+	 $.ajax({
+		type: "POST",
+			url: "{{ url_for('get_post_json') }}",
+		contentType: "application/json",
+		data: JSON.stringify({hello: name }),
+		dataType: "json",
+		success: function(response) {
+			console.log(response);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	});
+	});
+	});
+
+	</script>
+<script type="text/javascript">
+		// to hide
+        $(document).ready(function(hide) {
+            $('#btnHide').click(function() {
+               // $('td:nth-child(4)').hide();
+                // if your table has header(th), use this
+               $('td:nth-child(4),th:nth-child(20)').hide();
+               $('td:nth-child(6),th:nth-child(18)').hide();   // tsuna yotei
+               $('td:nth-child(8),th:nth-child(16)').hide();
+               $('td:nth-child(10),th:nth-child(14)').hide();   // tsuna yotei
+               $('td:nth-child(12),th:nth-child(12)').hide();
+               $('td:nth-child(14),th:nth-child(10)').hide();   // tsuna yotei
+               $('td:nth-child(16),th:nth-child(8)').hide();   // tsuna yotei
+               $('td:nth-child(18),th:nth-child(6)').hide();
+               $('td:nth-child(20),th:nth-child(4)').hide();   // tsuna yotei
+               $('td:nth-child(22),th:nth-child(111)').hide();   // tsuna yotei
+ 			   $("#j2").attr('colspan',1);
+ 			   $("#j3").show();
+ 			   $("#j1").show();
+ 			   $("#j5").show();
+ 			   $("#j7").show();
+ 			   $("#j9").show();
+ 			   $("#j1").attr('colspan',1);
+ 			   $("#j3").attr('colspan',1);
+ 			   $("#j4").attr('colspan',1);
+ 			   $("#j5").attr('colspan',1);
+ 			   $("#j6").attr('colspan',1);
+ 			   $("#j7").attr('colspan',1);
+ 			   $("#j8").attr('colspan',1);
+ 			   $("#j9").attr('colspan',1);
+ 			   $("#ed").hide();
+
+
+            });
+        });
+    </script>
+<script type="text/javascript">
+        $(document).ready(function(hide,i){
+        //    $('#btnHide').click(function() {
+               // $('td:nth-child(4)').hide();
+                // if your table has header(th), use this
+               $('td:nth-child(4),th:nth-child(20)').hide();
+               $('td:nth-child(6),th:nth-child(18)').hide();   // tsuna yotei
+               $('td:nth-child(8),th:nth-child(16)').hide();
+               $('td:nth-child(10),th:nth-child(14)').hide();   // tsuna yotei
+               $('td:nth-child(12),th:nth-child(12)').hide();
+               $('td:nth-child(14),th:nth-child(10)').hide();   // tsuna yotei
+               $('td:nth-child(16),th:nth-child(8)').hide();   // tsuna yotei
+               $('td:nth-child(18),th:nth-child(6)').hide();
+               $('td:nth-child(20),th:nth-child(4)').hide();   // tsuna yotei
+               $('td:nth-child(22),th:nth-child(111)').hide();   // tsuna yotei
+ 			   $("#j2").attr('colspan',1);
+ 			   $("#j3").show();
+ 			   $("#j1").show();
+ 			   $("#j5").show();
+ 			   $("#j7").show();
+ 			   $("#j9").show();
+ 			   $("#j1").attr('colspan',1);
+ 			   $("#j3").attr('colspan',1);
+ 			   $("#j4").attr('colspan',1);
+ 			   $("#j5").attr('colspan',1);
+ 			   $("#j6").attr('colspan',1);
+ 			   $("#j7").attr('colspan',1);
+ 			   $("#j8").attr('colspan',1);
+ 			   $("#j9").attr('colspan',1);
+ 			   $("#ed").hide();
+
+
+         //   });
+        });
+    </script>
+
+
+
+<script>$(function() {
+					$("tr").each(function() {
+						$(this).find("td:eq(3), td:eq(5), td:eq(7), td:eq(9), td:eq(11), td:eq(13), td:eq(15), td:eq(17), td:eq(19)").attr("contentEditable", true);
+					});
+				});</script>
+<script>var filtersConfig = {
+																										  // instruct TableFilter location to import ressources from
+																										  base_path: 'https://unpkg.com/tablefilter@latest/dist/tablefilter/',
+																										  col_7: 'none',col_0:"none",col_1:"none",col_2: "none",
+																										  col_3: "none",col_4: "none",col_5: "none",col_6: "none",
+																										  col_8: "select",	  col_9: 'none',col_10:"none",col_11:"none",col_12: "none",
+																										  col_13: "none",col_14: "none",col_15: "none",col_16: "none",col_17:"none",col_18: 'none',col_19:"none",col_21:"none",col_22: "none",
+																										  col_23: "none",col_24: "none",col_25: "none",col_26: "none",col_27:"none",
+																										  col_20: "none",
+
+																										  display_all_text: " [ Show all ] ",
+																										  sort_select:true,
+																										  alternate_rows: true,
+																								//		  rows_counter: true,
+																								//		  btn_reset: true,
+																								//		  loader: true,
+																								//		  mark_active_columns: true,
+																								//	      highlight_keywords: true,
+																										  no_results_message: true,
+																									//	  col_types: [
+																									//		'number', 'string', 'number','number','string','string','string','date','string','number', 'number', 'number','number','number','number','number','number','number',],
+
+																									//	  col_widths: ['45px','60px','65px','60px','90px','72px','80px','100px','100px','60px','60px','60px','60px','60px','60px','60px','60px','60px'],
+
+																											   extensions: [{
+																												name: 'sort',
+																												images_path: 'https://unpkg.com/tablefilter@latest/dist/tablefilter/style/themes/'
+																											  }]
+																											};
+																										var tf3 = new TableFilter('t1',filtersConfig);
+																										tf3.init();
+
+																										var tf3 = new TableFilter('t2',filtersConfig);
+																										tf3.init();
+																										var tf3 = new TableFilter('t3',filtersConfig);
+																										tf3.init();
+
+																										var tf3 = new TableFilter('t4',filtersConfig);
+																										tf3.init();
+																										var tf3 = new TableFilter('t5',filtersConfig);
+																										tf3.init();
+
+																										var tf3 = new TableFilter('t6',filtersConfig);
+																										tf3.init();
+																										var tf3 = new TableFilter('t7',filtersConfig);
+																										tf3.init();
+
+																										var tf3 = new TableFilter('t8',filtersConfig);
+																										tf3.init();
+																										var tf3 = new TableFilter('t9',filtersConfig);
+																										tf3.init();
+
+																										var tf3 = new TableFilter('t10',filtersConfig);
+																										tf3.init();
+
+</script>
+
+<script>
+$("#t1").tablesorter({
+     headers: {
+         17: { sorter: 'digit' } // column number, type
+     }
+ });
+    </script>
+
+</html>
