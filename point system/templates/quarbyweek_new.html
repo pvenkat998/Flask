@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <script type="text/javascript" src="{{ url_for('static', filename='jquery-latest.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='jquery.tablesorter.js') }}"></script>
+
+<script>$(function() {
+					$("tr").each(function() {
+						$(this).find("td:eq(3), td:eq(5), td:eq(7), td:eq(9), td:eq(11), td:eq(13), td:eq(15), td:eq(17), td:eq(19)").attr("contentEditable", true);
+					});
+				});</script><script>$(function() {
+					$("#table tr").each(function() {
+						$(this).find("td:eq(3), td:eq(5), td:eq(7), td:eq(9), td:eq(11), td:eq(13), td:eq(15), td:eq(17), td:eq(19)").attr("contentEditable", false);
+					});
+				});</script>
 {% from "_formhelpers.html" import render_field %}
 
 <script type="text/javascript" language="javascript" src="{{ url_for('static', filename='tablefilter.js') }}"></script>
@@ -42,8 +52,7 @@ a.button {
     color: initial;
 }
 </style>
-<				>
-    <meta charset="UTF-8">
+ <meta charset="UTF-8">
     <title>{{userid}}</title>
 	    <a href="{{ url_for('.quar')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="home" value="home" ><b>HOME</b></a>
 	    <a href="{{ url_for('.week')}}" class="w3-button w3-padding-large w3-purple" type="submit" name="thisweek" value="thisweek" ><b>今週</b></a>
@@ -80,6 +89,8 @@ a.button {
 					                <div class="tab-pane" id="home">
 
 											<H2 style="color:#F06143"><p> <b> <span class=" ">顧問</span></b></p></H2>
+																						<h2>総合</h2>
+
 										<table id="table" class="tablesorter"  class="table" data-toggle="table" data-show-columns="true">
 
 												<thead>
@@ -98,8 +109,8 @@ a.button {
 
 													<th style="color:#157F83" colspan="2" id="j9">ポイント</th>
 
-													<th style="color:#157F83" id="ed">編集</th>
-													<tr><th></th><th></th>><th></th><th >目標</th><th >実績</th>
+													<th style="color:#157F83" id="ed">編集 </th>
+													<tr><th></th><th></th><th></th><th >目標</th><th >実績</th>
 														<th>目標</th><th>実績</th>
 														<th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th></tr>
 
@@ -116,13 +127,15 @@ a.button {
 
 												<td><button><button1  name="button" type="button"  class="btn btn-primary a-btn-slide-text">
                                                                                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b>
-                                                                                        <span><strong>編集</strong></span></b></button1></button></td>
+                                                                                        <span><strong>編集<p style=" display: none;">all</p></strong></span></b></button1></button></td>
 														{% endif %}
 
 										  {% endfor %}
 											</tr>
 										  {% endfor %}
 										  </table>
+																						<h2>源泉</h2>
+
 										  <table id="tablelo1" class="tablesorter"  class="table" data-toggle="table" data-show-columns="true">
 
 												<thead>
@@ -142,12 +155,11 @@ a.button {
 													<th style="color:#157F83" colspan="2" id="j19">ポイント</th>
 
 													<th style="color:#157F83" id="1ed">編集</th>
-													<tr><th></th><th></th>><th></th><th >目標</th><th >実績</th>
+													<tr><th></th><th></th><th></th><th >目標</th><th >実績</th>
 														<th>目標</th><th>実績</th>
 														<th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th></tr>
 
 											</thead>
-
                                             {% for row in weekl1 %}
 											<tr>
 											{% for d in row %}
@@ -159,14 +171,103 @@ a.button {
 
 												<td><button><button1  name="button" type="button"  class="btn btn-primary a-btn-slide-text">
                                                                                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b>
-                                                                                        <span><strong>編集</strong></span></b></button1></button></td>
+                                                                                        <span><strong>編集<p style=" display: none;">源泉</p></strong></span></b></button1></button></td>
 														{% endif %}
 
 										  {% endfor %}
 											</tr>
 										  {% endfor %}
 										  </table>
+																																<h2>管S</h2>
 
+										  <table id="tablelo2" class="tablesorter"  class="table" data-toggle="table" data-show-columns="true">
+
+												<thead>
+													<th style="color:#157F83">期間進捗</th>
+													<th style="color:#157F83">日付</th>
+													<th style="color:#157F83">アポ数</th>
+
+													<th style="color:#157F83" colspan="2" id="j21">電話数</th>
+													<th style="color:#157F83" colspan="2" id="j22">つな数</th>
+													<th style="color:#157F83" colspan="2" id="j23">アポ</th>
+													<th style="color:#157F83" colspan="2"id="j24">初回営業</th>
+													<th style="color:#157F83" colspan="2"id="j25">再訪設定</th>
+													<th style="color:#157F83" colspan="2"id="j26">面談設定</th>
+													<th style="color:#157F83" colspan="2"id="j27">面談実施</th>
+													<th style="color:#157F83" colspan="2"id="j28">受注</th>
+
+													<th style="color:#157F83" colspan="2" id="j29">ポイント</th>
+
+													<th style="color:#157F83" id="2ed">編集</th>
+													<tr><th></th><th></th><th></th><th >目標</th><th >実績</th>
+														<th>目標</th><th>実績</th>
+														<th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th></tr>
+
+											</thead>
+
+                                            {% for row in weekl2 %}
+											<tr>
+											{% for d in row %}
+												<td align="center">{{ d }}</td>
+
+												{% endfor %}
+										  {% for d in row  %}
+													{% if loop.index0 < 1 %}
+
+												<td><button><button1  name="button" type="button"  class="btn btn-primary a-btn-slide-text">
+                                                                                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b>
+                                                                                        <span><strong>編集<p style=" display: none;">管S</p></strong></span></b></button1></button></td>
+														{% endif %}
+
+										  {% endfor %}
+											</tr>
+										  {% endfor %}
+										  </table>
+																																<h2>その他</h2>
+
+										  <table id="tablelo3" class="tablesorter"  class="table" data-toggle="table" data-show-columns="true">
+
+												<thead>
+													<th style="color:#157F83">期間進捗</th>
+													<th style="color:#157F83">日付</th>
+													<th style="color:#157F83">アポ数</th>
+
+													<th style="color:#157F83" colspan="2" id="j31">電話数</th>
+													<th style="color:#157F83" colspan="2" id="j32">つな数</th>
+													<th style="color:#157F83" colspan="2" id="j33">アポ</th>
+													<th style="color:#157F83" colspan="2"id="j34">初回営業</th>
+													<th style="color:#157F83" colspan="2"id="j35">再訪設定</th>
+													<th style="color:#157F83" colspan="2"id="j36">面談設定</th>
+													<th style="color:#157F83" colspan="2"id="j37">面談実施</th>
+													<th style="color:#157F83" colspan="2"id="j38">受注</th>
+
+													<th style="color:#157F83" colspan="2" id="j39">ポイント</th>
+
+													<th style="color:#157F83" id="3ed">編集</th>
+													<tr><th></th><th></th><th></th><th >目標</th><th >実績</th>
+														<th>目標</th><th>実績</th>
+														<th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th><th>目標</th><th>実績</th></tr>
+
+											</thead>
+
+                                            {% for row in weekl3 %}
+											<tr>
+											{% for d in row %}
+												<td align="center">{{ d }}</td>
+
+												{% endfor %}
+										  {% for d in row  %}
+													{% if loop.index0 < 1 %}
+
+												<td><button><button1  name="button" type="button"  class="btn btn-primary a-btn-slide-text">
+                                                                                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b>
+                                                                                        <span><strong>編集<p style=" display: none;">その他</p></strong></span></b></button1></button></td>
+														{% endif %}
+
+										  {% endfor %}
+											</tr>
+										  {% endfor %}
+										  </table>
                                     </div></div>
 </head>
 <script type="text/javascript">
@@ -192,6 +293,37 @@ a.button {
  			   $("#j7").attr('colspan',2);
  			   $("#j8").attr('colspan',2);
  			   $("#j9").attr('colspan',2);
+ 			   $("#j12").attr('colspan',2);
+ 			   $("#j11").attr('colspan',2);
+ 			   $("#j13").attr('colspan',2);
+ 			   $("#j14").attr('colspan',2);
+ 			   $("#j15").attr('colspan',2);
+ 			   $("#j16").attr('colspan',2);
+ 			   $("#j17").attr('colspan',2);
+ 			   $("#j18").attr('colspan',2);
+ 			   $("#j19").attr('colspan',2);
+ 			   $("#j22").attr('colspan',2);
+ 			   $("#j21").attr('colspan',2);
+ 			   $("#j23").attr('colspan',2);
+ 			   $("#j24").attr('colspan',2);
+ 			   $("#j25").attr('colspan',2);
+ 			   $("#j26").attr('colspan',2);
+ 			   $("#j27").attr('colspan',2);
+ 			   $("#j28").attr('colspan',2);
+ 			   $("#j29").attr('colspan',2);
+ 			   $("#j32").attr('colspan',2);
+ 			   $("#j31").attr('colspan',2);
+ 			   $("#j33").attr('colspan',2);
+ 			   $("#j34").attr('colspan',2);
+ 			   $("#j35").attr('colspan',2);
+ 			   $("#j36").attr('colspan',2);
+ 			   $("#j37").attr('colspan',2);
+ 			   $("#j38").attr('colspan',2);
+ 			   $("#j39").attr('colspan',2);
+ 			  //$("#ed").show();
+ 			   $("#1ed").show();
+ 			   $("#2ed").show();
+ 			   $("#3ed").show();
 		});
 	});
     </script>
@@ -220,9 +352,89 @@ a.button {
 	});
 
 	</script>
+<script>$(function() {
+					$("#table tr:last").each(function() {
+						$(this).find("td:eq(3), td:eq(5), td:eq(7), td:eq(9), td:eq(11), td:eq(13), td:eq(15), td:eq(17), td:eq(19)").attr("contentEditable", false);
+					});					$("#tablelo1 tr:last").each(function() {
+						$(this).find("td:eq(3), td:eq(5), td:eq(7), td:eq(9), td:eq(11), td:eq(13), td:eq(15), td:eq(17), td:eq(19)").attr("contentEditable", false);
+					});					$("#tablelo2 tr:last").each(function() {
+						$(this).find("td:eq(3), td:eq(5), td:eq(7), td:eq(9), td:eq(11), td:eq(13), td:eq(15), td:eq(17), td:eq(19)").attr("contentEditable", false);
+					});					$("#tablelo3 tr:last").each(function() {
+						$(this).find("td:eq(3), td:eq(5), td:eq(7), td:eq(9), td:eq(11), td:eq(13), td:eq(15), td:eq(17), td:eq(19)").attr("contentEditable", false);
+					});
+				});</script>
 <script type="text/javascript">
-		// to hide
-        $(document).ready(function(hide) {
+        $(document).ready(function(hide,i){
+        //    $('#btnHide').click(function() {
+               // $('td:nth-child(4)').hide();
+                // if your table has header(th), use this
+               $('#table button').hide();
+               $('#tablelo1 tr:last button').hide();
+               $('#tablelo2 tr:last button').hide();
+               $('#tablelo3 tr:last button').hide();
+
+               $('td:nth-child(4),th:nth-child(20)').hide();
+               $('td:nth-child(6),th:nth-child(18)').hide();   // tsuna yotei
+               $('td:nth-child(8),th:nth-child(16)').hide();
+               $('td:nth-child(10),th:nth-child(14)').hide();   // tsuna yotei
+               $('td:nth-child(12),th:nth-child(12)').hide();
+               $('td:nth-child(14),th:nth-child(10)').hide();   // tsuna yotei
+               $('td:nth-child(16),th:nth-child(8)').hide();   // tsuna yotei
+               $('td:nth-child(18),th:nth-child(6)').hide();
+               $('td:nth-child(20),th:nth-child(4)').hide();   // tsuna yotei
+               $('td:nth-child(22),th:nth-child(111)').hide();   // tsuna yotei
+ 			   $("#j11").show();		   $("#j13").show(); 			   $("#j15").show();			   $("#j17").show(); 			   $("#j19").show();
+ 			   $("#j21").show();		   $("#j23").show(); 			   $("#j25").show();			   $("#j27").show(); 			   $("#j29").show();
+ 			   $("#j31").show();		   $("#j33").show(); 			   $("#j35").show();			   $("#j37").show(); 			   $("#j39").show();
+
+ 			   $("#j1").show();		   $("#j3").show(); 			   $("#j5").show();			   $("#j7").show(); 			   $("#j9").show();
+ 			   $("#j1").attr('colspan',1);
+			   $("#j2").attr('colspan',1);
+ 			   $("#j3").attr('colspan',1);
+ 			   $("#j4").attr('colspan',1);
+ 			   $("#j5").attr('colspan',1);
+ 			   $("#j6").attr('colspan',1);
+ 			   $("#j7").attr('colspan',1);
+ 			   $("#j8").attr('colspan',1);
+ 			   $("#j9").attr('colspan',1);
+ 			   $("#j11").attr('colspan',1);
+ 			   $("#j12").attr('colspan',1);
+ 			   $("#j13").attr('colspan',1);
+ 			   $("#j14").attr('colspan',1);
+ 			   $("#j15").attr('colspan',1);
+ 			   $("#j16").attr('colspan',1);
+ 			   $("#j17").attr('colspan',1);
+ 			   $("#j18").attr('colspan',1);
+ 			   $("#j19").attr('colspan',1);
+ 			   $("#j21").attr('colspan',1);
+ 			   $("#j22").attr('colspan',1);
+ 			   $("#j23").attr('colspan',1);
+ 			   $("#j24").attr('colspan',1);
+ 			   $("#j25").attr('colspan',1);
+ 			   $("#j26").attr('colspan',1);
+ 			   $("#j27").attr('colspan',1);
+ 			   $("#j28").attr('colspan',1);
+ 			   $("#j29").attr('colspan',1);
+ 			   $("#j31").attr('colspan',1);
+ 			   $("#j32").attr('colspan',1);
+ 			   $("#j33").attr('colspan',1);
+ 			   $("#j34").attr('colspan',1);
+ 			   $("#j35").attr('colspan',1);
+ 			   $("#j36").attr('colspan',1);
+ 			   $("#j37").attr('colspan',1);
+ 			   $("#j38").attr('colspan',1);
+ 			   $("#j39").attr('colspan',1);
+ 			   $("#ed").hide();
+ 			   $("#1ed").hide();
+ 			   $("#2ed").hide();
+ 			   $("#3ed").hide();
+
+
+         //   });
+        });
+    </script>
+<script type="text/javascript">
+        $(document).ready(function(hide,i){
             $('#btnHide').click(function() {
                // $('td:nth-child(4)').hide();
                 // if your table has header(th), use this
@@ -236,13 +448,13 @@ a.button {
                $('td:nth-child(18),th:nth-child(6)').hide();
                $('td:nth-child(20),th:nth-child(4)').hide();   // tsuna yotei
                $('td:nth-child(22),th:nth-child(111)').hide();   // tsuna yotei
- 			   $("#j2").attr('colspan',1);
- 			   $("#j3").show();
- 			   $("#j1").show();
- 			   $("#j5").show();
- 			   $("#j7").show();
- 			   $("#j9").show();
+ 			   $("#j11").show();		   $("#j13").show(); 			   $("#j15").show();			   $("#j17").show(); 			   $("#j19").show();
+ 			   $("#j21").show();		   $("#j23").show(); 			   $("#j25").show();			   $("#j27").show(); 			   $("#j29").show();
+ 			   $("#j31").show();		   $("#j33").show(); 			   $("#j35").show();			   $("#j37").show(); 			   $("#j39").show();
+
+ 			   $("#j1").show();		   $("#j3").show(); 			   $("#j5").show();			   $("#j7").show(); 			   $("#j9").show();
  			   $("#j1").attr('colspan',1);
+			   $("#j2").attr('colspan',1);
  			   $("#j3").attr('colspan',1);
  			   $("#j4").attr('colspan',1);
  			   $("#j5").attr('colspan',1);
@@ -250,55 +462,45 @@ a.button {
  			   $("#j7").attr('colspan',1);
  			   $("#j8").attr('colspan',1);
  			   $("#j9").attr('colspan',1);
+ 			   $("#j11").attr('colspan',1);
+ 			   $("#j12").attr('colspan',1);
+ 			   $("#j13").attr('colspan',1);
+ 			   $("#j14").attr('colspan',1);
+ 			   $("#j15").attr('colspan',1);
+ 			   $("#j16").attr('colspan',1);
+ 			   $("#j17").attr('colspan',1);
+ 			   $("#j18").attr('colspan',1);
+ 			   $("#j19").attr('colspan',1);
+ 			   $("#j21").attr('colspan',1);
+ 			   $("#j22").attr('colspan',1);
+ 			   $("#j23").attr('colspan',1);
+ 			   $("#j24").attr('colspan',1);
+ 			   $("#j25").attr('colspan',1);
+ 			   $("#j26").attr('colspan',1);
+ 			   $("#j27").attr('colspan',1);
+ 			   $("#j28").attr('colspan',1);
+ 			   $("#j29").attr('colspan',1);
+ 			   $("#j31").attr('colspan',1);
+ 			   $("#j32").attr('colspan',1);
+ 			   $("#j33").attr('colspan',1);
+ 			   $("#j34").attr('colspan',1);
+ 			   $("#j35").attr('colspan',1);
+ 			   $("#j36").attr('colspan',1);
+ 			   $("#j37").attr('colspan',1);
+ 			   $("#j38").attr('colspan',1);
+ 			   $("#j39").attr('colspan',1);
  			   $("#ed").hide();
+ 			   $("#1ed").hide();
+ 			   $("#2ed").hide();
+ 			   $("#3ed").hide();
 
 
             });
         });
     </script>
-<script type="text/javascript">
-        $(document).ready(function(hide,i){
-        //    $('#btnHide').click(function() {
-               // $('td:nth-child(4)').hide();
-                // if your table has header(th), use this
-               $('td:nth-child(4),th:nth-child(20)').hide();
-               $('td:nth-child(6),th:nth-child(18)').hide();   // tsuna yotei
-               $('td:nth-child(8),th:nth-child(16)').hide();
-               $('td:nth-child(10),th:nth-child(14)').hide();   // tsuna yotei
-               $('td:nth-child(12),th:nth-child(12)').hide();
-               $('td:nth-child(14),th:nth-child(10)').hide();   // tsuna yotei
-               $('td:nth-child(16),th:nth-child(8)').hide();   // tsuna yotei
-               $('td:nth-child(18),th:nth-child(6)').hide();
-               $('td:nth-child(20),th:nth-child(4)').hide();   // tsuna yotei
-               $('td:nth-child(22),th:nth-child(111)').hide();   // tsuna yotei
- 			   $("#j2").attr('colspan',1);
- 			   $("#j3").show();
- 			   $("#j1").show();
- 			   $("#j5").show();
- 			   $("#j7").show();
- 			   $("#j9").show();
- 			   $("#j1").attr('colspan',1);
- 			   $("#j3").attr('colspan',1);
- 			   $("#j4").attr('colspan',1);
- 			   $("#j5").attr('colspan',1);
- 			   $("#j6").attr('colspan',1);
- 			   $("#j7").attr('colspan',1);
- 			   $("#j8").attr('colspan',1);
- 			   $("#j9").attr('colspan',1);
- 			   $("#ed").hide();
-
-
-         //   });
-        });
-    </script>
 
 
 
-<script>$(function() {
-					$("tr").each(function() {
-						$(this).find("td:eq(3), td:eq(5), td:eq(7), td:eq(9), td:eq(11), td:eq(13), td:eq(15), td:eq(17), td:eq(19)").attr("contentEditable", true);
-					});
-				});</script>
 <script>var filtersConfig = {
 																										  // instruct TableFilter location to import ressources from
 																										  base_path: 'https://unpkg.com/tablefilter@latest/dist/tablefilter/',

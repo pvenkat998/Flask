@@ -1,0 +1,333 @@
+
+<doctype html>
+    <html>
+<body>
+{% from "_formhelpers.html" import render_field %}
+<head>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/boost.css') }}">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/boost1.css') }}">
+    <link  href="{{ url_for('static', filename='selectform.js') }}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<style>  br {
+    line-height: 60px;
+ }
+div.wrapper {
+    max-height: 400px;
+}
+div.cent{
+    text-align: center;
+}
+.btn-default {background-color: #f0ece2; border-color: #f0ece2;}
+.btn-default .btn-label-inverse {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #000; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-unsaved {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #d2232a; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-saved {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #f0ece2; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-action {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #a1a3a6; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-default {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #ddae49; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-subaction {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #a38855; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0;}
+.btn { margin-bottom:10px; min-width: 150px; text-align: left;}
+.container { font-family: 'Open Sans', sans-serif; }
+    .normal {
+  width: 20em;
+  background: gold;
+}
+
+.break-word {
+  width: 60em;
+  ;
+  overflow-wrap: break-word;
+}
+</style>  <!------                    OLD   HEADING
+<div class="container-text">
+    <div class="cent"> 新ロボット追加</div>
+</div>
+ <!------>
+
+<div class="wrapper">
+  <div class="floater">
+    <div class="text">2ヶ月以上</div>
+    <div class="text">経過</div>
+  </div>
+</div>
+<div class="row margin-top-bottom">
+
+             <div class="col-md-offset-2 col-sm-offset-4 col-md-8 col-sm-8">
+
+               <div class="row">
+
+                <form method="post">
+                  <dl  class="contact-us pattern-bg">
+
+                              <div class="col-sm-6">
+                                 <div class="form-group">
+                                  {{ render_field(form.compname)}}
+                                 </div>
+                                </div>
+
+                               <div class="col-sm-6">
+                                <div class="form-group">
+                                                  {{ render_field(form.contdate) }}
+
+
+
+                                 </div>
+                                </div>
+
+                                <div class="col-sm-7">
+                                  <div class="form-group" id="contmeth">
+                                                  {{ render_field(form.contactmeth) }}
+                                   </div>
+                                  </div>
+
+                                <div class="col-sm-6" >
+                                  <div class="form-group" id=concont1>                                                  {{ render_field(form.contactcontent1) }}
+
+                                   </div>
+
+                                  </div>
+                                                      <div class="col-sm-6" >
+                                  <div class="form-group" id=concont2>                                                  {{ render_field(form.contactcontent2) }}
+
+                                   </div>
+
+                                                      </div>
+
+                                                      <div class="col-sm-6" >
+                                  <div class="form-group" id=concont3>                                                  {{ render_field(form.contactcontent3) }}
+
+                                   </div>
+
+                                                      </div>
+
+
+                      <script>function func1() {
+                                $('#concont1').change(function(){
+
+                                 var e=document.getElementById("contactcontent1");
+                                var str=e.options[e.selectedIndex].text;
+
+                            // IMPORTANT  id list ---
+                            // whole cellof options   - concont1
+                            // cell value - contactcontent1
+                            // date - concont1date
+                            // riyuu- concont1text
+
+                                if (str=== "会食打診した→日程確定"){
+                              //  alert(document.getElementById('contactcontent1').value);
+                                document.getElementById("concont1").innerHTML = '  <dt><label for="contactcontent1">連絡内容①</label> </dt><dd><select class="form-control" id="contactcontent1" name="contactcontent1"><option selected="" value="会食打診した→日程確定">会食打診した→日程確定</option><option value="会食打診した→日程調整中">会食打診した→日程調整中</option><option value="会食打診した→断られた">会食打診した→断られた</option><option value="会食打診した→返事待ち">会食打診した→返事待ち</option><option value="会食打診せず">会食打診せず</option></select> </dd> <div class="form-group"> <dt><label for="concont1date">連絡日</label> </dt><dd><input class="form-control" id="concont1date" name="concont1date" type="date" value=""> </dd> </div> ';
+                                }  else if (str=== "会食打診した→日程調整中"){
+                                document.getElementById("concont1").innerHTML = '<dt><label for="contactcontent1">連絡内容①</label> </dt><dd><select class="form-control" id="contactcontent1" name="contactcontent1"><option  value="会食打診した→日程確定">会食打診した→日程確定</option><option selected="" value="会食打診した→日程調整中">会食打診した→日程調整中</option><option value="会食打診した→断られた">会食打診した→断られた</option><option value="会食打診した→返事待ち">会食打診した→返事待ち</option><option value="会食打診せず">会食打診せず</option></select> </dd> <br>';
+                                }  else if (str=== "会食打診した→断られた"){
+                                document.getElementById("concont1").innerHTML = ' <dt><label for="contactcontent1">連絡内容①</label> </dt><dd><select class="form-control" id="contactcontent1" name="contactcontent1"><option  value="会食打診した→日程確定">会食打診した→日程確定</option><option value="会食打診した→日程調整中">会食打診した→日程調整中</option><option  selected="" value="会食打診した→断られた">会食打診した→断られた</option><option value="会食打診した→返事待ち">会食打診した→返事待ち</option><option value="会食打診せず">会食打診せず</option></select> </dd> <div class="col-sm-12"> <div class="form-group"> <dt><label for="concont1name">理由</label> </dt><dd><input class="form-control" id="concont1name" name="concont1name" type="text" value=""> </dd> </div> </div>';
+                                }  else if (str=== "会食打診した→返事待ち"){
+                                document.getElementById("concont1").innerHTML = '  <dt><label for="contactcontent1">連絡内容①</label> </dt><dd> <select class="form-control" id="contactcontent1" name="contactcontent1"><option value="会食打診した→日程確定">会食打診した→日程確定</option><option value="会食打診した→日程調整中">会食打診した→日程調整中</option><option value="会食打診した→断られた">会食打診した→断られた</option><option  selected="" value="会食打診した→返事待ち">会食打診した→返事待ち</option><option value="会食打診せず">会食打診せず</option></select> <br>';
+                                }  else if (str=== "会食打診せず"){
+                                document.getElementById("concont1").innerHTML = '<dt><label for="contactcontent1">連絡内容①</label> </dt><dd><select class="form-control" id="contactcontent1" name="contactcontent1"><option  value="会食打診した→日程確定">会食打診した→日程確定</option><option value="会食打診した→日程調整中">会食打診した→日程調整中</option><option value="会食打診した→断られた">会食打診した→断られた</option><option value="会食打診した→返事待ち">会食打診した→返事待ち</option><option selected="" value="会食打診せず">会食打診せず</option></select> </dd><br> ';
+                                }
+                            });
+
+                            }
+                       </script>
+                      <script>function func11() {
+
+                                document.getElementById("concont1").innerHTML = '  <dt><label for="contactcontent1">連絡内容①</label> </dt><dd><select class="form-control" id="contactcontent1" name="contactcontent1"><option selected="" value="会食打診した→日程確定">会食打診した→日程確定</option><option value="会食打診した→日程調整中">会食打診した→日程調整中</option><option value="会食打診した→断られた">会食打診した→断られた</option><option value="会食打診した→返事待ち">会食打診した→返事待ち</option><option value="会食打診せず">会食打診せず</option></select> </dd> <div class="form-group"> <dt><label for="concont1date">連絡日</label> </dt><dd><input class="form-control" id="concont1date" name="concont1date" type="date" value=""> </dd> </div> ';
+
+
+                            }
+                       </script>
+                                            <script>function func2() {
+                                $('#concont2').change(function(){
+
+                                var e=document.getElementById("contactcontent2");
+                                var str=e.options[e.selectedIndex].text;
+                            // IMPORTANT  id list ---
+                            // whole cellof options   - concont2
+                            // cell value - contactcontent2
+                            // date - concont2date
+                            // riyuu- concont2text
+
+                                if (str=== "訪問打診した→日程確定"){
+                              //  alert(document.getElementById('contactcontent2').value);
+                                document.getElementById("concont2").innerHTML = '  <dt><label for="contactcontent2">連絡内容②</label> </dt><dd><select class="form-control" id="contactcontent2" name="contactcontent2"><option selected="" value="訪問打診した→日程確定">訪問打診した→日程確定</option><option value="訪問打診した→日程調整中">訪問打診した→日程調整中</option><option value="訪問打診した→断られた">訪問打診した→断られた</option><option value="訪問打診した→返事待ち">訪問打診した→返事待ち</option><option value="訪問打診せず">訪問打診せず</option></select> </dd> <div class="form-group"> <dt><label for="concont2date">連絡日</label> </dt><dd><input class="form-control" id="concont2date" name="concont2date" type="date" value=""> </dd> </div> ';
+                                }  else if (str=== "訪問打診した→日程調整中"){
+                                document.getElementById("concont2").innerHTML = '<dt><label for="contactcontent2">連絡内容②</label> </dt><dd><select class="form-control" id="contactcontent2" name="contactcontent2"><option  value="訪問打診した→日程確定">訪問打診した→日程確定</option><option selected="" value="訪問打診した→日程調整中">訪問打診した→日程調整中</option><option value="訪問打診した→断られた">訪問打診した→断られた</option><option value="訪問打診した→返事待ち">訪問打診した→返事待ち</option><option value="訪問打診せず">訪問打診せず</option></select> </dd> <br> ';
+                                }  else if (str=== "訪問打診した→断られた"){
+                                document.getElementById("concont2").innerHTML = ' <dt><label for="contactcontent2">連絡内容②</label> </dt><dd><select class="form-control" id="contactcontent2" name="contactcontent2"><option  value="訪問打診した→日程確定">訪問打診した→日程確定</option><option value="訪問打診した→日程調整中">訪問打診した→日程調整中</option><option  selected="" value="訪問打診した→断られた">訪問打診した→断られた</option><option value="訪問打診した→返事待ち">訪問打診した→返事待ち</option><option value="訪問打診せず">訪問打診せず</option></select> </dd> <div class="col-sm-12"> <div class="form-group"> <dt><label for="concont2name">理由</label> </dt><dd><input class="form-control" id="concont2name" name="concont2name" type="text" value=""> </dd> </div> </div>';
+                                }  else if (str=== "訪問打診した→返事待ち"){
+                                document.getElementById("concont2").innerHTML = '  <dt><label for="contactcontent2">連絡内容②</label> </dt><dd> <select class="form-control" id="contactcontent2" name="contactcontent2"><option value="訪問打診した→日程確定">訪問打診した→日程確定</option><option value="訪問打診した→日程調整中">訪問打診した→日程調整中</option><option value="訪問打診した→断られた">訪問打診した→断られた</option><option  selected="" value="訪問打診した→返事待ち">訪問打診した→返事待ち</option><option value="訪問打診せず">訪問打診せず</option></select></dd><br>';
+                                }  else if (str=== "訪問打診せず"){
+                                document.getElementById("concont2").innerHTML = '<dt><label for="contactcontent2">連絡内容②</label> </dt><dd><select class="form-control" id="contactcontent2" name="contactcontent2"><option  value="訪問打診した→日程確定">訪問打診した→日程確定</option><option value="訪問打診した→日程調整中">訪問打診した→日程調整中</option><option value="訪問打診した→断られた">訪問打診した→断られた</option><option value="訪問打診した→返事待ち">訪問打診した→返事待ち</option><option selected="" value="訪問打診せず">訪問打診せず</option></select> </dd><br>';
+                                }
+                            });
+
+                            }
+                       </script>
+                      <script>function func22() {
+
+                                document.getElementById("concont2").innerHTML = '  <dt><label for="contactcontent2">連絡内容②</label> </dt><dd><select class="form-control" id="contactcontent2" name="contactcontent2"><option selected="" value="訪問打診した→日程確定">訪問打診した→日程確定</option><option value="訪問打診した→日程調整中">訪問打診した→日程調整中</option><option value="訪問打診した→断られた">訪問打診した→断られた</option><option value="訪問打診した→返事待ち">訪問打診した→返事待ち</option><option value="訪問打診せず">訪問打診せず</option></select> </dd> <div class="form-group"> <dt><label for="concont2date">連絡日</label> </dt><dd><input class="form-control" id="concont2date" name="concont2date" type="date" value=""> </dd> </div> ';
+
+
+                            }
+                       </script>
+                                              <script>function func3() {
+                                $('#concont3').change(function(){
+
+                                var e=document.getElementById("contactcontent3");
+                                var str=e.options[e.selectedIndex].text;
+                            // IMPORTANT  id list ---
+                            // whole cellof options   - concont3
+                            // cell value - contactcontent3
+                            // date - concont3date
+                            // riyuu- concont3text
+
+                                    if (str=== "紹介打診した→日程確定"){
+                              //  alert(document.getElementById('contactcontent3').value);
+                                document.getElementById("concont3").innerHTML = '  <dt><label for="contactcontent3">連絡内容③</label> </dt><dd><select class="form-control" id="contactcontent3" name="contactcontent3"><option selected="" value="紹介打診した→日程確定">紹介打診した→日程確定</option><option value="紹介打診した→断られた">紹介打診した→断られた</option><option value="紹介打診した→返事待ち">紹介打診した→返事待ち</option><option value="紹介打診せず">紹介打診せず</option></select> </dd> <div class="form-group"> <dt><label for="concont3date">連絡日</label> </dt><dd><input class="form-control" id="concont3date" name="concont3date" type="date" value=""> </dd> </div> ';
+                                }  else if (str=== "紹介打診した→日程調整中"){
+                                document.getElementById("concont3").innerHTML = '<dt><label for="contactcontent3">連絡内容③</label> </dt><dd><select class="form-control" id="contactcontent3" name="contactcontent3"><option  value="紹介打診した→日程確定">紹介打診した→日程確定</option><option value="紹介打診した→断られた">紹介打診した→断られた</option><option value="紹介打診した→返事待ち">紹介打診した→返事待ち</option><option value="紹介打診せず">紹介打診せず</option></select> </dd> <br> ';
+                                }  else if (str=== "紹介打診した→断られた"){
+                                document.getElementById("concont3").innerHTML = ' <dt><label for="contactcontent3">連絡内容③</label> </dt><dd><select class="form-control" id="contactcontent3" name="contactcontent3"><option  value="紹介打診した→日程確定">紹介打診した→日程確定</option><option  selected="" value="紹介打診した→断られた">紹介打診した→断られた</option><option value="紹介打診した→返事待ち">紹介打診した→返事待ち</option><option value="紹介打診せず">紹介打診せず</option></select> </dd> <div class="col-sm-13"> <div class="form-group"> <dt><label for="concont3name">理由</label> </dt><dd><input class="form-control" id="concont3name" name="concont3name" type="text" value=""> </dd> </div> </div>';
+                                }  else if (str=== "紹介打診した→返事待ち"){
+                                document.getElementById("concont3").innerHTML = '  <dt><label for="contactcontent3">連絡内容③</label> </dt><dd> <select class="form-control" id="contactcontent3" name="contactcontent3"><option value="紹介打診した→日程確定">紹介打診した→日程確定</option><option value="紹介打診した→断られた">紹介打診した→断られた</option><option  selected="" value="紹介打診した→返事待ち">紹介打診した→返事待ち</option><option value="紹介打診せず">紹介打診せず</option></select></dd><br>';
+                                }  else if (str=== "紹介打診せず"){
+                                document.getElementById("concont3").innerHTML = '<dt><label for="contactcontent3">連絡内容③</label> </dt><dd><select class="form-control" id="contactcontent3" name="contactcontent3"><option  value="紹介打診した→日程確定">紹介打診した→日程確定</option><option value="紹介打診した→断られた">紹介打診した→断られた</option><option value="紹介打診した→返事待ち">紹介打診した→返事待ち</option><option selected="" value="紹介打診せず">紹介打診せず</option></select> </dd><br>';
+                                }
+                            });
+
+                            }
+                       </script>
+                      <script>function func33() {
+
+                                document.getElementById("concont3").innerHTML = '  <dt><label for="contactcontent3">連絡内容③</label> </dt><dd><select class="form-control" id="contactcontent3" name="contactcontent3"><option selected="" value="紹介打診した→日程確定">紹介打診した→日程確定</option><option value="紹介打診した→断られた">紹介打診した→断られた</option><option value="紹介打診した→返事待ち">紹介打診した→返事待ち</option><option value="紹介打診せず">紹介打診せず</option></select> </dd> <div class="form-group"> <dt><label for="concont3date">連絡日</label> </dt><dd><input class="form-control" id="concont3date" name="concont3date" type="date" value=""> </dd> </div> ';
+
+
+                            }
+                       </script>
+                         <div class="col-sm-6">
+                        <div class="textarea-message form-group">
+                                                              <b>やりとり内容</b>
+                          <textarea id="yaritoricont" name="yaritoricont" class="textarea-message form-control" placeholder="自由に記述" rows="6">{{form.yaritoricont.data}}</textarea>
+                        </div></div>
+                                <div class="col-sm-3">
+                                  <div class="form-group">
+                                                  {{ render_field(form.q1) }}
+                                   </div>
+                                  </div>
+                                <div class="col-sm-3">
+                                  <div class="form-group">
+                                                  {{ render_field(form.q2) }}
+                                   </div>
+                                  </div>
+
+           <div class="row">
+                                                    <center> <div class="col-sm-12">
+
+                                                                <button type="submit" name="editform" value="editform" class="btn btn-labeled btn-default" >
+                                                                    <span class="btn-label-unsaved"><i class="glyphicon glyphicon-floppy-save"></i></span>保存</button>
+                                                            </div></center></div>
+
+                   </dl>
+                  </form>
+
+                       <dl></dl>
+
+               </div>
+</div>
+
+<script>function start(){
+                            func1();
+                            func2();
+                            func11();
+                            func22();
+                            func3();
+                            func33();
+                        }
+</script>
+
+                        <script type="text/javascript">
+
+                                                          //  alert(strf)
+
+                              $('#contmeth').change(function(){
+                                var f=document.getElementById("contactmeth");
+                                var strf=f.options[f.selectedIndex].text;
+                              //  alert(strf);
+                                if (strf==="メール（送付）"){
+                                      $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').show();
+                                             }
+                                          else{        $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
+
+                                          }
+                                                            });
+
+
+
+                               </script>
+
+
+                        <script type="text/javascript">
+                              $(document).ready(function() {
+                                      $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').hide();
+                                      $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
+                                      $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
+                               });
+
+                               </script>
+<body onload="start()">
+
+</body>
+<title>Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}">
+
+/ <!------
+
+<div  class="w3-container ">
+ <div method="post" class="w3-container">
+
+    <dl >
+
+        {{ render_field(form.iraisha) }}
+        {{ render_field(form.kansei) }}
+        {{ render_field(form.sakujikan) }}
+        {{ render_field(form.sakujikannote) }}
+        {{ render_field(form.obje) }}
+        {{ render_field(form.gaiyo) }}
+    </dl>
+　　<br>
+ </div>
+  <div class="w3-display-bottomright">LOG(履歴)
+  <dl>
+
+      {% for para in log %}
+    <p>{{para}}</p>
+{% endfor %}
+      <br>
+
+
+    </dl>
+   <button class="w3-button w3-border w3-black"><b>
+
+<input type=submit value="保存"></b></button></div>
+    <dl></dl>
+</form>
+</body>
+
+</html>

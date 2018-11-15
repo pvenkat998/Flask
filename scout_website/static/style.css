@@ -1,0 +1,262 @@
+/*---:[
+
+	Template by Ed Zivkovic
+	http://www.hyperlinkcode.com
+
+]:---*/
+	
+	body {
+		margin: 1.0em 0.5em;
+		padding: 0;
+		font-family: Verdana, Arial, Helvetica, Sans-serif;
+		color: #666;
+	}
+
+	div#mainwrap{
+		width: 70%;
+		margin: 0 auto;
+	}
+	div#header {
+		border:  1px solid #dedede;
+		padding: 0 20px;
+		margin: 0 10px 5px;
+		line-height: 1.5em;
+		background: #dedede;
+	}
+	div#header a {
+		color: #000;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 1.7em;
+		text-shadow: 3px 3px 4px #aaa;
+		border: none;
+	}
+	div.ad728 {
+		border:  1px solid #dedede;
+		padding: 0 20px;
+		margin: 0 10px 5px;
+		line-height: 1.5em;
+		background: #fff;
+		}
+	div.ad_placeholder {
+		text-align: center;
+		margin: 15px auto;
+		width: 728px;
+		height: 90px;
+		background: #f7f7f7;
+		border: 1px solid #dedede;
+		color: #999;
+		}
+	div#content_wrap {
+		border:  1px solid #dedede;
+		padding: 10px;
+		margin: 0 10px;
+		line-height: 1.5em;
+		background: #f7f7f7;
+	}
+	h1 { 
+		font-size: 1.4em;
+		color: #000000;
+		background-color: ;
+		margin-bottom: 1.0em;
+		margin-top: 0.25em;
+		padding: 0.25em 0.5em;
+		font-style: normal;
+		text-align: left;
+		letter-spacing: ;
+		border-bottom: 0.20em solid #dedede;
+		line-height: 130%;
+		text-shadow: 3px 3px 4px #aaa;
+	}
+	h2 { 
+		color: #333;
+		font-size: 1.3em;
+		background-color: ;
+		margin-bottom: 1.0em;
+		margin-top: 0.25em;
+		padding: 0.25em 0.5em;
+		font-style: normal;
+		text-align: left;
+		letter-spacing: ;
+		border-bottom: 0.20em solid #dedede;
+		line-height: 130%;
+		text-shadow: 3px 3px 4px #aaa;
+	}
+ 	h3 { 
+		color: #333;
+		font-size: 1.2em;
+		background-color: ;
+		margin-bottom: 1.0em;
+		margin-top: 0.25em;
+		padding: 0.25em 0.5em;
+		font-style: normal;
+		text-align: left;
+		letter-spacing: ;
+		border-bottom: 0.20em solid #dedede;
+		line-height: 130%;
+		text-shadow: 3px 3px 4px #aaa;
+	}
+	div.right_nav_container {
+		float: right;
+		margin: 0 0 10px 10px;
+		width: 30%;
+		background: #f7f7f7;
+		padding-left: 5px;
+		}
+	div.right_nav {
+		border: 1px solid #dedede;
+		background: #fafafa;
+		padding: 0;
+		color: #999;
+		margin-bottom: 10px;
+		font-size: 80%;
+		}
+	div.right_nav  h3 {
+		margin: 0;
+		color: #000;
+		background: #dedede;
+		font-style: normal;
+		text-align: left;
+		letter-spacing: ;
+		border-bottom: 0.20em solid #dedede;
+		line-height: 130%;
+		padding: 10px;
+		}
+	div.right_nav  ul {
+		margin: 10px 0;
+		padding: 0 20px;
+		list-style-type: none;
+		}
+	div.right_nav  ul a {
+		text-decoration: none;
+		color: #333;
+		border-bottom: none;
+		}
+	div.right_nav  ul a:hover {
+		color: #000;
+		border-bottom: 1px solid #666;
+		}
+	div.right_nav  p {
+		margin: 10px 0;
+		padding: 0 20px;
+		}
+	div.postwrap {
+		font-size: 90%;
+		background: #fff;
+		padding: 10px;
+		overflow: hidden;
+	}
+	p.box {
+		font-size: 90%;
+		background: #f7f7f7;
+		padding: 15px;
+		border:  1px solid #dedede;
+		width: 60%;
+		margin: 20px auto;
+		color: #000;
+	}
+	p.box2 {
+		font-size: 90%;
+		background: #e0ffe0;
+		padding: 15px;
+		border:  1px solid #89e589;
+		width: 60%;
+		margin: 20px auto;
+		color: #000;
+	}
+	p.alert {
+		font-size: 90%;
+		background: #ffff66;
+		padding: 15px;
+		border:  1px solid #999;
+		width: 60%;
+		margin: 20px auto;
+		color: #000;
+	}
+	.shadow {
+		box-shadow: 4px 4px 5px #999;
+	}
+	
+	div#like h5{
+		font-size: 18px;
+	}
+	div.navbar {
+		text-align: center;
+		border: 1px solid #dedede;
+		padding: 10px;
+		margin: 5px 10px;
+		background: #f7f7f7;
+		}
+	
+	.red {
+		color: red;
+		}
+	.blue {
+		color: blue;
+		}
+	.img {
+		color: #339900;
+		}
+	.navy {
+		color: #000080;
+		}
+	.green {
+			color: #339900;
+		}
+	.dark {
+		background: #666;
+		}
+	.center {
+		text-align: center;
+	}
+	.right {
+		float: right;
+	}
+	.left {
+		float: left;
+	}
+		
+	div.footer {
+		margin: 0.5em auto;
+		font-size: 90%;
+		padding: 10px;
+		background: #f9f9f9;
+		border: 1px solid #D5D5D5;
+		width: 90%;
+		text-align: center;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		}
+	div.copyright {
+		text-align: center;
+		font-size: 70%;
+		color: #666;
+		line-height: 130%;
+		margin: 20px;
+		}
+	div.copyright a {
+		color: #666;
+		}
+		
+	div.links ul {
+		list-style: none;
+	}
+		
+	div.links li {
+	margin: 5px 0;	
+	}
+		
+		
+/*--- media queries ---*/
+
+@media (max-width: 1052px) {
+	#mainwrap { 
+	width: 100%;
+	}
+	.ad728 {
+	display: none !important;	
+	}
+	.ad300 {
+		float:none;
+	}
+}

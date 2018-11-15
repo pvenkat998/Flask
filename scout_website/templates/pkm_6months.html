@@ -1,0 +1,364 @@
+
+<doctype html>
+    <html>
+<body>
+{% from "_formhelpers.html" import render_field %}
+<head>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/boost.css') }}">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/boost1.css') }}">
+    <link  href="{{ url_for('static', filename='selectform.js') }}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>(function($) {
+    $.fn.invisible = function() {
+        return this.each(function() {
+            $(this).css("visibility", "hidden");
+        });
+    };
+    $.fn.visible = function() {
+        return this.each(function() {
+            $(this).css("visibility", "visible");
+        });
+    };
+}(jQuery));</script>
+<!------ Include the above in your HEAD tag ---------->
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<style>  br {
+    line-height: 60px;
+ }
+div.wrapper {
+    max-height: 350px;
+}
+div.cent{
+    text-align: center;
+}
+.btn-default {background-color: #f0ece2; border-color: #f0ece2;}
+.btn-default .btn-label-inverse {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #000; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-unsaved {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #d2232a; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-saved {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #f0ece2; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-action {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #a1a3a6; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-default {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #ddae49; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-subaction {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #a38855; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0;}
+.btn { margin-bottom:10px; min-width: 150px; text-align: left;}
+.container { font-family: 'Open Sans', sans-serif; }
+    .normal {
+  width: 19em;
+  background: gold;
+}
+
+.break-word {
+  width: 60em;
+  ;
+  overflow-wrap: break-word;
+}
+</style>  <!------                    OLD   HEADING
+<div class="container-text">
+    <div class="cent"> 新ロボット追加</div>
+</div>
+ <!------>
+
+<div class="wrapper"style="zoom:90%" >
+  <div class="floater" style="zoom:90%">
+    <div class="text">PKMから</div>
+    <div class="text">6ヶ月目</div>
+  </div>
+</div>
+<div class="row margin-top-bottom">
+
+             <div class="col-md-offset-2 col-sm-offset-4 col-md-8 col-sm-8">
+
+               <div class="row">
+
+                <form method="post" id="form">
+                  <dl  class="contact-us pattern-bg">
+
+                              <div class="col-sm-6">
+                                 <div class="form-group">
+                                  {{ render_field(form.compname)}}
+                                 </div>
+                                </div>
+
+                               <div class="col-sm-6">
+                                <div class="form-group">
+                                                  {{ render_field(form.contdate) }}
+
+
+
+                                 </div>
+                                </div>
+
+                                <div class="col-sm-7">
+                                  <div class="form-group" id="dash">
+                                                  {{ render_field(form.houmondashin) }}
+                                   </div>
+                                  </div>
+                            <div class="dashno">
+                      <div class="col-sm-7">
+
+                                                        <div class="form-group" id="dashreason">
+                                                  {{ render_field(form.dashinshinai) }}
+                                   </div>
+                                  </div>
+                            <center> <div class="col-sm-12">
+
+                                                                <button type="submit" name="editdano" value="editdano" class="btn btn-labeled btn-default" >
+                                                                    <span class="btn-label-unsaved"><i class="glyphicon glyphicon-floppy-save"></i></span>保存</button>
+                                                            </div></center>
+                            </div>
+                                 <!--     first one           ><!-->
+                      <div class="dashyes">                                                 <div class="col-sm-7">
+                                  <div class="form-group" id="contmeth">
+                                                  {{ render_field(form.contactmeth) }}
+                                   </div>
+                                  </div>
+                                <div class="col-sm-6" id=concont1>
+                                  <div class="form-group" >                                                  {{ render_field(form.contactcontent1) }}
+
+                                   </div>
+
+                                  </div>
+
+                     <div  class="hide1"> <div id="date1" class="col-sm-6"> <div class="form-group" ><dt><label for="concont1date">日程</label> </dt><dd><input  class="form-control" id="concont1date" name="concont1date" type="date" value=""> </dd> </div></div></div>
+                      <div  class="hiden1"> <div id="daten1"class="col-sm-6" >    <div class="form-group" >      <dt><label for="concont1name">理由</label> </dt><dd><input class="form-control" id="concont1name" name="concont1name" type="text" value=""> </dd> </div></div></div>
+                                 <!--     second one           ><!-->
+
+                            <div  class="col-sm-6">
+                                  <div id=concont2>                                                  {{ render_field(form.contactcontent2) }}
+
+                                  </div></div>
+
+
+                    <div class="hide2">  <div class="col-sm-6" id="date2"> <dt><label for="concont2date">日程</label> </dt><dd><input  class="form-control" id="concont2date" name="concont2date" type="date" value=""> </dd> </div></div>
+                   <div class="hiden2">    <div class="col-sm-6" id="daten2"> <dt><label for="concont2name">理由</label> </dt><dd><input class="form-control" id="concont2name" name="concont2name" type="text" value=""> </dd> </div></div>
+                                 <!--     third one           ><!-->
+                    <script> function da1() {
+                        $('.col-sm-7').on('change', function() {
+                                var f=document.getElementById("houmondashin");
+                                var strr=f.options[f.selectedIndex].text;
+                                //alert(strr);
+                                if (strr=== "打診する"){
+                                 $( ".dashno" ).hide();
+                                  $( ".dashyes" ).show();
+                                }
+                                else if (strr=== "打診しない"){
+
+                                 $( ".dashno" ).show();
+                                  $( ".dashyes" ).hide();
+
+                                }
+                            });
+                            }
+                         //
+                    </script>
+
+                      <script>function func1() {
+                            $('#concont1').on('change', function() {
+                                //alert("asd");
+                                var e=document.getElementById("contactcontent1");
+                                var str=e.options[e.selectedIndex].text;
+                                //alert(str)
+                                if (str=== "会食打診した→日程確定"){
+                                $( ".hide1" ).show();
+                                $( ".hide1" ).visible();
+                                 $( ".hiden1" ).hide();
+                                }  else if (str=== "会食打診した→日程調整中"){                                $( ".hide1" ).show();
+                                                                                                              $( ".hide1" ).invisible();
+                                                                                                                        $( ".hiden1" ).hide();
+                                }  else if (str=== "会食打診した→断られた"){
+                                                                                                $( ".hiden1" ).show();
+                                                                                                $( ".hide1" ).hide();
+
+                                }  else if (str=== "会食打診した→返事待ち"){                                $( ".hide1" ).show();
+                                                                                                $( ".hide1" ).invisible();
+                                 $( ".hiden1" ).hide();
+                                }  else if (str=== "会食打診せず"){                                $( ".hide1" ).show();
+                                    $( ".hide1" ).invisible();
+                                 $( ".hiden1" ).hide();
+                                }
+                            });
+
+                            }
+                       </script>
+                      <script>function func2() {
+
+                            $('#concont2').on('change', function() {
+                                //alert("asd");
+                                var e=document.getElementById("contactcontent2");
+                                var str=e.options[e.selectedIndex].text;
+                                //alert(str)
+                                if (str=== "訪問打診した→日程確定"){
+                                $( ".hide2" ).show();
+                                $( ".hide2" ).visible();
+                                 $( ".hiden2" ).hide();
+                                }  else if (str=== "訪問打診した→日程調整中"){                                $( ".hide2" ).show();
+                                                                $( ".hide2" ).invisible();
+                                 $( ".hiden2" ).hide();
+                                }  else if (str=== "訪問打診した→断られた"){
+                                                                                                $( ".hiden2" ).show();
+                                                                                                $( ".hide2" ).hide();
+
+                                }  else if (str=== "訪問打診した→返事待ち"){                                $( ".hide2" ).show();
+                                                                                                $( ".hide2" ).invisible();
+                                 $( ".hiden2" ).hide();
+                                }  else if (str=== "訪問打診せず"){                                $( ".hide2" ).show();
+                                    $( ".hide2" ).invisible();
+                                 $( ".hiden2" ).hide();
+                                }
+                            });
+
+                            }
+                       </script>
+                                            <script>function func3() {
+
+                            $('#concont3').on('change', function() {
+                                //alert("asd");
+                                var e=document.getElementById("contactcontent3");
+                                var str=e.options[e.selectedIndex].text;
+                                //alert(str)
+                                if (str=== "紹介打診した→日程確定"){
+                                $( ".hide3" ).show();
+                                $( ".hide3" ).visible();
+                                 $( ".hiden3" ).hide();
+                                }  else if (str=== "紹介打診した→日程調整中"){                                $( ".hide3" ).show();
+                                                                $( ".hide3" ).invisible();
+                                 $( ".hiden3" ).hide();
+                                }  else if (str=== "紹介打診した→断られた"){
+                                                                                                $( ".hiden3" ).show();
+                                                                                                $( ".hide3" ).hide();
+
+                                }  else if (str=== "紹介打診した→返事待ち"){                                $( ".hide3" ).show();
+                                                                                                $( ".hide3" ).invisible();
+                                 $( ".hiden3" ).hide();
+                                }  else if (str=== "紹介打診せず"){                                $( ".hide3" ).show();
+                                    $( ".hide3" ).invisible();
+                                 $( ".hiden3" ).hide();
+                                }
+                            });
+
+                            }
+                       </script>
+                            <br>  <br><br>  <br><br>
+                         <div class="col-sm-6">
+                        <div class="textarea-message form-group">
+                                                              <b>やりとり内容</b>
+                          <textarea id="yaritoricont" name="yaritoricont" class="textarea-message form-control" placeholder="自由に記述" rows="6">{{form.yaritoricont.data}}</textarea>
+                        </div></div>
+                                <div class="col-sm-5">
+                                  <div class="form-group">
+                                                  {{ render_field(form.q1) }}
+                                   </div>
+                                  </div>
+                                <div class="col-sm-5">
+                                  <div class="form-group">
+                                                  {{ render_field(form.q2) }}
+                                   </div>
+                                  </div>   <center> <div class="col-sm-12">
+
+                                                                <button type="submit" name="editdayes" value="editdayes" class="btn btn-labeled btn-default" >
+                                                                    <span class="btn-label-unsaved"><i class="glyphicon glyphicon-floppy-save"></i></span>保存</button>
+                                                            </div></center></div>
+
+           <div class="row">
+
+                  </form>
+
+                       <dl></dl>
+
+               </div>
+</div>
+<script> function funh(){
+
+                                       $(".dashno").hide();
+                                       $(".dashyes").hide();
+                                       $(".hide1").hide();
+                                       $(".hide2").hide();
+                                       $(".hide3").hide();
+
+                                       $(".hiden1").hide();
+                                       $(".hiden2").hide();
+                                       $(".hiden3").hide();
+}</script><script> function funs(){
+
+                                       $(".hide1").show();
+                                       $(".hide2").show();
+                                       $(".hide3").show();
+                                       $(".dashyes").show();
+
+
+}</script>
+<script>function start(){
+                             da1();
+                            funh();
+                            func1();
+                            func2();
+                            func3();
+                                      $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').hide();
+                                      $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
+                                      $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
+
+                             funs();
+                        }
+</script>
+
+                        <script type="text/javascript">
+
+                                                          //  alert(strf)
+
+                              $('#contmeth').change(function(){
+                                var f=document.getElementById("contactmeth");
+                                var strf=f.options[f.selectedIndex].text;
+                              //  alert(strf);
+                                if (strf==="メール（送付）"){
+                                      $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').show();
+                                             }
+                                          else{        $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
+
+                                          }
+                                                            });
+                              $('#form').change(function(){
+                                var f=document.getElementById("contactmeth");
+                                var strf=f.options[f.selectedIndex].text;
+                              //  alert(strf);
+                                if (strf==="メール（送付）"){
+                                      $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').show();
+                                             }
+                                          else{        $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
+
+                                          }
+                                                            });
+
+
+                               </script>
+
+
+                        <script type="text/javascript">
+                              $(document).ready(function() {
+                               });
+
+                               </script>
+<body onload="start()">
+
+</body>
+<title>Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}">

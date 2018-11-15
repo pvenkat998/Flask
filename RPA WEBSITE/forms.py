@@ -73,7 +73,13 @@ class Robotform(Form):
                ('李そ', '李そ'),
                ('廣瀬', '廣瀬'),
                ('ピチュカ', 'ピチュカ'),
-               ('澤山', '澤山'),]
+               ('澤山', '澤山'),
+                       ('橋本', '橋本'),
+                       ('前島', '前島'),
+                       ('大坪', '大坪'),
+                       ('八野', '八野'),
+                       ('秋葉', '秋葉'),
+                       ]
         robotname = StringField(label='ロボット名',widget=widgets.TextInput(),render_kw={'class': 'form-control'}
 )
         iraisha= StringField(label='依頼者',widget=widgets.TextInput(),render_kw={'class': 'form-control'})

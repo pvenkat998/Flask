@@ -1,0 +1,161 @@
+
+<doctype html>
+    <html>
+<body>
+{% from "_formhelpers.html" import render_field %}
+<head>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/boost.css') }}">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/boost1.css') }}">
+    <link  href="{{ url_for('static', filename='selectform.js') }}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>(function($) {
+    $.fn.invisible = function() {
+        return this.each(function() {
+            $(this).css("visibility", "hidden");
+        });
+    };
+    $.fn.visible = function() {
+        return this.each(function() {
+            $(this).css("visibility", "visible");
+        });
+    };
+}(jQuery));</script>
+<!------ Include the above in your HEAD tag ---------->
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<style>  br {
+    line-height: 60px;
+ }
+div.wrapper {
+    max-height: 350px;
+}
+div.cent{
+    text-align: center;
+}
+.btn-default {background-color: #f0ece2; border-color: #f0ece2;}
+.btn-default .btn-label-inverse {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #000; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-unsaved {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #d2232a; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-saved {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #f0ece2; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-action {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #a1a3a6; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-default {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #ddae49; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-subaction {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #a38855; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0;}
+.btn { margin-bottom:10px; min-width: 150px; text-align: left;}
+.container { font-family: 'Open Sans', sans-serif; }
+    .normal {
+  width: 19em;
+  background: gold;
+}
+
+.break-word {
+  width: 60em;
+  ;
+  overflow-wrap: break-word;
+}
+</style>  <!------                    OLD   HEADING
+<div class="container-text">
+    <div class="cent"> 新ロボット追加</div>
+</div>
+ <!------>
+
+<div class="wrapper"style="zoom:90%" >
+  <div class="floater" style="zoom:90%">
+    <div class="text">訪問</div>
+    <div class="text">会食</div>
+  </div>
+</div>
+<div class="row margin-top-bottom">
+
+             <div class="col-md-offset-2 col-sm-offset-4 col-md-8 col-sm-8">
+
+               <div class="row">
+
+                <form method="post" id="form">
+                  <dl  class="contact-us pattern-bg">
+
+                              <div class="col-sm-6">
+                                 <div class="form-group">
+                                  {{ render_field(form.compname)}}
+                                 </div>
+                                </div>
+
+                               <div class="col-sm-6">
+                                <div class="form-group">
+                                                  {{ render_field(form.contdate) }}
+                                </div></div>
+
+                                    <div class="col-sm-6">
+                                  <div class="form-group" id="contmeth">
+                                                  {{ render_field(form.contactmeth) }}
+                                   </div>
+                                  </div>
+
+                                <div class="col-sm-6">
+                                  <div class="form-group" id="dash">
+                                                  {{ render_field(form.clients) }}
+                                   </div>
+                                  </div>
+                      <div class="col-sm-6">
+
+                                                        <div class="form-group" id="dashreason">
+                                                  {{ render_field(form.raynos) }}
+                                   </div>
+                                  </div>
+                      <div class="col-sm-7">
+
+                                                        <div class="form-group" id="recieved">
+                                                  {{ render_field(form.recieved) }}
+                                   </div>
+                                  </div>
+                                 <!--     first one           ><!-->
+           <link  href="{{ url_for('static', filename='selectform.js') }}">
+
+                         <div class="col-sm-6">
+                        <div class="textarea-message form-group">
+                                                              <b>やりとり内容</b>
+                          <textarea id="yaritoricont" name="yaritoricont" class="textarea-message form-control" placeholder="自由に記述" rows="6">{{form.yaritoricont.data}}</textarea>
+                        </div></div>
+                                <div class="col-sm-5">
+                                  <div class="form-group">
+                                                  {{ render_field(form.q1) }}
+                                   </div>
+                                  </div>
+                                <div class="col-sm-5">
+                                  <div class="form-group">
+                                                  {{ render_field(form.q2) }}
+                                   </div>
+                                  </div>   <center> <div class="col-sm-12">
+
+                                                                <button type="submit" name="editform" value="editform" class="btn btn-labeled btn-default" >
+                                                                    <span class="btn-label-unsaved"><i class="glyphicon glyphicon-floppy-save"></i></span>保存</button>
+                                                            </div></center></div>
+
+           <div class="row">
+
+                  </form>
+
+                       <dl></dl>
+
+               </div>
+</div>
+
+
+
+                        <script type="text/javascript">
+                              $(document).ready(function() {
+                               });
+
+                               </script>
+<body onload="start()">
+
+</body>
+<title>Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}">

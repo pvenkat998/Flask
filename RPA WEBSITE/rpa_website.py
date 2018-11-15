@@ -197,6 +197,32 @@ FROM robotkanri WHERE 部署="リストアップ"ORDER BY 日 DESC''')
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
         FROM robotkanri WHERE 作成者="澤山" AND 完成="完成"ORDER BY 日 DESC''')
     k6 = cur.fetchall()
+
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+        FROM robotkanri WHERE 作成者="橋本" AND 完成="未完成"ORDER BY 日 DESC''')
+    k7 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="前島" AND 完成="未完成"ORDER BY 日 DESC''')
+    k8 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+        FROM robotkanri WHERE 作成者="大坪" AND 完成="未完成"ORDER BY 日 DESC''')
+    k9 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="八野" AND 完成="未完成"ORDER BY 日 DESC''')
+    k10 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="秋葉" AND 完成="未完成"ORDER BY 日 DESC''')
+    k11 = cur.fetchall()
 #TAB 3
     cur = mysql.connection.cursor()
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
@@ -227,6 +253,33 @@ FROM robotkanri WHERE 部署="リストアップ"ORDER BY 日 DESC''')
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
         FROM robotkanri WHERE 作成者="澤山" AND 完成="未完成"ORDER BY 日 DESC''')
     m6 = cur.fetchall()
+
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+        FROM robotkanri WHERE 作成者="橋本" AND 完成="未完成"ORDER BY 日 DESC''')
+    m7 = cur.fetchall()
+
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="前島" AND 完成="未完成"ORDER BY 日 DESC''')
+    m8 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+        FROM robotkanri WHERE 作成者="大坪" AND 完成="未完成"ORDER BY 日 DESC''')
+    m9 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="八野" AND 完成="未完成"ORDER BY 日 DESC''')
+    m10 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="秋葉" AND 完成="未完成"ORDER BY 日 DESC''')
+    m11 = cur.fetchall()
 #karikansei
     cur = mysql.connection.cursor()
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
@@ -258,7 +311,32 @@ FROM robotkanri WHERE 部署="リストアップ"ORDER BY 日 DESC''')
         FROM robotkanri WHERE 作成者="澤山" AND 完成="仮完成"ORDER BY 日 DESC''')
     kk6 = cur.fetchall()
 
-    return render_template('home.html',data1=data1,data2=data2,data3=data3,data4=data4,data5=data5,dat6=data6,data7=data7,data8=data8,data9=data9,data10=data10,data11=data11,data12=data12,data13=data13,data14=data14,data15=data15,data16=data16,k1=k1,k2=k2,k3=k3,k4=k4,k5=k5,k6=k6,kk1=kk1,kk2=kk2,kk3=kk3,kk4=kk4,kk5=kk5,kk6=kk6,m1=m1,m2=m2,m3=m3,m4=m4,m5=m5,m6=m6)
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+        FROM robotkanri WHERE 作成者="橋本" AND 完成="未完成"ORDER BY 日 DESC''')
+    kk7 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="前島" AND 完成="未完成"ORDER BY 日 DESC''')
+    kk8 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+        FROM robotkanri WHERE 作成者="大坪" AND 完成="未完成"ORDER BY 日 DESC''')
+    kk9 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="八野" AND 完成="未完成"ORDER BY 日 DESC''')
+    kk10 = cur.fetchall()
+
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
+    FROM robotkanri WHERE 作成者="秋葉" AND 完成="未完成"ORDER BY 日 DESC''')
+    kk11 = cur.fetchall()
+    return render_template('home.html',data1=data1,data2=data2,data3=data3,data4=data4,data5=data5,dat6=data6,data7=data7,data8=data8,data9=data9,data10=data10,data11=data11,data12=data12,data13=data13,data14=data14,data15=data15,data16=data16,k1=k1,k2=k2,k3=k3,k4=k4,k5=k5,k6=k6,k7=k7,k8=k8,k9=k9,k10=k10,k11=k11,kk1=kk1,kk2=kk2,kk3=kk3,kk4=kk4,kk5=kk5,kk6=kk6,kk7=kk7,kk11=kk11,kk8=kk8,kk9=kk9,kk10=kk10,m1=m1,m2=m2,m3=m3,m4=m4,m5=m5,m6=m6,m7=m7,m8=m8,m9=m9,m10=m10,m11=m11)
 
 ##TEST
 @app.route('/home/edit/sour/<id>', methods=['GET', 'POST'])
@@ -383,7 +461,7 @@ def edit(id):
                 delete(id)
                 mysql.connection.commit()
                 return redirect('/home')
-         #   elif request.form.get('editlog')=='editlog':
+            #   elif request.form.get('editlog')=='editlog':
             #    editlog(id,lform)
             #    mysql.connection.commit()
 

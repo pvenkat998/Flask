@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="{{ url_for('static', filename='jquery-latest.js') }}"></script>
+
+<style>
+
+H2 {
+    color: green;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}</style>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">.
+<title>RPAラボ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tabb.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontsss.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<meta charset="UTF-8">
+
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" language="javascript" src="{{ url_for('static', filename='tablefilter.js') }}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css')}}">
+
+</head>
+    <div class="w3-container w3-white">
+    </div>
+  <H2 style="color:#60ABFF"><p><span class="1w3-tag w3-spin w3-xxlarge">
+<b style="visibility:none;">スカウト現S連絡関連のまとめ</b>
+</span></b></h2>
+<head>
+</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!------ Include the above in your HEAD tag ---------->
+<body onload="init()">
+<div class="container">
+	 <ul class="menu">
+
+     <!-- -->
+
+<div class="container">
+		<nav class="navbar navbar-default navbar-static">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span></b>
+				<span class="icon-bar"></span></b>
+				<span class="icon-bar"></span></b>
+				<span class="icon-bar"></span></b>
+			</button>
+		</div>
+
+
+		<div class="navbar-header">
+								<a class="navbar-brand" href="{{ url_for('.home') }}" data-toggle="tab" ><B style="color:#736C10">ホーム
+
+                          </B></a>
+
+
+		</div><!-- /.nav-collapse -->
+            <div align="right">
+             <a href="{{ url_for('.logout') }}" class="w3-button w3-padding-large w3-purple"><b>ログアウト</b></a></div>
+	</nav>
+
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="home">
+														  <div class="">
+											<H2 style="color:#F06143"><p> <b> <span class=" ">{{id}}</span></b></p></H2>
+											<table class="table table-striped table-bordered">
+													    <colgroup>
+														   <col span="1" style="width: 8%;">
+														   <col span="1" style="width: 8%;">
+														   <col span="1" style="width: 8%;">
+														   <col span="1" style="width: 8%;">
+														</colgroup>
+												<thead>
+												<tr class="" >
+
+													<th style="color:#157F83">前回接触者</th>
+													<th style="color:#157F83">前回接触日</th>
+													<th style="color:#157F83">前回接触方法</th>
+													<th style="color:#157F83">前回接触時メモ</th>
+												</tr>
+											</thead>
+										  {% for row in comp %}
+											<tr>
+											{% for d in row %}   													{% if loop.index0 < 1 %}
+
+
+												<td>{{ d }}</td>{% endif %}  {% if loop.index0 == 1 %} <td>
+													{{d}}</td>  {% endif %}
+												{% if loop.index0 == 2 %} <td>
+													{{d}}</td>  {% endif %}
+												{% if loop.index0 == 3 %} <td >
+													{{d}}</td>  {% endif %}
+
+
+												{% if loop.index0 >3  %}<td>{{ d }}</td>{% endif %}
+
+												{% endfor %}
+										  {% for d in row  %}
+													{% if loop.index0 == 2 %}
+
+														{% endif %}
+
+										  {% endfor %}
+											</tr>
+										  {% endfor %}
+										  </table>

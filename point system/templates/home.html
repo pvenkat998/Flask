@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <script type="text/javascript" src="{{ url_for('static', filename='jquery-latest.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='jquery.tablesorter.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='tablesorter-staticrow.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='tablesorter-staticrow-min.js') }}"></script>
+
 {% from "_formhelpers.html" import render_field %}
 
 <script type="text/javascript" language="javascript" src="{{ url_for('static', filename='tablefilter.js') }}"></script>
@@ -64,7 +67,7 @@ a.button {
 					                <div class="tab-pane" id="home">
 
 											<H2 style="color:#F06143"><p> <b> <span class=" ">顧問</span></b></p></H2>
-											<table id="t3" class="tablesorter">
+											<table id="t3" cellspacing="0" class="tablesorter">
 
 												<thead>
 													<th style="color:#157F83">ID</th>
@@ -90,7 +93,7 @@ a.button {
 													<th style="color:#157F83">ポイント</th>
 											</thead>
 										  {% for row in data %}
-											<tr>
+											<tr >
 											{% for d in row %}
 												<td >{{ d }}</td>
 												{% endfor %}
@@ -139,11 +142,22 @@ a.button {
 </script>
 
 <script>
-$("#t3").tablesorter({
-     headers: {
-         17: { sorter: 'digit' } // column number, type
-     }
+//	$("#t3").tablesorter({
+
+  //   headers: {
+    //     17: { sorter: 'digit' }
+     //}
  });
+
+</script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#t3').tablesorter({ widgets: ['zebra','staticRow'] })
+        });
     </script>
-}
+<script>
+// $('#report-area tr:contains("Name")').addClass('my-class');
+
+	$('#t3 tr:last').addClass("static");
+</script>
 </html>

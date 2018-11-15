@@ -172,7 +172,7 @@ def quar():
     dmformat="'%m-%d'"
 
     query= ("select concat(7*ceil(営業日/7)-6, '-', 7*ceil(営業日/7) ) as `range`,CONCAT(DATE_FORMAT(min(date),%s),'～',DATE_FORMAT(max(date),%s)),count(*),count(電話数),count(つな数),count(アポ),count(初回営業),count(再訪設定),count(`面談設定(初)`),count(`面談実施(初)`),count(受注),count(point)"
-            " as `number of users` from ( SELECT * FROM  %s_action_result_update WHERE user_id='%s' and Q='%s') t group by 1 order by 営業日;"%
+            " as `number of users` from ( SELECT * FROM  %s_action_result_update WHERE user_id='%s' and Q='%s') t group by 1 order by 営業日; "%
                     (dmformat,dmformat,busho,user,qua))
     print(query)
     queryl1=("select concat(7*ceil(営業日/7)-6, '-', 7*ceil(営業日/7) ) as `range`,CONCAT(DATE_FORMAT(min(date),%s),'～',DATE_FORMAT(max(date),%s)),count(*),count(電話数),count(つな数),count(アポ),count(初回営業),count(再訪設定),count(`面談設定(初)`),count(`面談実施(初)`),count(受注),count(point)"
@@ -192,43 +192,54 @@ def quar():
     weekl2=cur.fetchall()
     cur.execute(queryl3)
     weekl3=cur.fetchall()
-    print(weekl1)
     query = ("SELECT * FROM pointsystem_yotei_week WHERE userid='%s' and Q='%s'"%(user,qua))
     cur.execute(query)
     yotei = cur.fetchall()
     count=0
     weekn1 = ()
+    suma=[[0]*19]*10
+    suml1=suma
+    suml2=suma
+    suml3=suma
+    print(suma)
     for d in week1:
         i = ['0' if v is None else v for v in week1[count]]
         weekname="第"+str(count+1)+"週"
         i[0]=weekname
         counter=0
-
         for e in yotei:
             if e[13]==str(count+1) and e[14]=="all":
                 counter=1
-                i.insert(3, e[1])
-                i.insert(5, e[2])
-                i.insert(7, e[3])
-                i.insert(9, e[4])
-                i.insert(11, e[5])
-                i.insert(13, e[6])
-                i.insert(15, e[7])
-                i.insert(17, e[8])
-                i.insert(19, e[9])
+                i.insert(3,int(e[1]))
+                i.insert(5,int(e[2]))
+                i.insert(7,int(e[3]))
+                i.insert(9,int(e[4]))
+                i.insert(11,int(e[5]))
+                i.insert(13,int(e[6]))
+                i.insert(15,int(e[7]))
+                i.insert(17,int(e[8]))
+                i.insert(19,int(e[9]))
         if counter==0:
-            i.insert(3, 111)
-            i.insert(5, 222)
-            i.insert(7, 333)
-            i.insert(9, 444)
-            i.insert(11, 555)
-            i.insert(13, 666)
-            i.insert(15, 777)
-            i.insert(17, 888)
-            i.insert(19, 999)
+            i.insert(3,111)
+            i.insert(5,222)
+            i.insert(7,333)
+            i.insert(9,444)
+            i.insert(11,555)
+            i.insert(13,666)
+            i.insert(15,777)
+            i.insert(17,888)
+            i.insert(19,999)
+        suma[count]=i[2:]
         i = tuple(i)
         weekn1 = weekn1 + (i,)
         count = count + 1
+    #weekn1=weekn1+(tuple(sum),)
+    print(suma)
+    suma=[sum(x) for x in zip(*suma)]
+    suma.insert(0,"合計")
+    suma.insert(1,"")
+    print(suma)
+    weekn1=weekn1+(tuple(suma),)
     count=0
     weeklo1 = ()
     for d in weekl1:
@@ -236,32 +247,37 @@ def quar():
         weekname="第"+str(count+1)+"週"
         i[0]=weekname
         counter=0
-
         for e in yotei:
             if e[13]==str(count+1) and e[14]=="源泉":
                 counter=1
-                i.insert(3, e[1])
-                i.insert(5, e[2])
-                i.insert(7, e[3])
-                i.insert(9, e[4])
-                i.insert(11, e[5])
-                i.insert(13, e[6])
-                i.insert(15, e[7])
-                i.insert(17, e[8])
-                i.insert(19, e[9])
+                i.insert(3,int(e[1]))
+                i.insert(5,int(e[2]))
+                i.insert(7,int(e[3]))
+                i.insert(9,int(e[4]))
+                i.insert(11,int(e[5]))
+                i.insert(13,int(e[6]))
+                i.insert(15,int(e[7]))
+                i.insert(17,int(e[8]))
+                i.insert(19,int(e[9]))
         if counter==0:
-            i.insert(3, 111)
-            i.insert(5, 222)
-            i.insert(7, 333)
-            i.insert(9, 444)
-            i.insert(11, 555)
-            i.insert(13, 666)
-            i.insert(15, 777)
-            i.insert(17, 888)
-            i.insert(19, 999)
+            i.insert(3,111)
+            i.insert(5,222)
+            i.insert(7,333)
+            i.insert(9,444)
+            i.insert(11,555)
+            i.insert(13,666)
+            i.insert(15,777)
+            i.insert(17,888)
+            i.insert(19,999)
+        suml1[count]=i[2:]
         i = tuple(i)
         weeklo1 = weeklo1 + (i,)
         count = count + 1
+    suml1=[sum(x) for x in zip(*suml1)]
+    suml1.insert(0,"合計")
+    suml1.insert(1,"")
+    weeklo1=weeklo1+(tuple(suml1),)
+
     count=0
     weeklo2 = ()
     for d in weekl2:
@@ -273,28 +289,37 @@ def quar():
         for e in yotei:
             if e[13]==str(count+1) and e[14]=="管S":
                 counter=1
-                i.insert(3, e[1])
-                i.insert(5, e[2])
-                i.insert(7, e[3])
-                i.insert(9, e[4])
-                i.insert(11, e[5])
-                i.insert(13, e[6])
-                i.insert(15, e[7])
-                i.insert(17, e[8])
-                i.insert(19, e[9])
+                i.insert(3,int(e[1]))
+                i.insert(5,int(e[2]))
+                i.insert(7,int(e[3]))
+                i.insert(9,int(e[4]))
+                i.insert(11,int(e[5]))
+                i.insert(13,int(e[6]))
+                i.insert(15,int(e[7]))
+                i.insert(17,int(e[8]))
+                i.insert(19,int(e[9]))
+                print(i)
         if counter==0:
-            i.insert(3, 111)
-            i.insert(5, 222)
-            i.insert(7, 333)
-            i.insert(9, 444)
-            i.insert(11, 555)
-            i.insert(13, 666)
-            i.insert(15, 777)
-            i.insert(17, 888)
-            i.insert(19, 999)
+            i.insert(3,111)
+            i.insert(5,222)
+            i.insert(7,333)
+            i.insert(9,444)
+            i.insert(11,555)
+            i.insert(13,666)
+            i.insert(15,777)
+            i.insert(17,888)
+            i.insert(19,999)
+        suml2[count]=i[2:]
+        print(i)
         i = tuple(i)
         weeklo2 = weeklo2 + (i,)
         count = count + 1
+
+    suml2=[sum(x) for x in zip(*suml2)]
+    suml2.insert(0,"合計")
+    suml2.insert(1,"")
+    weeklo2=weeklo2+(tuple(suml2),)
+
     count=0
     weeklo3 = ()
     for d in weekl3:
@@ -306,28 +331,34 @@ def quar():
         for e in yotei:
             if e[13]==str(count+1) and e[14]=="その他":
                 counter=1
-                i.insert(3, e[1])
-                i.insert(5, e[2])
-                i.insert(7, e[3])
-                i.insert(9, e[4])
-                i.insert(11, e[5])
-                i.insert(13, e[6])
-                i.insert(15, e[7])
-                i.insert(17, e[8])
-                i.insert(19, e[9])
+                i.insert(3,int(e[1]))
+                i.insert(5,int(e[2]))
+                i.insert(7,int(e[3]))
+                i.insert(9,int(e[4]))
+                i.insert(11,int(e[5]))
+                i.insert(13,int(e[6]))
+                i.insert(15,int(e[7]))
+                i.insert(17,int(e[8]))
+                i.insert(19,int(e[9]))
         if counter==0:
-            i.insert(3, 111)
-            i.insert(5, 222)
-            i.insert(7, 333)
-            i.insert(9, 444)
-            i.insert(11, 555)
-            i.insert(13, 666)
-            i.insert(15, 777)
-            i.insert(17, 888)
-            i.insert(19, 999)
+            i.insert(3,111)
+            i.insert(5,222)
+            i.insert(7,333)
+            i.insert(9,444)
+            i.insert(11,555)
+            i.insert(13,666)
+            i.insert(15,777)
+            i.insert(17,888)
+            i.insert(19,999)
+        suml3[count]=i[2:]
+
         i = tuple(i)
         weeklo3 = weeklo3 + (i,)
         count = count + 1
+    suml3=[sum(x) for x in zip(*suml3)]
+    suml3.insert(0,"合計")
+    suml3.insert(1,"")
+    weeklo3 = weeklo3 + (tuple(suml3),)
     return render_template('quarbyweek_new.html', userid=user,yoteiform=yoteiform,form=form,week1=weekn1,weekl1=weeklo1,weekl2=weeklo2,weekl3=weeklo3)
 @app.route('/datesel', methods=['POST', 'GET'])
 def datesel():
@@ -348,9 +379,6 @@ def datesel():
         busho.strip('"\'')
         cur = mysql.connection.cursor()
         query=   "SELECT * FROM %s_action_result_update WHERE user_id='%s' AND date between '%s' and '%s' "% (busho,user,startdate,enddate)
-        print(query)
-        print(startdate)
-        print(enddate)
         cur.execute(query)
         data1 = cur.fetchall()
         count = 0
@@ -401,40 +429,37 @@ def get_post_json():
         data=data.split("\t\t\t\t\t\t\t\t\t\t\t\t")
         data = [elem for elem in data if elem.strip()]
         data = [x.strip(' ') for x in data]
-
-        print(data)
         week=data[0][1]
-        print("week")
-        print(week)
-        denwa=data[3]
-        tsuna=data[5]
-        apo=data[7]
-        shokai=data[9]
-        saihou=data[11]
-        mendans=data[13]
-        mendanj=data[15]
-        juchu=data[17]
-        point=data[19]
+        denwa=int(data[3])
+        tsuna=int(data[5])
+        apo=int(data[7])
+        shokai=int(data[9])
+        saihou=int(data[11])
+        mendans=int(data[13])
+        mendanj=int(data[15])
+        juchu=int(data[17])
+        point=int((data[19]))
+        listtype=data[21]
+        listtype=listtype[2:]
         today = strftime("%Y-%m-%d %H:%M:%S")
         cur = mysql.connection.cursor()
         todaydate="".join(today)
-        query=("SELECT EXISTS(SELECT * FROM pointsystem_yotei_week WHERE userid='%s' and Q='%s' and week='%s')"%(user,qua,week))
+        query=("SELECT EXISTS(SELECT * FROM pointsystem_yotei_week WHERE userid='%s' and Q='%s' and week='%s' and listtype='%s')"%(user,qua,week,listtype))
         #checking if data alr in table
         cur.execute(query)
         check=cur.fetchall()[0][0]
-        print(check)
         if check==0:
                 cur = mysql.connection.cursor()
-                cur.execute("""INSERT INTO pointsystem_yotei_week (電話数,つな数,アポ,初回営業,再訪設定,面談設定,面談実地,受注,ポイント,timestamp,userid,Q,week) 
-                VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s   )""",
-                            (denwa,tsuna,apo,shokai,saihou,mendans,mendanj,juchu,point,todaydate,user,qua,week))
+                cur.execute("""INSERT INTO pointsystem_yotei_week (電話数,つな数,アポ,初回営業,再訪設定,面談設定,面談実地,受注,ポイント,timestamp,userid,Q,week,listtype) 
+                VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                            (denwa,tsuna,apo,shokai,saihou,mendans,mendanj,juchu,point,todaydate,user,qua,week,listtype))
                 print("success")
                 mysql.connection.commit()
                 cur.close()
         elif check==1:
                 cur = mysql.connection.cursor()
                 query=""" UPDATE pointsystem_yotei_week SET
-                timestamp='%s',電話数='%s',つな数='%s',アポ='%s',初回営業='%s',再訪設定='%s',面談設定='%s',面談実地='%s',受注='%s',ポイント='%s' WHERE userid='%s' and Q='%s' and week='%s'"""%(todaydate,denwa,tsuna,apo,shokai,saihou,mendans,mendanj,juchu,point,user,qua,week)
+                timestamp='%s',電話数='%s',つな数='%s',アポ='%s',初回営業='%s',再訪設定='%s',面談設定='%s',面談実地='%s',受注='%s',ポイント='%s' WHERE userid='%s' and Q='%s' and week='%s' and listtype='%s'"""%(todaydate,denwa,tsuna,apo,shokai,saihou,mendans,mendanj,juchu,point,user,qua,week,listtype)
                 print(query)
                 cur.execute(query)
                 print("hello")

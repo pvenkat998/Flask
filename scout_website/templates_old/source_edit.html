@@ -1,0 +1,192 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<head>
+    {% from "_formhelpers.html" import render_field %}
+{{sidid}}
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script></head>
+    <style>
+    .btn-default {background-color: #f0ece2; border-color: #f0ece2;}
+.btn-default .btn-label-inverse {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #000; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-unsaved {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #d2232a; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-saved {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #f0ece2; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-action {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #a1a3a6; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-default {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #ddae49; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-default .btn-label-subaction {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: #a38855; color: #fff; border-radius: 3px 0 0 3px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0;}
+.btn { margin-bottom:10px; min-width: 150px; text-align: left;}
+.container { font-family: 'Open Sans', sans-serif; }
+The thing for black bg
+    html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #262626;
+}
+.title {
+  position: relative;
+  -webkit-perspective: 400;
+          perspective: 400;
+  padding-left: 17px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 52px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.title:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 6px;
+  background: #ff1212;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: translateX(-150px);
+          transform: translateX(-150px);
+  -webkit-animation: title-border-slide-in 0.35s ease-out forwards;
+          animation: title-border-slide-in 0.35s ease-out forwards;
+}
+.title .title-word {
+  opacity: 0;
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+}
+.title .title-word:nth-child(1) {
+  -webkit-animation: roll-in 0.15s 0s ease-out forwards;
+          animation: roll-in 0.15s 0s ease-out forwards;
+}
+.title .title-word:nth-child(2) {
+  -webkit-animation: roll-in 0.15s 0.175s ease-out forwards;
+          animation: roll-in 0.15s 0.175s ease-out forwards;
+}
+.title .title-word:nth-child(3) {
+  -webkit-animation: roll-in 0.15s 0.35s ease-out forwards;
+          animation: roll-in 0.15s 0.35s ease-out forwards;
+}
+.title .title-word:nth-child(4) {
+  -webkit-animation: roll-in 0.15s 0.525s ease-out forwards;
+          animation: roll-in 0.15s 0.525s ease-out forwards;
+}
+@-webkit-keyframes title-border-slide-in {
+  0% {
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes title-border-slide-in {
+  0% {
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes roll-in {
+  0% {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes roll-in {
+  0% {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+</style>
+<!------ Include the above in your HEAD tag --------
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="title">
+  <div class="title-word">ソース</div>
+  <div class="title-word">更新</div>
+  <div class="title-word">{{sidid}}</div>
+</div>
+<div class="container">
+
+ <form class="well form-horizontal" method="post">
+    <div class="row margin-top-bottom">
+
+             <div class="col-md-offset-2 col-sm-offset-4 col-md-8 col-sm-8">
+
+               <div class="row">
+
+                  <dl  class="contact-us pattern-bg">
+
+                              <div class="col-sm-8">
+                                 <div class="form-group">
+                                  {{ render_field(form.sourcetype)}}
+                                 </div>
+                                </div>
+                                                    <div class="col-sm-8">
+                                 <div class="form-group">
+                                  {{ render_field(form.sourceinfo)}}
+                                 </div>
+                                </div>     <div class="col-sm-8">
+                                 <div class="form-group">
+                                  {{ render_field(form.sourceuse)}}
+                                 </div>
+                                </div>
+
+                              <div class="col-sm-6">
+                                 <div class="form-group">
+                                  {{ render_field(form.inout)}}
+                                 </div>
+                              </div>
+                      <div class="row">
+                                                    <center> <div class="col-sm-12">
+
+                                                                <button type="submit" name="editform" value="editform" class="btn btn-labeled btn-default" >
+                                                                    <span class="btn-label-unsaved"><i class="glyphicon glyphicon-floppy-save"></i></span>保存</button>
+                                                            </div></center><center> <div class="col-sm-12">
+
+                                                                <button type="submit" name="delete" value="delete" class="btn btn-labeled btn-default" >
+                                                                    <span class="btn-label-unsaved"><i class="glyphicon glyphicon-floppy-save"></i></span>解除</button>
+                                                            </div></center></div>
+                  </dl>
+               </div>
+             </div>
+    </div>
+
+ </form>
+</div>
