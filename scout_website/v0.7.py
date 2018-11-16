@@ -66,7 +66,8 @@ def home():
 
 
     if not form:
-        return redirect(url_for('index'))
+        if not username:
+            return redirect(url_for('index'))
     if form:
         if request.form["username"] == "" or request.form["password"] == "":
 
@@ -101,7 +102,7 @@ def home():
     cur = mysql.connection.cursor()
 
 #case when address2 is null then 'None Provided' else address2 end as address2,
-    query = ("SELECT  t.訪問打診した→日程,c.company_name,c.tsr_code,p.id,p.contract_date,COALESCE(p.accompany_date, '') AS accompany_date,t.`接触日`,t.`接触方法`,t.`やりとり内容`,t.`入力ステータス`"
+    query = ("SELECT  t.訪問打診した→日程,c.company_name,c.tsr_code,p.id,p.contract_date,COALESCE(p.accompany_date, '') AS accompany_date,t.`接触日`,t.`接触方法`,t.`やりとり内容`,t.`入力ステータス`,t.`count`"
              " FROM sk_system_setsuzoku_history t  "
              "LEFT JOIN spms_users_test u "
              " LEFT JOIN spms_salesmans_test s "
@@ -233,13 +234,20 @@ def edit(id):
         form2.contdate.data= mylist[0]
         form2.compname.data=compn
 
-        #decide which form   !!!!!
+        #decide which form   !!!!!/
 
         cur = mysql.connection.cursor()
         query="SELECT taisho FROM sk_system_renrakutaishou where tsr=%s"%(id)
         cur.execute(query)
         tais=cur.fetchall()
-
+        cur = mysql.connection.cursor()
+        query = "SELECT count(id)" \
+                "FROM sk_system_setsuzoku_history" \
+                " WHERE tsr_code='%d'"%(int(id))
+        cur.execute(query)
+        count=cur.fetchall()[0][0]
+        count=count+1
+        print(count)
         #print(tais)
         if tais==():
             cond=4
@@ -258,7 +266,7 @@ def edit(id):
                 if request.method == 'POST':
 
                     if request.form.get('editform') == 'editform':
-                          input(id, form1,cond)
+                          input(id, form1,cond,count)
                           flash('Robot updated successfully!')
 
                           return redirect(url_for('home'))
@@ -269,11 +277,11 @@ def edit(id):
                 if request.method == 'POST':
 
                     if request.form.get('editdayes') == 'editdayes':
-                      input(id, form1,cond)
+                      input(id, form1,cond,count)
                       flash('Robot updated successfully!')
                       return redirect(url_for('home'))
                     elif request.form.get('editdano') == 'editdano':
-                      input2(id, form1)
+                      input2(id, form1,count)
                       flash('Robot updated successfully!')
                       return redirect(url_for('home'))
                 return render_template('pkm_6months.html', form=form1)
@@ -282,11 +290,11 @@ def edit(id):
                 if request.method == 'POST':
 
                     if request.form.get('editdayes') == 'editdayes':
-                      input(id, form1,cond)
+                      input(id, form1,cond,count)
                       flash('Robot updated successfully!')
                       return redirect(url_for('home'))
                     elif request.form.get('editdano') == 'editdano':
-                      input2(id, form1)
+                      input2(id, form1,count)
                       flash('Robot updated successfully!')
                       return redirect(url_for('home'))
                 return render_template('anken_shuuryo.html', form=form1)
@@ -296,13 +304,106 @@ def edit(id):
 
                 if request.form.get('editform') == 'editform':
 
-                    input3(id, form2,cond)
+                    input3(id, form2,cond,count)
                     flash('Robot updated successfully!')
                     return redirect(url_for('home'))
             return render_template('houmon_kai.html', form=form2)
+#edit2 if u wanna change what u entered
+@app.route('/edit2/<id>/<count>', methods=['POST','GET'])
+def edit2(id,count):
+        #print(request.cookies.get("sm"))
+        username = request.cookies.get('username')
+        password= request.cookies.get('password')
+        cur = mysql.connection.cursor()
+        query=("SELect company_name FROM _live_spms__clients WHERE tsr_code='%s'" % (id))
+        cur.execute(query)
+        compn=cur.fetchall()[0][0]
+        #print(compn)
+        #print(username)
+        today = datetime.date.today()
+        mylist = []
+        today = datetime.date.today()
+        mylist.append(today)
+        form1=twomonthplusform(request.form)
+        form1.contdate.data= mylist[0]
+        form1.compname.data=compn
+        form2=homon_kai(request.form)
+        form2.contdate.data= mylist[0]
+        form2.compname.data=compn
+
+        #decide which form   !!!!!/
+
+        cur = mysql.connection.cursor()
+        query="SELECT * FROM sk_system_setsuzoku_history where tsr_code=%s and count=%s"%(id,count)
+        cur.execute(query)
+        tais=cur.fetchall()
+        print(tais)
+        if tais==():
+            cond=4
+        else:
+            condstr=tais[0][0]
+            if condstr=="案件終了":
+                cond=3
+            elif condstr=="前回の連絡から2ヶ月以上経過":
+                cond=1
+            elif condstr=="PKMから6ヶ月目":
+                cond=2
+            else:
+                cond=4
+        #「前回の連絡から2ヶ月以上経過」の場合
+        if cond ==1:
+                if request.method == 'POST':
+
+                    if request.form.get('editform') == 'editform':
+                          input(id, form1,cond,count)
+                          flash('Robot updated successfully!')
+
+                          return redirect(url_for('home'))
+                return render_template('input_2monthplus.html', form=form1)
+        #「PKMから6ヶ月目」の場合
+
+        elif cond ==2:
+                if request.method == 'POST':
+
+                    if request.form.get('editdayes') == 'editdayes':
+                      input(id, form1,cond,count)
+                      flash('Robot updated successfully!')
+                      return redirect(url_for('home'))
+                    elif request.form.get('editdano') == 'editdano':
+                      input2(id, form1,count)
+                      flash('Robot updated successfully!')
+                      return redirect(url_for('home'))
+                return render_template('pkm_6months.html', form=form1)
+        #「案件終了」の場合
+        elif cond ==3:
+                if request.method == 'POST':
+
+                    if request.form.get('editdayes') == 'editdayes':
+                      input(id, form1,cond,count)
+                      flash('Robot updated successfully!')
+                      return redirect(url_for('home'))
+                    elif request.form.get('editdano') == 'editdano':
+                      input2(id, form1,count)
+                      flash('Robot updated successfully!')
+                      return redirect(url_for('home'))
+                return render_template('anken_shuuryo.html', form=form1)
+        elif cond == 4:
+            #print("ok")
+            if request.method == 'POST':
+
+                if request.form.get('editform') == 'editform':
+
+                    input3(id, form2,cond,count)
+                    flash('Robot updated successfully!')
+                    return redirect(url_for('home'))
+            return render_template('houmon_kai.html', form=form2)
+
+
+
+
 @app.route('/input', methods=['POST', 'GET'])
 #FOｒ　First form and 2nd form (a) 打診する
-def input(id,form1,cond,new=True):
+def input(id,form1,cond,count,new=True):
     """
     Add a new album
     """
@@ -335,11 +436,12 @@ def input(id,form1,cond,new=True):
     memo=""
     #print(contactcontent1)
     if new:
-        cur.execute("""INSERT INTO sk_system_setsuzoku_history(tsr_code,接触日,接触方法,接触時メモ,連絡内容①,会食打診した→日程,会食打診した→断られた「理由」,連絡内容②, 訪問打診した→日程, 訪問打診した→断られた「理由」, 連絡内容③, 受領した紹介先, 紹介打診した→断られた「理由」,やりとり内容,自分とのリレーションレベル,スカウトサービスへの満足度,入力ステータス,接触者) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
-                    (id,contdate,contactmeth,memo,contactcontent1,concont1date,concont1name,contactcontent2,concont2date,concont2name,contactcontent3,concont3date,concont3name,yaritoricont,q1,q2,inputstatus,username))
+        cur.execute("DELETE FROM sk_system_setsuzoku_history WHERE tsr_code=%s AND count=%s"%(id,count))
+        cur.execute("""INSERT INTO sk_system_setsuzoku_history(tsr_code,接触日,接触方法,接触時メモ,連絡内容①,会食打診した→日程,会食打診した→断られた「理由」,連絡内容②, 訪問打診した→日程, 訪問打診した→断られた「理由」, 連絡内容③, 受領した紹介先, 紹介打診した→断られた「理由」,やりとり内容,自分とのリレーションレベル,スカウトサービスへの満足度,入力ステータス,接触者,count) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    (id,contdate,contactmeth,memo,contactcontent1,concont1date,concont1name,contactcontent2,concont2date,concont2name,contactcontent3,concont3date,concont3name,yaritoricont,q1,q2,inputstatus,username,count))
         mysql.connection.commit()
 # this is for 2nd form 打診しない
-def input2(id,form1,new=True):
+def input2(id,form1,count,new=True):
     """
     Add a new album
     """
@@ -382,10 +484,11 @@ def input2(id,form1,new=True):
     if inputstatus=="打診しない":
         yaritoricont=memo
     if new:
-        cur.execute("""INSERT INTO sk_system_setsuzoku_history(tsr_code,接触日,接触方法,接触時メモ,連絡内容①,会食打診した→日程,会食打診した→断られた「理由」,連絡内容②, 訪問打診した→日程, 訪問打診した→断られた「理由」, 連絡内容③, 受領した紹介先, 紹介打診した→断られた「理由」,やりとり内容,自分とのリレーションレベル,スカウトサービスへの満足度,入力ステータス,接触者) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
-                    (id,contdate,contactmeth,memo,contactcontent1,concont1date,concont1name,contactcontent2,concont2date,concont2name,contactcontent3,concont3date,concont3name,yaritoricont,q1,q2,inputstatus,username))
+        cur.execute("DELETE FROM sk_system_setsuzoku_history WHERE tsr_code=%s AND count=%s"%(id,count))
+        cur.execute("""INSERT INTO sk_system_setsuzoku_history(tsr_code,接触日,接触方法,接触時メモ,連絡内容①,会食打診した→日程,会食打診した→断られた「理由」,連絡内容②, 訪問打診した→日程, 訪問打診した→断られた「理由」, 連絡内容③, 受領した紹介先, 紹介打診した→断られた「理由」,やりとり内容,自分とのリレーションレベル,スカウトサービスへの満足度,入力ステータス,接触者,count) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    (id,contdate,contactmeth,memo,contactcontent1,concont1date,concont1name,contactcontent2,concont2date,concont2name,contactcontent3,concont3date,concont3name,yaritoricont,q1,q2,inputstatus,username,count))
         mysql.connection.commit()
-def input3(id,form2,new=True):
+def input3(id,form2,count,new=True):
     """
     Add a new album
     """
@@ -412,10 +515,11 @@ def input3(id,form2,new=True):
     #print(inputstatus)
     #print(recieved)
     if new:
+        cur.execute("DELETE FROM sk_system_setsuzoku_history WHERE tsr_code=%s AND count=%s"%(id,count))
         cur.execute(
-            """INSERT INTO sk_system_setsuzoku_history(tsr_code,接触日,接触方法,接触時メモ,連絡内容①,会食打診した→日程,会食打診した→断られた「理由」,連絡内容②, 訪問打診した→日程, 訪問打診した→断られた「理由」, 連絡内容③, 受領した紹介先, 紹介打診した→断られた「理由」,やりとり内容,自分とのリレーションレベル,スカウトサービスへの満足度,頂いたもの,接触者) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+            """INSERT INTO sk_system_setsuzoku_history(tsr_code,接触日,接触方法,接触時メモ,連絡内容①,会食打診した→日程,会食打診した→断られた「理由」,連絡内容②, 訪問打診した→日程, 訪問打診した→断られた「理由」, 連絡内容③, 受領した紹介先, 紹介打診した→断られた「理由」,やりとり内容,自分とのリレーションレベル,スカウトサービスへの満足度,頂いたもの,接触者,count) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
             (id, contdate, contactmeth, concont1date, concont1date, concont1date, concont1name, concont1date, concont2date,
-            concont2name, concont1date, concont3date, concont3name, yaritoricont, q1, q2, inputstatus,username))
+            concont2name, concont1date, concont3date, concont3name, yaritoricont, q1, q2, inputstatus,username,count))
     mysql.connection.commit()
 
 if __name__ == "__main__":
