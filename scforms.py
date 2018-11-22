@@ -63,7 +63,7 @@ class twomonthplusform(Form):
                    ('悪い', '悪い'),
                    ('とても悪い', 'とても悪い'),
                             ]
-        dashinsinairiyuu= [('成約済  ', '成約済  '),
+        dashinsinairiyuu= [('成約済', '成約済'),
                    ('成約はしていないが、設定は順調', '成約はしていないが、設定は順調'),
                    ('進捗は良くないが、それに対し社長納得済', '進捗は良くないが、それに対し社長納得済'),
                    ('進捗は良くないが、直近てこ入れ済', '進捗は良くないが、直近てこ入れ済'),
@@ -81,7 +81,7 @@ class twomonthplusform(Form):
         contdate = DateField('連絡日',render_kw={'class': 'form-control'},format='%Y-%m-%d')
 
         contactmeth=SelectField('連絡方法',choices=contact_methods,widget=widgets.Select(),render_kw={'class': 'form-control'})
-        concont1date=TextAreaField('concont1date',render_kw={'class': 'form-control'})
+        concont1date=DateField('concont1date',render_kw={'class': 'form-control'})
         concont1name=TextAreaField('concont1name',widget=widgets.TextInput(),render_kw={'class': 'form-control'},default="")
         concont2date=TextAreaField('concont1date',render_kw={'class': 'form-control'})
         concont2name=TextAreaField('concont1name',widget=widgets.TextInput(),render_kw={'class': 'form-control'},default="")
@@ -91,9 +91,9 @@ class twomonthplusform(Form):
         contactcontent2=SelectField('連絡内容②',choices=contact_cont2,widget=widgets.Select(),render_kw={'class': 'form-control'})
         contactcontent3=SelectField('連絡内容③',choices=contact_cont3,widget=widgets.Select(),render_kw={'class': 'form-control'})
         yaritoricont=TextAreaField('やりとりした内容',widget=widgets.TextInput(),render_kw={'class': 'form-control'},default="")
-        q1= SelectField('自分とのリレーションレベル',choices=questionnaire,widget=widgets.Select(),render_kw={'class': 'form-control'},default="どちらとも言えない")
+        q1= SelectField('自分とのリレーションレベル                                                                                                                      (リレーションレベルの「とても良い」とは「どんな話題でも気軽に連絡できる」)',choices=questionnaire,widget=widgets.Select(),render_kw={'class': 'form-control'},default="どちらとも言えない")
         q2= SelectField('スカウトサービスへの満足度',choices=questionnaire,widget=widgets.Select(),render_kw={'class': 'form-control'},default="どちらとも言えない")
-        houmondashin=SelectField('訪問打診するか',choices=dashinyn,widget=widgets.Select(),render_kw={'class': 'form-control'},default="打診する")
+        houmondashin=SelectField('訪問打診するか',choices=dashinyn,widget=widgets.Select(),render_kw={'class': 'form-control'})
         dashinshinai=SelectField('理由',choices=dashinsinairiyuu,widget=widgets.Select(),render_kw={'class': 'form-control'})
         dashinshinai_comp=SelectField('理由',choices=dashinsinairiyuu_comp,widget=widgets.Select(),render_kw={'class': 'form-control'})
 
@@ -123,7 +123,7 @@ class homon_kai(Form):
     yaritoricont = TextAreaField('やりとりした内容', widget=widgets.TextInput(), render_kw={'class': 'form-control'},
                                  default="")
 
-    q1 = SelectField('自分とのリレーションレベル', choices=questionnaire, widget=widgets.Select(),
+    q1 = SelectField('自分とのリレーションレベル                                                                                                                                                                    (リレーションレベルの「とても良い」とは「どんな話題でも気軽に連絡できる」)', choices=questionnaire, widget=widgets.Select(),
                      render_kw={'class': 'form-control'}, default="どちらとも言えない")
     q2 = SelectField('スカウトサービスへの満足度', choices=questionnaire, widget=widgets.Select(),
                      render_kw={'class': 'form-control'}, default="どちらとも言えない")

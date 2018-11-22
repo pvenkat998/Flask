@@ -109,8 +109,8 @@ div.cent{
 
                                   </div>
 
-                     <div  class="hide1"> <div id="date1" class="col-sm-6"> <div class="form-group" ><dt><label for="concont1date">会食日</label> </dt><dd><input  class="form-control" id="concont1date" name="concont1date" type="date" value=""> </dd> </div></div></div>
-                      <div  class="hiden1"> <div id="daten1"class="col-sm-6" >    <div class="form-group" >      <dt><label for="concont1name">理由</label> </dt><dd><input class="form-control" id="concont1name" name="concont1name" type="text" value=""> </dd> </div></div></div>
+                     <div  class="hide1"> <div id="date1" class="col-sm-6"> <div class="form-group" ><dt><label for="concont1date">会食日</label> </dt><dd><input  class="form-control" id="concont1date" name="concont1date" type="date" value={{form.concont1date.data}} > </dd> </div></div></div>
+                      <div  class="hiden1"> <div id="daten1"class="col-sm-6" >    <div class="form-group" >      <dt><label for="concont1name">理由</label> </dt><dd><input class="form-control" id="concont1name" name="concont1name" type="text" value={{form.concont1name.data}} > </dd> </div></div></div>
                                  <!--     second one           ><!-->
 
                             <div  class="col-sm-6">
@@ -119,8 +119,8 @@ div.cent{
                                   </div></div>
 
 
-                    <div class="hide2">  <div class="col-sm-6" id="date2"> <dt><label for="concont2date">訪問日</label> </dt><dd><input  class="form-control" id="concont2date" name="concont2date" type="date" value=""> </dd> </div></div>
-                   <div class="hiden2">    <div class="col-sm-6" id="daten2"> <dt><label for="concont2name">理由</label> </dt><dd><input class="form-control" id="concont2name" name="concont2name" type="text" value=""> </dd> </div></div>
+                    <div class="hide2">  <div class="col-sm-6" id="date2"> <dt><label for="concont2date">訪問日</label> </dt><dd><input  class="form-control" id="concont2date" name="concont2date" type="date" value={{form.concont2date.data}}> </dd> </div></div>
+                   <div class="hiden2">    <div class="col-sm-6" id="daten2"> <dt><label for="concont2name">理由</label> </dt><dd><input class="form-control" id="concont2name" name="concont2name" type="text" value={{form.concont2name.data}}> </dd> </div></div>
                                  <!--     third one           ><!-->
 
                                                       <div class="col-sm-6" >
@@ -129,14 +129,91 @@ div.cent{
                                    </div>
 
                                                       </div>
-                   <div class="hide3"> <div class="col-sm-6" > <dt><label for="concont3date">受領した紹介先</label> </dt><dd><input class="form-control" id="concont3date" name="concont3date" type="text" value=""> </dd> </div></div>
+                   <div class="hide3"> <div class="col-sm-6" > <dt><label for="concont3date">受領した紹介先</label> </dt><dd><input class="form-control" id="concont3date" name="concont3date" type="text" value={{form.concont3date.data}}> </dd> </div></div>
 
-                     <div class="hiden3"> <div class="col-sm-6" > <dt><label for="concont3name">理由</label> </dt><dd><input class="form-control" id="concont3name" name="concont3name" type="text" value=""> </dd> </div></div>
+                     <div class="hiden3"> <div class="col-sm-6" > <dt><label for="concont3name">理由</label> </dt><dd><input class="form-control" id="concont3name" name="concont3name" type="text" value={{form.concont3name.data}}> </dd> </div></div>
+                                <script>function f1() {
 
 
+
+                                var e=document.getElementById("contactcontent1");
+                                var str=e.options[e.selectedIndex].text;
+                                if (str=== "会食打診した→日程確定"){
+                                $( ".hide1" ).show();
+                                $( ".hide1" ).visible();
+                                 $( ".hiden1" ).hide();
+                                }  else if (str=== "会食打診した→日程調整中"){                                $( ".hide1" ).show();
+                                                                                                              $( ".hide1" ).invisible();
+                                                                                                                        $( ".hiden1" ).hide();
+                                }  else if (str=== "会食打診した→断られた"){
+                                                                                                $( ".hiden1" ).show();
+                                                                                                $( ".hide1" ).hide();
+
+                                }  else if (str=== "会食打診した→返事待ち"){                                $( ".hide1" ).show();
+                                                                                                $( ".hide1" ).invisible();
+                                 $( ".hiden1" ).hide();
+                                }  else if (str=== "会食打診せず"){                                $( ".hide1" ).show();
+                                    $( ".hide1" ).invisible();
+                                 $( ".hiden1" ).hide();
+                                }
+
+
+                            }
+                       </script>
+                        <script>function f2() {
+
+                                var e=document.getElementById("contactcontent2");
+                                var str=e.options[e.selectedIndex].text;
+                                if (str=== "訪問打診した→日程確定"){
+                                $( ".hide2" ).show();
+                                $( ".hide2" ).visible();
+                                 $( ".hiden2" ).hide();
+                                }  else if (str=== "訪問打診した→日程調整中"){                                $( ".hide2" ).show();
+                                                                $( ".hide2" ).invisible();
+                                 $( ".hiden2" ).hide();
+                                }  else if (str=== "訪問打診した→断られた"){
+                                                                                                $( ".hiden2" ).show();
+                                                                                                $( ".hide2" ).hide();
+
+                                }  else if (str=== "訪問打診した→返事待ち"){                                $( ".hide2" ).show();
+                                                                                                $( ".hide2" ).invisible();
+                                 $( ".hiden2" ).hide();
+                                }  else if (str=== "訪問打診せず"){                                $( ".hide2" ).show();
+                                    $( ".hide2" ).invisible();
+                                 $( ".hiden2" ).hide();
+                                }
+
+                            }
+                       </script>
+                                            <script>function f3() {
+
+                                var e=document.getElementById("contactcontent3");
+                                var str=e.options[e.selectedIndex].text;
+                                if (str=== "紹介打診した→紹介受領"){
+                                $( ".hide3" ).show();
+                                $( ".hide3" ).visible();
+                                 $( ".hiden3" ).hide();
+                                }  else if (str=== "紹介打診した→日程調整中"){                                $( ".hide3" ).show();
+                                                                $( ".hide3" ).invisible();
+                                 $( ".hiden3" ).hide();
+                                }  else if (str=== "紹介打診した→断られた"){
+                                                                                                $( ".hiden3" ).show();
+                                                                                                $( ".hide3" ).hide();
+
+                                }  else if (str=== "紹介打診した→返事待ち"){                                $( ".hide3" ).show();
+                                                                                                $( ".hide3" ).invisible();
+                                 $( ".hiden3" ).hide();
+                                }  else if (str=== "紹介打診せず"){                                $( ".hide3" ).show();
+                                    $( ".hide3" ).invisible();
+                                 $( ".hiden3" ).hide();
+                                }
+
+                            }
+                       </script>
                       <script>function func1() {
 
                             $('#concont1').on('change', function() {
+
                                 var e=document.getElementById("contactcontent1");
                                 var str=e.options[e.selectedIndex].text;
                                 if (str=== "会食打診した→日程確定"){
@@ -193,7 +270,7 @@ div.cent{
                             $('#concont3').on('change', function() {
                                 var e=document.getElementById("contactcontent3");
                                 var str=e.options[e.selectedIndex].text;
-                                if (str=== "紹介打診した→日程確定"){
+                                if (str=== "紹介打診した→紹介受領"){
                                 $( ".hide3" ).show();
                                 $( ".hide3" ).visible();
                                  $( ".hiden3" ).hide();
@@ -270,7 +347,12 @@ div.cent{
                                       $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
                                       $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
 
+
                              funs();
+                            f1();
+                            f2();
+                            f3();
+
                         }
 </script>
 
@@ -295,6 +377,7 @@ div.cent{
 
                                           }
                                                             });
+
                               $('#form').change(function(){
                                 var f=document.getElementById("contactmeth");
                                 var strf=f.options[f.selectedIndex].text;
@@ -312,18 +395,70 @@ div.cent{
 
                                           }
                                                             });
-
-
                                </script>
 
+   <script type="text/javascript">
 
+                                                          //  alert(strf)
+
+                              $('#contmeth').change(function(){
+                                var f=document.getElementById("contactmeth");
+                                var strf=f.options[f.selectedIndex].text;
+                              //  alert(strf);
+                                if (strf==="メール（送付）"){
+                                      $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').show();
+                                             }
+                                          else{        $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
+
+                                          }
+                                                            });
+
+                              $('#form').change(function(){
+                                var f=document.getElementById("contactmeth");
+                                var strf=f.options[f.selectedIndex].text;
+                              //  alert(strf);
+                                if (strf==="メール（送付）"){
+                                      $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').show();
+                                             }
+                                          else{        $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
+
+                                          }
+                                                            });
+                               </script>
                         <script type="text/javascript">
                               $(document).ready(function() {
+                                    start();
+                                var f=document.getElementById("contactmeth");
+                                var strf=f.options[f.selectedIndex].text;
+                                if (strf==="メール（送付）"){
+                                      $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').show();
+
+                                      $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').show();
+                                             }
+                                          else{        $('select[name*="contactcontent1"] option[value="会食打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent2"] option[value="訪問打診した→返事待ち"]').hide();
+                                           $('select[name*="contactcontent3"] option[value="紹介打診した→返事待ち"]').hide();
+
+                                          }
+
+
                                });
 
                                </script>
-<body onload="start()">
 
-</body>
 <title>Input</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}">

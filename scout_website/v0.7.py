@@ -18,6 +18,8 @@ from django.template.defaulttags import register
 import json
 import pymysql
 
+
+from datetime import datetime as dt
 ...
 @register.filter
 
@@ -102,14 +104,18 @@ def home():
     cur = mysql.connection.cursor()
 
 #case when address2 is null then 'None Provided' else address2 end as address2,
-    query = ("SELECT  t.訪問打診した→日程,c.company_name,c.tsr_code,p.id,p.contract_date,COALESCE(p.accompany_date, '') AS accompany_date,t.`接触日`,t.`接触方法`,t.`やりとり内容`,t.`入力ステータス`,t.`count`"
+    query = ("SELECT *  FROM(SELECT  t.訪問打診した→日程,c.company_name,c.tsr_code,p.id,p.contract_date,COALESCE(p.accompany_date, '') AS accompany_date,t.`接触日`,t.`接触方法`,t.`やりとり内容`,t.`入力ステータス`,t.`count`"
              " FROM sk_system_setsuzoku_history t  "
              "LEFT JOIN spms_users_test u "
              " LEFT JOIN spms_salesmans_test s "
              "  INNER JOIN _live_spms__sk_projects p ON  p.id=s.sk_project_id"
              "   INNER JOIN _live_spms__clients c ON c.id=p.client_id"
              "   ON s.salesman=u.id ON t.tsr_code=c.tsr_code "
-             "   WHERE account='%s' AND t.`接触日`IS NOT NULL ORDER BY t.ID DESC" % (username))
+             "   WHERE account='%s' AND t.`接触日`IS NOT NULL ORDER BY t.ID DESC) a GROUP by count,tsr_code ORDER BY a.ID DESC" % (username))
+
+
+    print(query)
+
     cur.execute(query)
     data2 = cur.fetchall()
 #data2 reaady
@@ -230,6 +236,7 @@ def edit(id):
         form1=twomonthplusform(request.form)
         form1.contdate.data= mylist[0]
         form1.compname.data=compn
+        form1.concont3date.data=""
         form2=homon_kai(request.form)
         form2.contdate.data= mylist[0]
         form2.compname.data=compn
@@ -312,6 +319,7 @@ def edit(id):
 @app.route('/edit2/<id>/<count>', methods=['POST','GET'])
 def edit2(id,count):
         #print(request.cookies.get("sm"))
+        cur = mysql.connection.cursor()
         username = request.cookies.get('username')
         password= request.cookies.get('password')
         cur = mysql.connection.cursor()
@@ -324,24 +332,48 @@ def edit2(id,count):
         mylist = []
         today = datetime.date.today()
         mylist.append(today)
-        form1=twomonthplusform(request.form)
-        form1.contdate.data= mylist[0]
-        form1.compname.data=compn
-        form2=homon_kai(request.form)
-        form2.contdate.data= mylist[0]
-        form2.compname.data=compn
 
         #decide which form   !!!!!/
-
         cur = mysql.connection.cursor()
-        query="SELECT * FROM sk_system_setsuzoku_history where tsr_code=%s and count=%s"%(id,count)
+        query="SELECT taisho FROM sk_system_renrakutaishou where tsr=%s"%(id)
         cur.execute(query)
-        tais=cur.fetchall()
+        condstr=cur.fetchall()
+        if condstr:
+            condstr=condstr[0][0]
+        print(condstr)
+        print(count)
+        cur = mysql.connection.cursor()
+        query="SELECT * FROM sk_system_setsuzoku_history where tsr_code=%s and count=%d"%(id,int(count))
+        print(query)
+        cur.execute(query)
+        tais=cur.fetchall()[0]
         print(tais)
-        if tais==():
+        #filling form1
+        d1=d2=d3=0
+        if tais[8]:
+            d1=dt.strptime(tais[8], '%Y-%m-%d').date()
+        if tais[11]:
+            d2=dt.strptime(tais[11], '%Y-%m-%d').date()
+        if tais[14]:
+            #d3=dt.strptime(tais[14], '%Y-%m-%d').date()
+            d3=tais[14]
+        form1=twomonthplusform(formdata=request.form,contdate=mylist[0],compname=compn,contactmeth=tais[3],houmondashin=tais[5],dashinshinai=tais[4][3:],dashinshinai_comp=tais[4][3:],
+                               contactcontent1=tais[7], concont1date=d1,concont1name=tais[9],
+                               contactcontent2=tais[10],concont2date=d2,concont2name=tais[12],
+                               contactcontent3=tais[13],concont3date=d3,concont3name=tais[15],
+                               yaritoricont=tais[16],q1=tais[17],q2=tais[18]
+                               )
+
+        form2=homon_kai(formdata=request.form,contdate=mylist[0],compname=compn,contactmeth=tais[3],houmondashin=tais[5],dashinshinai=tais[4][3:],dashinshinai_comp=tais[4][3:],
+                               contactcontent1=tais[7], concont1date=d1,concont1name=tais[9],
+                               contactcontent2=tais[10],concont2date=d2,concont2name=tais[12],
+                               contactcontent3=tais[13],concont3date=d3,concont3name=tais[15],
+                               yaritoricont=tais[16],q1=tais[17],q2=tais[18],recieved=tais[6],clients=tais[14],raynos=tais[15]
+                               )
+        if not condstr:
             cond=4
         else:
-            condstr=tais[0][0]
+            #condstr=tais[0][0]
             if condstr=="案件終了":
                 cond=3
             elif condstr=="前回の連絡から2ヶ月以上経過":
@@ -351,12 +383,12 @@ def edit2(id,count):
             else:
                 cond=4
         #「前回の連絡から2ヶ月以上経過」の場合
+
         if cond ==1:
                 if request.method == 'POST':
 
                     if request.form.get('editform') == 'editform':
                           input(id, form1,cond,count)
-                          flash('Robot updated successfully!')
 
                           return redirect(url_for('home'))
                 return render_template('input_2monthplus.html', form=form1)
@@ -365,14 +397,16 @@ def edit2(id,count):
         elif cond ==2:
                 if request.method == 'POST':
 
+
                     if request.form.get('editdayes') == 'editdayes':
-                      input(id, form1,cond,count)
-                      flash('Robot updated successfully!')
-                      return redirect(url_for('home'))
+                          input(id, form1,cond,count)
+                          flash('Robot updated successfully!')
+                          return redirect(url_for('home'))
                     elif request.form.get('editdano') == 'editdano':
-                      input2(id, form1,count)
-                      flash('Robot updated successfully!')
-                      return redirect(url_for('home'))
+                          input2(id, form1,count)
+                          flash('Robot updated successfully!')
+                          return redirect(url_for('home'))
+                print(form1.dashinshinai.data)
                 return render_template('pkm_6months.html', form=form1)
         #「案件終了」の場合
         elif cond ==3:
@@ -393,7 +427,7 @@ def edit2(id,count):
 
                 if request.form.get('editform') == 'editform':
 
-                    input3(id, form2,cond,count)
+                    input3(id, form2,count)
                     flash('Robot updated successfully!')
                     return redirect(url_for('home'))
             return render_template('houmon_kai.html', form=form2)
@@ -410,6 +444,7 @@ def input(id,form1,cond,count,new=True):
     request.cookies.get("sm")
     concont1date=concont1name=concont2date=concont2name=concont3date=concont3name=""
     #print(id)
+
     form=form1
     cur = mysql.connection.cursor()
     compname=form.compname.data
@@ -437,6 +472,8 @@ def input(id,form1,cond,count,new=True):
     #print(contactcontent1)
     if new:
         cur.execute("DELETE FROM sk_system_setsuzoku_history WHERE tsr_code=%s AND count=%s"%(id,count))
+        print("""INSERT INTO sk_system_setsuzoku_history(tsr_code,接触日,接触方法,接触時メモ,連絡内容①,会食打診した→日程,会食打診した→断られた「理由」,連絡内容②, 訪問打診した→日程, 訪問打診した→断られた「理由」, 連絡内容③, 受領した紹介先, 紹介打診した→断られた「理由」,やりとり内容,自分とのリレーションレベル,スカウトサービスへの満足度,入力ステータス,接触者,count) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    (id,contdate,contactmeth,memo,contactcontent1,concont1date,concont1name,contactcontent2,concont2date,concont2name,contactcontent3,concont3date,concont3name,yaritoricont,q1,q2,inputstatus,username,count))
         cur.execute("""INSERT INTO sk_system_setsuzoku_history(tsr_code,接触日,接触方法,接触時メモ,連絡内容①,会食打診した→日程,会食打診した→断られた「理由」,連絡内容②, 訪問打診した→日程, 訪問打診した→断られた「理由」, 連絡内容③, 受領した紹介先, 紹介打診した→断られた「理由」,やりとり内容,自分とのリレーションレベル,スカウトサービスへの満足度,入力ステータス,接触者,count) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                     (id,contdate,contactmeth,memo,contactcontent1,concont1date,concont1name,contactcontent2,concont2date,concont2name,contactcontent3,concont3date,concont3name,yaritoricont,q1,q2,inputstatus,username,count))
         mysql.connection.commit()

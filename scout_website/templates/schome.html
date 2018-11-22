@@ -669,6 +669,7 @@ img {
 													<th style="color:#157F83">前回接触方法</th>
 													<th style="color:#157F83">前回接触時メモ</th>
 													<th style="color:#157F83">入力ステータス</th>
+													<th style="color:#157F83">編集</th>
 												</tr>
 											</thead>
 										  {% for row in datak2 %}
@@ -686,9 +687,26 @@ img {
 													{{d}}</b></a></b></a></td>  {% endif %}
 
 
-												{% if 11> loop.index0 >4  %}<td>{{ d }}</td>{% endif %}
+
+												{% if 10>loop.index0 >3  %}<td>{{ d }}</td>{% endif %}
 
 												{% endfor %}
+											{% for d in row  %}
+													{% if loop.index0 == 3 %}
+											{% for e in row  %}
+													{% if loop.index0 == 11 %}
+
+												<td><a href="edit2/{{ d }}/{{e}}" class="btn btn-primary a-btn-slide-text">
+        										<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b>
+													<span><strong>編集</strong></span></b></a></td>
+
+
+														{% endif %}
+
+										  {% endfor %}
+														{% endif %}
+
+										  {% endfor %}
 											</tr>
 										  {% endfor %}
 										  </table>
