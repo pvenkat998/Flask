@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
+    <table class ="table table-condensed table-hover" value= "{{ df|safe }}">
+    </table>
+</div>
+<h6 class="border-bottom border-gray pb-2 mb-0">総額推移</h6>
+
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+    </canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
+          datasets: [{
+            data: {{pt_value}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+{% endblock %}

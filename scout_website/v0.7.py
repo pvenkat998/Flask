@@ -90,7 +90,7 @@ def home():
 
    # #print(username+password)
     cur = mysql.connection.cursor()
-    query=("SELECT c.company_name,c.tsr_code,p.id,p.contract_date,COALESCE(p.accompany_date, '') AS accompany_date FROM spms_users_test u  "
+    query=("SELECT c.company_name,c.tsr_code,p.id,IFNULL(p.contract_date,''),COALESCE(p.accompany_date, '') AS accompany_date FROM spms_users_test u  "
     " LEFT JOIN spms_salesmans_test s "
     "  INNER JOIN _live_spms__sk_projects p ON  p.id=s.sk_project_id"
     "   INNER JOIN _live_spms__clients c ON c.id=p.client_id"
@@ -104,7 +104,7 @@ def home():
     cur = mysql.connection.cursor()
 
 #case when address2 is null then 'None Provided' else address2 end as address2,
-    query = ("SELECT *  FROM(SELECT  t.訪問打診した→日程,c.company_name,c.tsr_code,p.id,p.contract_date,COALESCE(p.accompany_date, '') AS accompany_date,t.`接触日`,t.`接触方法`,t.`やりとり内容`,t.`入力ステータス`,t.`count`"
+    query = ("SELECT *  FROM(SELECT  t.訪問打診した→日程,c.company_name,c.tsr_code,p.id,IFNULL(p.contract_date,''),COALESCE(p.accompany_date, '') AS accompany_date,t.`接触日`,t.`接触方法`,t.`やりとり内容`,t.`入力ステータス`,t.`count`"
              " FROM sk_system_setsuzoku_history t  "
              "LEFT JOIN spms_users_test u "
              " LEFT JOIN spms_salesmans_test s "
@@ -112,9 +112,6 @@ def home():
              "   INNER JOIN _live_spms__clients c ON c.id=p.client_id"
              "   ON s.salesman=u.id ON t.tsr_code=c.tsr_code "
              "   WHERE account='%s' AND t.`接触日`IS NOT NULL ORDER BY t.ID DESC) a GROUP by count,tsr_code ORDER BY a.ID DESC" % (username))
-
-
-    print(query)
 
     cur.execute(query)
     data2 = cur.fetchall()
@@ -212,23 +209,21 @@ def kaseki():
 @app.route('/comp/<id>', methods=['POST', 'GET'])
 def comp(id):
     cur=mysql.connection.cursor()
-    query=("SELECT 接触者,接触日,接触方法,やりとり内容 from sk_system_setsuzoku_history s"
+    query=("SELECT 接触者,接触日,接触方法,やりとり内容,連絡内容①,CONCAT(会食打診した→日程,会食打診した→断られた「理由」),連絡内容②,CONCAT(訪問打診した→日程,訪問打診した→断られた「理由」),連絡内容③,CONCAT(受領した紹介先,紹介打診した→断られた「理由」),やりとり内容,自分とのリレーションレベル from sk_system_setsuzoku_history s"
            " INNER JOIN _live_spms__clients c on c.tsr_code=s.tsr_code"
            " WHERE c.company_name='%s'  ORDER BY 接触日 DESC , 接触者	"%(id))
     cur.execute(query)
+    print(query)
     comp=cur.fetchall()
     return render_template("comp.html",id=id,comp=comp)
 @app.route('/edit/<id>', methods=['POST', 'GET'])
 def edit(id):
-        #print(request.cookies.get("sm"))
         username = request.cookies.get('username')
         password= request.cookies.get('password')
         cur = mysql.connection.cursor()
         query=("SELect company_name FROM _live_spms__clients WHERE tsr_code='%s'" % (id))
         cur.execute(query)
         compn=cur.fetchall()[0][0]
-        #print(compn)
-        #print(username)
         today = datetime.date.today()
         mylist = []
         today = datetime.date.today()
@@ -254,7 +249,6 @@ def edit(id):
         cur.execute(query)
         count=cur.fetchall()[0][0]
         count=count+1
-        print(count)
         #print(tais)
         if tais==():
             cond=4
@@ -340,14 +334,10 @@ def edit2(id,count):
         condstr=cur.fetchall()
         if condstr:
             condstr=condstr[0][0]
-        print(condstr)
-        print(count)
         cur = mysql.connection.cursor()
         query="SELECT * FROM sk_system_setsuzoku_history where tsr_code=%s and count=%d"%(id,int(count))
-        print(query)
         cur.execute(query)
         tais=cur.fetchall()[0]
-        print(tais)
         #filling form1
         d1=d2=d3=0
         if tais[8]:
@@ -406,7 +396,6 @@ def edit2(id,count):
                           input2(id, form1,count)
                           flash('Robot updated successfully!')
                           return redirect(url_for('home'))
-                print(form1.dashinshinai.data)
                 return render_template('pkm_6months.html', form=form1)
         #「案件終了」の場合
         elif cond ==3:

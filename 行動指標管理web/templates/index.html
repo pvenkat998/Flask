@@ -1,0 +1,681 @@
+{% extends "layout.html" %}
+{% block content %}
+<head><link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+    .nav-side-menu {
+  overflow: auto;
+  font-family: verdana;
+  font-size: 12px;
+  font-weight: 200;
+  background-color: #2e353d;
+  position: fixed;
+  top: 0px;
+  width: 300px;
+  height: 100%;
+  color: #e1ffff;
+}
+.nav-side-menu .brand {
+  background-color: #23282e;
+  line-height: 50px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+}
+.nav-side-menu .toggle-btn {
+  display: none;
+}
+.nav-side-menu ul,
+.nav-side-menu li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 35px;
+  cursor: pointer;
+  /*
+    .collapsed{
+       .arrow:before{
+                 font-family: FontAwesome;
+                 content: "\f053";
+                 display: inline-block;
+                 padding-left:10px;
+                 padding-right: 10px;
+                 vertical-align: middle;
+                 float:right;
+            }
+     }
+*/
+}
+.nav-side-menu ul :not(collapsed) .arrow:before,
+.nav-side-menu li :not(collapsed) .arrow:before {
+  font-family: FontAwesome;
+  content: "\f078";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+  float: right;
+}
+.nav-side-menu ul .active,
+.nav-side-menu li .active {
+  border-left: 3px solid #d19b3d;
+  background-color: #4f5b69;
+}
+.nav-side-menu ul .sub-menu li.active,
+.nav-side-menu li .sub-menu li.active {
+  color: #d19b3d;
+}
+.nav-side-menu ul .sub-menu li.active a,
+.nav-side-menu li .sub-menu li.active a {
+  color: #d19b3d;
+}
+.nav-side-menu ul .sub-menu li,
+.nav-side-menu li .sub-menu li {
+  background-color: #181c20;
+  border: none;
+  line-height: 28px;
+  border-bottom: 1px solid #23282e;
+  margin-left: 0px;
+}
+.nav-side-menu ul .sub-menu li:hover,
+.nav-side-menu li .sub-menu li:hover {
+  background-color: #020203;
+}
+.nav-side-menu ul .sub-menu li:before,
+.nav-side-menu li .sub-menu li:before {
+  font-family: FontAwesome;
+  content: "\f105";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+.nav-side-menu li {
+  padding-left: 0px;
+  border-left: 3px solid #2e353d;
+  border-bottom: 1px solid #23282e;
+}
+.nav-side-menu li a {
+  text-decoration: none;
+  color: #e1ffff;
+}
+.nav-side-menu li a i {
+  padding-left: 10px;
+  width: 20px;
+  padding-right: 20px;
+}
+.nav-side-menu li:hover {
+  border-left: 3px solid #d19b3d;
+  background-color: #4f5b69;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+@media (max-width: 767px) {
+  .nav-side-menu {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .nav-side-menu .toggle-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10 !important;
+    padding: 3px;
+    background-color: #ffffff;
+    color: #000;
+    width: 40px;
+    text-align: center;
+  }
+  .brand {
+    text-align: left !important;
+    font-size: 22px;
+    padding-left: 20px;
+    line-height: 50px !important;
+  }
+}
+@media (min-width: 767px) {
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+</style>
+    <style>.tabContent {
+    display:none;}
+           .content{padding-left:310px;}
+</style>
+</head>
+<script type="text/javascript">
+function showTab(selected, total)
+{
+  for(i = 1; i <= total; i += 1)
+  {
+    document.getElementById('tabs-' + i).style.display = 'none';
+  }
+
+  document.getElementById('tabs-' + selected).style.display = 'block';
+}
+</script>
+
+<div class="nav-side-menu">
+    <div class="brand">顧問</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+    <div class="menu-list">
+
+            <ul id="menu-content" class="menu-content collapse out">
+
+
+                <ul class="sub-menu" id="products">
+                    <li id="tabs1" onclick="showTab(1,4)"><a >月次進捗(事業ALL)</a></li>
+                    <li id="tabs2" onclick="showTab(2,4)"><a href="#">月次進捗 (営業ALL (018を除く)</a></li>
+                    <li id="tabs3" onclick="showTab(3,4)"><a href="#">月次進捗 (営業 018生</a></li>
+                    <li id="tabs4" onclick="showTab(4,4)"><a href="#">月次進捗 (SSALL</a></li>
+                </ul>
+            </ul>
+     </div>
+</div>
+
+<div id="tabs-1" class="content">
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container-fluid d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>月次進捗(事業ALL)</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
+    <table class ="table table-condensed table-hover" value= "{{ df|safe }}"></table>
+</div>
+
+
+<h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
+
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+    </canvas>
+<h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
+
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart2" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+    </canvas>
+<h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
+
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart3" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+    </canvas>
+</div>
+
+
+<div id="tabs-2" class="content" style = "display : none">
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container-fluid d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>月次進捗 (営業ALL (018を除く)</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
+    <table class ="table table-condensed table-hover" value= "{{ df2|safe }}"></table>
+</div>
+
+
+<h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
+
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart21" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+    </canvas>
+<h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
+
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart22" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+    </canvas>
+<h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
+
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart23" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+    </canvas>
+</div>
+
+
+<div id="tabs-3" class="content" style = "display : none">
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container-fluid d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>月次進捗 (営業 018生</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+
+<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
+    <table class ="table table-condensed table-hover" value= "{{ df3|safe }}"></table>
+</div>
+
+
+<h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
+
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart31" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+    </canvas>
+<h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
+
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart32" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+    </canvas>
+<h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
+
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart33" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+    </canvas>
+</div>
+
+
+<div id="tabs-4" class="content" style = "display : none">
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container-fluid d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>月次進捗 (SSALL</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+
+<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
+    <table class ="table table-condensed table-hover" value= "{{ df4|safe }}"></table>
+</div>
+
+
+<h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
+
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart41" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+    </canvas>
+<h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
+
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart42" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+    </canvas>
+
+<h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
+
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart43" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+    </canvas>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+         //  labels: {{df.columns}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{pt_value}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+      var ctx2 = document.getElementById("myChart2");
+      var myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{eigyoshasuu}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+  </script>
+<script>
+
+      var ctx3 = document.getElementById("myChart21");
+      var myChart21 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{pt_value2}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+      var ctx4 = document.getElementById("myChart22");
+      var myChart22 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{eigyoshasuu2}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+  </script>
+<script>
+
+      var ctx5 = document.getElementById("myChart31");
+      var myChart31 = new Chart(ctx5, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{pt_value3}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+      var ctx6 = document.getElementById("myChart32");
+      var myChart32 = new Chart(ctx6, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{eigyoshasuu3}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+
+      var ctx7 = document.getElementById("myChart41");
+      var myChart41 = new Chart(ctx7, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{pt_value4}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+      var ctx8 = document.getElementById("myChart42");
+      var myChart42 = new Chart(ctx8, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{eigyoshasuu4}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+      var ctx9 = document.getElementById("myChart43");
+      var myChart43 = new Chart(ctx9, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{point_PT4}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+      var ctx10 = document.getElementById("myChart33");
+      var myChart33 = new Chart(ctx10, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{point_PT3}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+      var ctx11 = document.getElementById("myChart23");
+      var myChart23 = new Chart(ctx11, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{point_PT2}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+      var ctx12 = document.getElementById("myChart3");
+      var myChart3 = new Chart(ctx12, {
+        type: 'line',
+        data: {
+          // labels: {{colname}},
+          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          datasets: [{
+            data: {{point_PT}},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+
+    </script>
+{% endblock %}

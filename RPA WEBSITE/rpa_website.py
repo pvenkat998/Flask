@@ -201,27 +201,27 @@ FROM robotkanri WHERE 部署="リストアップ"ORDER BY 日 DESC''')
 
     cur = mysql.connection.cursor()
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
-        FROM robotkanri WHERE 作成者="橋本" AND 完成="未完成"ORDER BY 日 DESC''')
+        FROM robotkanri WHERE 作成者="橋本" AND 完成="完成"ORDER BY 日 DESC''')
     k7 = cur.fetchall()
 
     cur = mysql.connection.cursor()
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
-    FROM robotkanri WHERE 作成者="前島" AND 完成="未完成"ORDER BY 日 DESC''')
+    FROM robotkanri WHERE 作成者="前島" AND 完成="完成"ORDER BY 日 DESC''')
     k8 = cur.fetchall()
 
     cur = mysql.connection.cursor()
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
-        FROM robotkanri WHERE 作成者="大坪" AND 完成="未完成"ORDER BY 日 DESC''')
+        FROM robotkanri WHERE 作成者="大坪" AND 完成="完成"ORDER BY 日 DESC''')
     k9 = cur.fetchall()
 
     cur = mysql.connection.cursor()
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
-    FROM robotkanri WHERE 作成者="八野" AND 完成="未完成"ORDER BY 日 DESC''')
+    FROM robotkanri WHERE 作成者="八野" AND 完成="完成"ORDER BY 日 DESC''')
     k10 = cur.fetchall()
 
     cur = mysql.connection.cursor()
     cur.execute('''SELECT ID,ロボット名,依頼者,部署,作成者,日,完成,締切
-    FROM robotkanri WHERE 作成者="秋葉" AND 完成="未完成"ORDER BY 日 DESC''')
+    FROM robotkanri WHERE 作成者="秋葉" AND 完成="完成"ORDER BY 日 DESC''')
     k11 = cur.fetchall()
 #TAB 3
     cur = mysql.connection.cursor()
