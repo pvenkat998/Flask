@@ -170,7 +170,20 @@ function showTab(selected, total)
   document.getElementById('tabs-' + selected).style.display = 'block';
 }
 </script>
-
+<script type="text/javascript">
+function showtable1(selected, total)
+{
+  for(i = 1; i <= total; i += 1)
+  {
+    document.getElementById('1_' + i).style.display = 'none';
+  }
+  if(selected==2)
+  {
+    myChart=new Chart(ctx);
+  }
+  document.getElementById('1_' + selected).style.display = 'block';
+}
+</script>
 <div class="nav-side-menu">
     <div class="brand">顧問</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -183,8 +196,8 @@ function showTab(selected, total)
                 <ul class="sub-menu" id="products">
                     <li id="tabs1" onclick="showTab(1,4)"><a >月次進捗(事業ALL)</a></li>
                     <li id="tabs2" onclick="showTab(2,4)"><a href="#">月次進捗 (営業ALL (018を除く)</a></li>
-                    <li id="tabs3" onclick="showTab(3,4)"><a href="#">月次進捗 (営業 018生</a></li>
-                    <li id="tabs4" onclick="showTab(4,4)"><a href="#">月次進捗 (SSALL</a></li>
+                    <li id="tabs3" onclick="showTab(3,4)" ><a href="#">月次進捗 (営業 018生</a></li>
+                    <li id="tabs4" onclick="showTab(4,4)" ><a href="#">月次進捗 (SSALL</a></li>
                 </ul>
             </ul>
      </div>
@@ -202,7 +215,14 @@ function showTab(selected, total)
   </header>
 <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
   <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-    <table class ="table table-condensed table-hover" value= "{{ df|safe }}"></table>
+    <button onclick="showtable1(1,4)" >全体</button>
+    <button onclick="showtable1(2,4)" >【源泉ALL】</button>
+    <button onclick="showtable1(3,4)" >【管SALL】</button>
+    <button  onclick="showtable1(4,4)" >【反響・現S元S・紹介】</button>
+    <table id="1_1" class ="table table-condensed table-hover" value="{{ df|safe }} "         ></table>
+    <table id="1_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df_1|safe }}"     ></table>
+    <table id="1_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df_2|safe }}"           />
+    <table id="1_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df_3|safe }}"       />
 </div>
 
 
@@ -302,22 +322,22 @@ function showTab(selected, total)
   </header>
 
 <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
-  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-    <table class ="table table-condensed table-hover" value= "{{ df4|safe }}"></table>
+  <h6 class="border-bottom border-gray pb-2 mb-0" >シエ商材全体ポイント内訳</h6>
+    <table class ="table table-condensed table-hover" value= "{{ df4|safe }}" ></table>
 </div>
 
 
-<h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
+<h6 class="border-bottom border-gray pb-2 mb-0" >営業社数</h6>
 
 <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart41" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
     </canvas>
-<h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
+<h6 class="border-bottom border-gray pb-2 mb-0" >受注案件数</h6>
 
     <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart42" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
 
     </canvas>
 
-<h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
+<h6 class="border-bottom border-gray pb-2 mb-0" >平均単価</h6>
 
     <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart43" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
 
