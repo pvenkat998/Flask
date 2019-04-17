@@ -171,17 +171,16 @@ function showTab(selected, total)
 }
 </script>
 <script type="text/javascript">
-function showtable1(selected, total)
+function showtable1(tab,selected, total)
 {
   for(i = 1; i <= total; i += 1)
   {
-    document.getElementById('1_' + i).style.display = 'none';
+    document.getElementById(tab + '_' + i).style.display = 'none';
   }
   if(selected==2)
   {
-    myChart=new Chart(ctx);
   }
-  document.getElementById('1_' + selected).style.display = 'block';
+  document.getElementById(tab + '_' + selected).style.display = 'block';
 }
 </script>
 <div class="nav-side-menu">
@@ -215,10 +214,10 @@ function showtable1(selected, total)
   </header>
 <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
   <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-    <button onclick="showtable1(1,4)" >全体</button>
-    <button onclick="showtable1(2,4)" >【源泉ALL】</button>
-    <button onclick="showtable1(3,4)" >【管SALL】</button>
-    <button  onclick="showtable1(4,4)" >【反響・現S元S・紹介】</button>
+    <button onclick="showtable1(1,1,4)" >全体</button>
+    <button onclick="showtable1(1,2,4)" >【源泉ALL】</button>
+    <button onclick="showtable1(1,3,4)" >【管SALL】</button>
+    <button  onclick="showtable1(1,4,4)" >【反響・現S元S・紹介】</button>
     <table id="1_1" class ="table table-condensed table-hover" value="{{ df|safe }} "         ></table>
     <table id="1_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df_1|safe }}"     ></table>
     <table id="1_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df_2|safe }}"           />
@@ -255,7 +254,15 @@ function showtable1(selected, total)
   </header>
 <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
   <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-    <table class ="table table-condensed table-hover" value= "{{ df2|safe }}"></table>
+
+    <button onclick="showtable1(2,1,4)" >全体</button>
+    <button onclick="showtable1(2,2,4)" >【源泉ALL】</button>
+    <button onclick="showtable1(2,3,4)" >【管SALL】</button>
+    <button  onclick="showtable1(2,4,4)" >【反響・現S元S・紹介】</button>
+    <table id="2_1" class ="table table-condensed table-hover" value="{{ df2|safe }} "         ></table>
+    <table id="2_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_1|safe }}"     ></table>
+    <table id="2_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_2|safe }}"           />
+    <table id="2_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_3|safe }}"       />
 </div>
 
 
@@ -289,7 +296,15 @@ function showtable1(selected, total)
 
 <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
   <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-    <table class ="table table-condensed table-hover" value= "{{ df3|safe }}"></table>
+
+    <button onclick="showtable1(3,1,4)" >全体</button>
+    <button onclick="showtable1(3,2,4)" >【源泉ALL】</button>
+    <button onclick="showtable1(3,3,4)" >【管SALL】</button>
+    <button  onclick="showtable1(3,4,4)" >【反響・現S元S・紹介】</button>
+    <table id="3_1" class ="table table-condensed table-hover" value="{{ df3|safe }} "         ></table>
+    <table id="3_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_1|safe }}"     ></table>
+    <table id="3_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_2|safe }}"           />
+    <table id="3_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_3|safe }}"       />
 </div>
 
 
@@ -323,7 +338,14 @@ function showtable1(selected, total)
 
 <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
   <h6 class="border-bottom border-gray pb-2 mb-0" >シエ商材全体ポイント内訳</h6>
-    <table class ="table table-condensed table-hover" value= "{{ df4|safe }}" ></table>
+    <button onclick="showtable1(4,1,4)" >全体</button>
+    <button onclick="showtable1(4,2,4)" >【源泉ALL】</button>
+    <button onclick="showtable1(4,3,4)" >【管SALL】</button>
+    <button  onclick="showtable1(4,4,4)" >【反響・現S元S・紹介】</button>
+    <table id="4_1" class ="table table-condensed table-hover" value="{{ df4|safe }} "         ></table>
+    <table id="4_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_1|safe }}"     ></table>
+    <table id="4_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_2|safe }}"           />
+    <table id="4_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_3|safe }}"       />
 </div>
 
 
