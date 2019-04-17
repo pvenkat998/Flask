@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd5d92b7-8749-4731-917d-fac982ff9dd7" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/pitchuka_ramana.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/行動指標管理web/sample.py" afterPath="$PROJECT_DIR$/行動指標管理web/sample.py" />
       <change beforePath="$PROJECT_DIR$/行動指標管理web/templates/index.html" afterPath="$PROJECT_DIR$/行動指標管理web/templates/index.html" />
@@ -22,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/行動指標管理web/sample.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="416" column="233" lean-forward="false" selection-start-line="416" selection-start-column="233" selection-end-line="416" selection-end-column="233" />
+              <caret line="416" column="86" lean-forward="false" selection-start-line="416" selection-start-column="75" selection-end-line="416" selection-end-column="86" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
@@ -30,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/行動指標管理web/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="396" column="9" lean-forward="true" selection-start-line="396" selection-start-column="9" selection-end-line="719" selection-end-column="9" />
+            <state relative-caret-position="257">
+              <caret line="2063" column="24" lean-forward="false" selection-start-line="2063" selection-start-column="24" selection-end-line="2063" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#head#0;n#!!top" expanded="false" />
                 <element signature="n#header#0;n#div#1;n#!!top" expanded="false" />
@@ -63,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/行動指標管理web/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -85,8 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>menu-list</find>
-      <find>Disabled</find>
       <find>eigyoshasuu</find>
       <find>tolist</find>
       <find>show</find>
@@ -95,7 +94,6 @@
       <find>pt_value3</find>
       <find>myChart21</find>
       <find>pt_value2</find>
-      <find>pt_value</find>
       <find>UI</find>
       <find>\</find>
       <find>print</find>
@@ -115,11 +113,11 @@
       <find>df2_1</find>
       <find>df3</find>
       <find>2_</find>
+      <find>pt_value</find>
+      <find>selected</find>
+      <find>myChart1</find>
     </findStrings>
     <replaceStrings>
-      <replace>sortTable4</replace>
-      <replace>sortTable2</replace>
-      <replace>pt_value2</replace>
       <replace>pt_value3</replace>
       <replace>pt_value4</replace>
       <replace>eigyoshasuu2</replace>
@@ -147,6 +145,9 @@
       <replace>3</replace>
       <replace>3_</replace>
       <replace>4_</replace>
+      <replace>myChart2</replace>
+      <replace>myChart3</replace>
+      <replace>myChart4</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -209,7 +210,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="578" />
     <option name="y" value="253" />
     <option name="width" value="613" />
@@ -426,7 +427,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1396731" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -855,7 +856,7 @@
     <entry file="file://$PROJECT_DIR$/行動指標管理web/sample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="416" column="233" lean-forward="false" selection-start-line="416" selection-start-column="233" selection-end-line="416" selection-end-column="233" />
+          <caret line="416" column="86" lean-forward="false" selection-start-line="416" selection-start-column="75" selection-end-line="416" selection-end-column="86" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
@@ -864,8 +865,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/行動指標管理web/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="396" column="9" lean-forward="true" selection-start-line="396" selection-start-column="9" selection-end-line="719" selection-end-column="9" />
+        <state relative-caret-position="257">
+          <caret line="2063" column="24" lean-forward="false" selection-start-line="2063" selection-start-column="24" selection-end-line="2063" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#head#0;n#!!top" expanded="false" />
             <element signature="n#header#0;n#div#1;n#!!top" expanded="false" />

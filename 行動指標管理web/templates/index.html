@@ -166,21 +166,1746 @@ function showTab(selected, total)
   {
     document.getElementById('tabs-' + i).style.display = 'none';
   }
+  if(selected==1){
+  var ctx1 = document.getElementById("myChart11");
+                               var ctx2 = document.getElementById("myChart12");
+                               var ctx3 = document.getElementById("myChart13");
+                              var myChart11 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart12 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart13 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+  }
+  if(selected==2){
+                var ctx1 = document.getElementById("myChart21");
+                               var ctx2 = document.getElementById("myChart22");
+                               var ctx3 = document.getElementById("myChart23");
+                              var myChart21 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value2_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart22 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu2_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart23 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT2_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
 
+  }
+  if(selected==3)
+  {
+                               var ctx1 = document.getElementById("myChart31");
+                               var ctx2 = document.getElementById("myChart32");
+                               var ctx3 = document.getElementById("myChart33");
+                              var myChart31 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value3_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart32 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu3_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart33 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT3_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+
+
+  }
+  if(selected==4){
+                                var ctx1 = document.getElementById("myChart41");
+                               var ctx2 = document.getElementById("myChart42");
+                               var ctx3 = document.getElementById("myChart43");
+                              var myChart41 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value4_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart42 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu4_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart43 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT4_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+
+
+  }
   document.getElementById('tabs-' + selected).style.display = 'block';
 }
 </script>
 <script type="text/javascript">
-function showtable1(tab,selected, total)
+function showtable1(lvl1,lvl2, total)
 {
+
   for(i = 1; i <= total; i += 1)
   {
-    document.getElementById(tab + '_' + i).style.display = 'none';
+    document.getElementById(lvl1 + '_' + i).style.display = 'none';
   }
-  if(selected==2)
   {
+          if(lvl1==1&&lvl2==1){
+
+                               var ctx1 = document.getElementById("myChart11");
+                               var ctx2 = document.getElementById("myChart12");
+                               var ctx3 = document.getElementById("myChart13");
+                              var myChart11 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart12 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart13 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+          if(lvl1==1&&lvl2==2){
+
+                               var ctx1 = document.getElementById("myChart11");
+                               var ctx2 = document.getElementById("myChart12");
+                               var ctx3 = document.getElementById("myChart13");
+                              var myChart11 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value1_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart12 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu1_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart13 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT1_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+if(lvl1==1&&lvl2==3){
+
+                               var ctx1 = document.getElementById("myChart11");
+                               var ctx2 = document.getElementById("myChart12");
+                               var ctx3 = document.getElementById("myChart13");
+                              var myChart11 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value1_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart12 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu1_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart13 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT1_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+if(lvl1==1&&lvl2==4){
+
+                               var ctx1 = document.getElementById("myChart11");
+                               var ctx2 = document.getElementById("myChart12");
+                               var ctx3 = document.getElementById("myChart13");
+                              var myChart11 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value1_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart12 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu1_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart13 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT1_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+//--------------------------------------lvl 2---------------------------------------------------------------------------
+ if(lvl1==2&&lvl2==1){
+
+                               var ctx1 = document.getElementById("myChart21");
+                               var ctx2 = document.getElementById("myChart22");
+                               var ctx3 = document.getElementById("myChart23");
+                              var myChart21 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value2_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart22 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu2_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart23 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT2_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+          if(lvl1==2&&lvl2==2){
+
+                               var ctx1 = document.getElementById("myChart21");
+                               var ctx2 = document.getElementById("myChart22");
+                               var ctx3 = document.getElementById("myChart23");
+                              var myChart21 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value2_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart22 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu2_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart23 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT2_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+if(lvl1==2&&lvl2==3){
+
+                               var ctx1 = document.getElementById("myChart21");
+                               var ctx2 = document.getElementById("myChart22");
+                               var ctx3 = document.getElementById("myChart23");
+                              var myChart21 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value2_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart22 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu2_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart23 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT2_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+if(lvl1==2&&lvl2==4){
+
+                               var ctx1 = document.getElementById("myChart21");
+                               var ctx2 = document.getElementById("myChart22");
+                               var ctx3 = document.getElementById("myChart23");
+                              var myChart21 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value2_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart22 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu2_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart23 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT2_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+          //------------------------------------lvl3-------------------------------------------------------------
+           if(lvl1==3&&lvl2==1){
+
+                               var ctx1 = document.getElementById("myChart31");
+                               var ctx2 = document.getElementById("myChart32");
+                               var ctx3 = document.getElementById("myChart33");
+                              var myChart31 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value3_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart32 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu3_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart33 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT3_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+          if(lvl1==3&&lvl2==2){
+
+                               var ctx1 = document.getElementById("myChart31");
+                               var ctx2 = document.getElementById("myChart32");
+                               var ctx3 = document.getElementById("myChart33");
+                              var myChart31 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value3_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart32 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu3_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart33 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT3_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+if(lvl1==3&&lvl2==3){
+
+                               var ctx1 = document.getElementById("myChart31");
+                               var ctx2 = document.getElementById("myChart32");
+                               var ctx3 = document.getElementById("myChart33");
+                              var myChart31 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value3_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart32 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu3_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart33 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT3_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+if(lvl1==3&&lvl2==4){
+
+                               var ctx1 = document.getElementById("myChart31");
+                               var ctx2 = document.getElementById("myChart32");
+                               var ctx3 = document.getElementById("myChart33");
+                              var myChart31 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value3_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart32 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu3_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart33 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT3_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+          //----------------------------------------------llvll4--------------------------------------------------------
+           if(lvl1==4&&lvl2==1){
+
+                               var ctx1 = document.getElementById("myChart41");
+                               var ctx2 = document.getElementById("myChart42");
+                               var ctx3 = document.getElementById("myChart43");
+                              var myChart41 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value4_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart42 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu4_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart43 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT4_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+          if(lvl1==4&&lvl2==2){
+
+                               var ctx1 = document.getElementById("myChart41");
+                               var ctx2 = document.getElementById("myChart42");
+                               var ctx3 = document.getElementById("myChart43");
+                              var myChart41 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value4_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart42 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu4_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart43 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT4_1}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+if(lvl1==4&&lvl2==3){
+
+                               var ctx1 = document.getElementById("myChart41");
+                               var ctx2 = document.getElementById("myChart42");
+                               var ctx3 = document.getElementById("myChart43");
+                              var myChart41 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value4_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart42 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu4_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart43 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT4_2}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+if(lvl1==4&&lvl2==4){
+
+                               var ctx1 = document.getElementById("myChart41");
+                               var ctx2 = document.getElementById("myChart42");
+                               var ctx3 = document.getElementById("myChart43");
+                              var myChart41 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value4_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart42 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu4_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart43 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT4_3}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+          }
+
   }
-  document.getElementById(tab + '_' + selected).style.display = 'block';
+  document.getElementById(lvl1 + '_' + lvl2).style.display = 'block';
 }
 </script>
 <div class="nav-side-menu">
@@ -227,16 +1952,16 @@ function showtable1(tab,selected, total)
 
 <h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
 
-<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart11" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
     </canvas>
 <h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
 
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart2" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart12" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
 
     </canvas>
 <h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
 
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart3" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart13" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
 
     </canvas>
 </div>
@@ -366,358 +2091,91 @@ function showtable1(tab,selected, total)
     </canvas>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-         //  labels: {{df.columns}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{pt_value}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
 
-      var ctx2 = document.getElementById("myChart2");
-      var myChart2 = new Chart(ctx2, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{eigyoshasuu}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-  </script>
 <script>
 
-      var ctx3 = document.getElementById("myChart21");
-      var myChart21 = new Chart(ctx3, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{pt_value2}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-
-      var ctx4 = document.getElementById("myChart22");
-      var myChart22 = new Chart(ctx4, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{eigyoshasuu2}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-  </script>
-<script>
-
-      var ctx5 = document.getElementById("myChart31");
-      var myChart31 = new Chart(ctx5, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{pt_value3}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-
-      var ctx6 = document.getElementById("myChart32");
-      var myChart32 = new Chart(ctx6, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{eigyoshasuu3}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-
-
-      var ctx7 = document.getElementById("myChart41");
-      var myChart41 = new Chart(ctx7, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{pt_value4}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-      var ctx8 = document.getElementById("myChart42");
-      var myChart42 = new Chart(ctx8, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{eigyoshasuu4}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-
-      var ctx9 = document.getElementById("myChart43");
-      var myChart43 = new Chart(ctx9, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{point_PT4}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-
-      var ctx10 = document.getElementById("myChart33");
-      var myChart33 = new Chart(ctx10, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{point_PT3}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-
-      var ctx11 = document.getElementById("myChart23");
-      var myChart23 = new Chart(ctx11, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{point_PT2}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-
-      var ctx12 = document.getElementById("myChart3");
-      var myChart3 = new Chart(ctx12, {
-        type: 'line',
-        data: {
-          // labels: {{colname}},
-          labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-          datasets: [{
-            data: {{point_PT}},
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-
-    </script>
+  var ctx1 = document.getElementById("myChart11");
+                               var ctx2 = document.getElementById("myChart12");
+                               var ctx3 = document.getElementById("myChart13");
+                              var myChart11 = new Chart(ctx1, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{pt_value1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });                          var myChart12 = new Chart(ctx2, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{eigyoshasuu1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+                                                        var myChart13 = new Chart(ctx3, {
+                                type: 'line',
+                                data: {
+                                 //  labels: {{df.columns}},
+                                  labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                                  datasets: [{
+                                    data: {{point_PT1_0}},
+                                    lineTension: 0,
+                                    backgroundColor: 'transparent',
+                                    borderColor: '#007bff',
+                                    borderWidth: 4,
+                                    pointBackgroundColor: '#007bff'
+                                  }]
+                                },
+                                options: {
+                                  scales: {
+                                    yAxes: [{
+                                      ticks: {
+                                        beginAtZero: false
+                                      }
+                                    }]
+                                  },
+                                  legend: {
+                                    display: false,
+                                  }
+                                }
+                              });
+</script>
 {% endblock %}
