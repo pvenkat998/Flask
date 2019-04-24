@@ -4,16 +4,30 @@ import datetime
 import os
 #from openpyxl import load_workbook
 
-app = Flask(__name__)
+path = "\\\\172.16.0.232\CoffeeCrazy3\その他\受け渡し用\\20180703橋本さん受け渡し用\加工済み会議資料"
+print(path)
+most_recent_file = max(
+    (os.path.join(root, f) for root, _, the_files in os.walk(path) for f in the_files if f.lower().endswith(".xlsx")),
+    key=os.path.getmtime)
+print(most_recent_file)
+#xls = pd.ExcelFile(r"\\172.16.0.232\CoffeeCrazy3\その他\受け渡し用\20180703橋本さん受け渡し用\加工済み会議資料\0207顧問\【顧問】会議資料190207.xlsx")
+xls = pd.ExcelFile(most_recent_file)
 
+app = Flask(__name__)
 @app.route('/')
 def sample():
-    path="\\\\172.16.0.232\CoffeeCrazy3\その他\受け渡し用\\20180703橋本さん受け渡し用\加工済み会議資料"
-    print(path)
-    most_recent_file = max((os.path.join(root, f) for root, _, the_files in os.walk(path) for f in the_files if f.lower().endswith(".xlsx")), key=os.path.getmtime)
-    print(most_recent_file)
-    xls = pd.ExcelFile(r"\\172.16.0.232\CoffeeCrazy3\その他\受け渡し用\20180703橋本さん受け渡し用\加工済み会議資料\0207顧問\【顧問】会議資料190207.xlsx")
-    xls = pd.ExcelFile(most_recent_file)
+    global xls,most_recent_file
+    most_recent_file_check = max(
+        (os.path.join(root, f) for root, _, the_files in os.walk(path) for f in the_files if
+         f.lower().endswith(".xlsx")),
+        key=os.path.getmtime)
+    print(most_recent_file_check)
+    if(most_recent_file_check!=most_recent_file):
+        print("loading new file")
+        xls = pd.ExcelFile(most_recent_file_check)
+        most_recent_file = most_recent_file_check
+    else:
+        print("no new load")
     df = pd.read_excel(xls, '月次進捗(事業ALL',parse_cols='B:AU',skiprows = 28,index_col=0)
     df2 = pd.read_excel(xls, '月次進捗 (営業ALL (018を除く)',parse_cols='B:AU',skiprows = 30,index_col=0)
     df3 = pd.read_excel(xls, '月次進捗 (営業 018生',parse_cols='B:AU',skiprows = 27,index_col=0)
@@ -41,7 +55,7 @@ def sample():
     df_2 = df_2.dropna(axis=1)
     colname = df_2.columns.tolist()
     for i in range(len(colname)):
-        
+
         print(i)
         # looping columns nowww
         if (i % 3 == 2):
@@ -60,7 +74,7 @@ def sample():
     df_3 = df_3.dropna(axis=1)
     colname = df_3.columns.tolist()
     for i in range(len(colname)):
-        
+
         print(i)
         # looping columns nowww
         if (i % 3 == 2):
@@ -172,7 +186,6 @@ def sample():
         df3.iloc[200:207].reindex_like(df3.iloc[137:144]), fill_value=0).add(
         df3.iloc[209:216].reindex_like(df3.iloc[137:144]), fill_value=0).add(
         df3.iloc[218:225].reindex_like(df3.iloc[137:144]), fill_value=0)
-    print("error")
     df3_3 = df3_3.dropna(axis=1)
     colname = df3_3.columns.tolist()
     for i in range(len(colname)):
@@ -224,7 +237,6 @@ def sample():
         df4.iloc[221:229].reindex_like(df4.iloc[151:159]), fill_value=0).add(
         df4.iloc[231:239].reindex_like(df4.iloc[151:159]), fill_value=0).add(
         df4.iloc[241:249].reindex_like(df4.iloc[151:159]), fill_value=0)
-    print("error")
     df4_3 = df4_3.dropna(axis=1)
     colname = df4_3.columns.tolist()
     for i in range(len(colname)):

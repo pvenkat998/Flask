@@ -1908,188 +1908,366 @@ if(lvl1==4&&lvl2==4){
   document.getElementById(lvl1 + '_' + lvl2).style.display = 'block';
 }
 </script>
-<div class="nav-side-menu">
-    <div class="brand">顧問</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+<head>
+<script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript">
+    var host = "startbootstrap.com";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+      window.location.protocol = "https";
+  </script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Start Bootstrap">
+<meta name="google-site-verification" content="37Tru9bxB3NrqXCt6JT5Vx8wz2AJQ0G4TkC-j8WL3kw">
 
-    <div class="menu-list">
+<title>
+    SB Admin 2 - Theme Preview - Start Bootstrap
+  </title>
 
-            <ul id="menu-content" class="menu-content collapse out">
+<meta name="description" content="">
+
+<link rel="canonical" href="https://startbootstrap.com/previews/sb-admin-2/">
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/assets/style-theme.css">
+
+<link type="application/atom+xml" rel="alternate" href="https://startbootstrap.com/feed.xml" title="startbootstrap">
+<script>
+  // Google Analytics Tracking Script
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-38417733-17', 'startbootstrap.com');
+  ga('send', 'pageview');
+</script>
+<meta name="ir-site-verification-token" value="-28223945">
+
+<meta property="og:title" content="SB Admin 2 - Theme Preview">
+<meta property="og:site_name" content="Start Bootstrap">
+<meta property="og:type" content="website">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://startbootstrap.com/assets/img/branding/og-start-bootstrap.png">
+<meta property="og:url" content="https://startbootstrap.com/previews/sb-admin-2/">
+<meta property="og:image:alt" content="SB Admin 2 - Theme Preview">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://startbootstrap.com/assets/img/branding/start-bootstrap-logo-500x500.png">
+<meta name="twitter:site" content="@SBootstrap">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/icons/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/icons/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/icons/safari-pinned-tab.svg" color="#dd3d31">
+<meta name="msapplication-TileColor" content="#dd3d31">
+<meta name="theme-color" content="#ffffff">
+</head>
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+          <!-- Sidebar - Brand -->
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+              <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+          </a>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+
+          <!-- Nav Item - Dashboard -->
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span></a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+
+          <!-- Heading -->
+          <div class="sidebar-heading">
+            Interface
+          </div>
+
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              <i class="fas fa-fw fa-cog"></i>
+              <span>Components</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="buttons.html">Buttons</a>
+                <a class="collapse-item" href="cards.html">Cards</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Nav Item - Utilities Collapse Menu -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+              <i class="fas fa-fw fa-wrench"></i>
+              <span>Utilities</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Utilities:</h6>
+                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="utilities-border.html">Borders</a>
+                <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                <a class="collapse-item" href="utilities-other.html">Other</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+
+          <!-- Heading -->
+          <div class="sidebar-heading">
+            Addons
+          </div>
+
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+              <i class="fas fa-fw fa-folder"></i>
+              <span>Pages</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Login Screens:</h6>
+                <a class="collapse-item" href="login.html">Login</a>
+                <a class="collapse-item" href="register.html">Register</a>
+                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">Other Pages:</h6>
+                <a class="collapse-item" href="404.html">404 Page</a>
+                <a class="collapse-item" href="blank.html">Blank Page</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Nav Item - Charts -->
+          <li class="nav-item">
+            <a class="nav-link" href="charts.html">
+              <i class="fas fa-fw fa-chart-area"></i>
+              <span>Charts</span></a>
+          </li>
+
+          <!-- Nav Item - Tables -->
+          <li class="nav-item">
+            <a class="nav-link" href="tables.html">
+              <i class="fas fa-fw fa-table"></i>
+              <span>Tables</span></a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider d-none d-md-block">
+
+          <!-- Sidebar Toggler (Sidebar) -->
+          <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+          </div>
+
+                    </ul>
+            <div class="nav-side-menu">
+                <div class="brand">顧問</div>
+                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+                <div class="menu-list">
+
+                        <ul id="menu-content" class="menu-content collapse out">
 
 
-                <ul class="sub-menu" id="products">
-                    <li id="tabs1" onclick="showTab(1,4)"><a >月次進捗(事業ALL)</a></li>
-                    <li id="tabs2" onclick="showTab(2,4)"><a href="#">月次進捗 (営業ALL (018を除く)</a></li>
-                    <li id="tabs3" onclick="showTab(3,4)" ><a href="#">月次進捗 (営業 018生</a></li>
-                    <li id="tabs4" onclick="showTab(4,4)" ><a href="#">月次進捗 (SSALL</a></li>
-                </ul>
-            </ul>
-     </div>
-</div>
+                            <ul class="sub-menu" id="products">
+                                <li id="tabs1" onclick="showTab(1,4)"><a >月次進捗(事業ALL)</a></li>
+                                <li id="tabs2" onclick="showTab(2,4)"><a href="#">月次進捗 (営業ALL (018を除く)</a></li>
+                                <li id="tabs3" onclick="showTab(3,4)" ><a href="#">月次進捗 (営業 018生</a></li>
+                                <li id="tabs4" onclick="showTab(4,4)" ><a href="#">月次進捗 (SSALL</a></li>
+                            </ul>
+                        </ul>
+                 </div>
+            </div>
 
-<div id="tabs-1" class="content">
-  <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container-fluid d-flex justify-content-between">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-          <strong>月次進捗(事業ALL)</strong>
-        </a>
-      </div>
+                        <div id="tabs-1" class="content">
+                          <header>
+                            <div class="navbar navbar-dark bg-dark shadow-sm">
+                              <div class="container-fluid d-flex justify-content-between">
+                                <a href="/" class="navbar-brand d-flex align-items-center">
+                                  <strong>月次進捗(事業ALL)</strong>
+                                </a>
+                              </div>
+                            </div>
+                          </header>
+                        <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+                          <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
+                            <button onclick="showtable1(1,1,4)" >全体</button>
+                            <button onclick="showtable1(1,2,4)" >【源泉ALL】</button>
+                            <button onclick="showtable1(1,3,4)" >【管SALL】</button>
+                            <button  onclick="showtable1(1,4,4)" >【反響・現S元S・紹介】</button>
+                            <table id="1_1" class ="table table-condensed table-hover" value="{{ df|safe }} "         ></table>
+                            <table id="1_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df_1|safe }}"     ></table>
+                            <table id="1_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df_2|safe }}"           />
+                            <table id="1_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df_3|safe }}"       />
+                        </div>
+
+
+                        <h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
+
+                        <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart11" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+                            </canvas>
+                        <h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
+
+                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart12" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+                            </canvas>
+                        <h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
+
+                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart13" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+                            </canvas>
+                        </div>
+
+
+                                            <div id="tabs-2" class="content" style = "display : none">
+                                              <header>
+                                                <div class="navbar navbar-dark bg-dark shadow-sm">
+                                                  <div class="container-fluid d-flex justify-content-between">
+                                                    <a href="/" class="navbar-brand d-flex align-items-center">
+                                                      <strong>月次進捗 (営業ALL (018を除く)</strong>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              </header>
+                                            <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+                                              <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
+
+                                                <button onclick="showtable1(2,1,4)" >全体</button>
+                                                <button onclick="showtable1(2,2,4)" >【源泉ALL】</button>
+                                                <button onclick="showtable1(2,3,4)" >【管SALL】</button>
+                                                <button  onclick="showtable1(2,4,4)" >【反響・現S元S・紹介】</button>
+                                                <table id="2_1" class ="table table-condensed table-hover" value="{{ df2|safe }} "         ></table>
+                                                <table id="2_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_1|safe }}"     ></table>
+                                                <table id="2_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_2|safe }}"           />
+                                                <table id="2_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_3|safe }}"       />
+                                            </div>
+
+
+                                            <h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
+
+                                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart21" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+                                                </canvas>
+                                            <h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
+
+                                                <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart22" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+                                                </canvas>
+                                            <h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
+
+                                                <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart23" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+                                                </canvas>
+                                            </div>
+
+
+                                        <div id="tabs-3" class="content" style = "display : none">
+                                          <header>
+                                            <div class="navbar navbar-dark bg-dark shadow-sm">
+                                              <div class="container-fluid d-flex justify-content-between">
+                                                <a href="/" class="navbar-brand d-flex align-items-center">
+                                                  <strong>月次進捗 (営業 018生</strong>
+                                                </a>
+                                              </div>
+                                            </div>
+                                          </header>
+
+                                        <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+                                          <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
+
+                                            <button onclick="showtable1(3,1,4)" >全体</button>
+                                            <button onclick="showtable1(3,2,4)" >【源泉ALL】</button>
+                                            <button onclick="showtable1(3,3,4)" >【管SALL】</button>
+                                            <button  onclick="showtable1(3,4,4)" >【反響・現S元S・紹介】</button>
+                                            <table id="3_1" class ="table table-condensed table-hover" value="{{ df3|safe }} "         ></table>
+                                            <table id="3_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_1|safe }}"     ></table>
+                                            <table id="3_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_2|safe }}"           />
+                                            <table id="3_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_3|safe }}"       />
+                                        </div>
+
+
+                                        <h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
+
+                                        <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart31" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+                                            </canvas>
+                                        <h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
+
+                                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart32" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+                                            </canvas>
+                                        <h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
+
+                                            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart33" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+                                            </canvas>
+                                        </div>
+
+
+                <div id="tabs-4" class="content" style = "display : none">
+                  <header>
+                    <div class="navbar navbar-dark bg-dark shadow-sm">
+                      <div class="container-fluid d-flex justify-content-between">
+                        <a href="/" class="navbar-brand d-flex align-items-center">
+                          <strong>月次進捗 (SSALL</strong>
+                        </a>
+                      </div>
+                    </div>
+                  </header>
+
+                <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
+                  <h6 class="border-bottom border-gray pb-2 mb-0" >シエ商材全体ポイント内訳</h6>
+                    <button onclick="showtable1(4,1,4)" >全体</button>
+                    <button onclick="showtable1(4,2,4)" >【源泉ALL】</button>
+                    <button onclick="showtable1(4,3,4)" >【管SALL】</button>
+                    <button  onclick="showtable1(4,4,4)" >【反響・現S元S・紹介】</button>
+                    <table id="4_1" class ="table table-condensed table-hover" value="{{ df4|safe }} "         ></table>
+                    <table id="4_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_1|safe }}"     ></table>
+                    <table id="4_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_2|safe }}"           />
+                    <table id="4_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_3|safe }}"       />
+                </div>
+
+
+                <h6 class="border-bottom border-gray pb-2 mb-0" >営業社数</h6>
+
+                <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart41" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+                    </canvas>
+                <h6 class="border-bottom border-gray pb-2 mb-0" >受注案件数</h6>
+
+                    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart42" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+                    </canvas>
+
+                <h6 class="border-bottom border-gray pb-2 mb-0" >平均単価</h6>
+
+                    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart43" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
+
+                    </canvas>
+                </div>
     </div>
-  </header>
-<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
-  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-    <button onclick="showtable1(1,1,4)" >全体</button>
-    <button onclick="showtable1(1,2,4)" >【源泉ALL】</button>
-    <button onclick="showtable1(1,3,4)" >【管SALL】</button>
-    <button  onclick="showtable1(1,4,4)" >【反響・現S元S・紹介】</button>
-    <table id="1_1" class ="table table-condensed table-hover" value="{{ df|safe }} "         ></table>
-    <table id="1_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df_1|safe }}"     ></table>
-    <table id="1_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df_2|safe }}"           />
-    <table id="1_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df_3|safe }}"       />
-</div>
-
-
-<h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
-
-<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart11" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-    </canvas>
-<h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
-
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart12" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-
-    </canvas>
-<h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
-
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart13" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-
-    </canvas>
-</div>
-
-
-<div id="tabs-2" class="content" style = "display : none">
-  <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container-fluid d-flex justify-content-between">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-          <strong>月次進捗 (営業ALL (018を除く)</strong>
-        </a>
-      </div>
-    </div>
-  </header>
-<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
-  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-
-    <button onclick="showtable1(2,1,4)" >全体</button>
-    <button onclick="showtable1(2,2,4)" >【源泉ALL】</button>
-    <button onclick="showtable1(2,3,4)" >【管SALL】</button>
-    <button  onclick="showtable1(2,4,4)" >【反響・現S元S・紹介】</button>
-    <table id="2_1" class ="table table-condensed table-hover" value="{{ df2|safe }} "         ></table>
-    <table id="2_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_1|safe }}"     ></table>
-    <table id="2_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_2|safe }}"           />
-    <table id="2_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_3|safe }}"       />
-</div>
-
-
-<h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
-
-<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart21" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-    </canvas>
-<h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
-
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart22" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-
-    </canvas>
-<h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
-
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart23" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-
-    </canvas>
-</div>
-
-
-<div id="tabs-3" class="content" style = "display : none">
-  <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container-fluid d-flex justify-content-between">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-          <strong>月次進捗 (営業 018生</strong>
-        </a>
-      </div>
-    </div>
-  </header>
-
-<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
-  <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-
-    <button onclick="showtable1(3,1,4)" >全体</button>
-    <button onclick="showtable1(3,2,4)" >【源泉ALL】</button>
-    <button onclick="showtable1(3,3,4)" >【管SALL】</button>
-    <button  onclick="showtable1(3,4,4)" >【反響・現S元S・紹介】</button>
-    <table id="3_1" class ="table table-condensed table-hover" value="{{ df3|safe }} "         ></table>
-    <table id="3_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_1|safe }}"     ></table>
-    <table id="3_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_2|safe }}"           />
-    <table id="3_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_3|safe }}"       />
-</div>
-
-
-<h6 class="border-bottom border-gray pb-2 mb-0">営業社数</h6>
-
-<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart31" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-    </canvas>
-<h6 class="border-bottom border-gray pb-2 mb-0">受注案件数</h6>
-
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart32" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-
-    </canvas>
-<h6 class="border-bottom border-gray pb-2 mb-0">平均単価</h6>
-
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart33" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-
-    </canvas>
-</div>
-
-
-<div id="tabs-4" class="content" style = "display : none">
-  <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container-fluid d-flex justify-content-between">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-          <strong>月次進捗 (SSALL</strong>
-        </a>
-      </div>
-    </div>
-  </header>
-
-<div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
-  <h6 class="border-bottom border-gray pb-2 mb-0" >シエ商材全体ポイント内訳</h6>
-    <button onclick="showtable1(4,1,4)" >全体</button>
-    <button onclick="showtable1(4,2,4)" >【源泉ALL】</button>
-    <button onclick="showtable1(4,3,4)" >【管SALL】</button>
-    <button  onclick="showtable1(4,4,4)" >【反響・現S元S・紹介】</button>
-    <table id="4_1" class ="table table-condensed table-hover" value="{{ df4|safe }} "         ></table>
-    <table id="4_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_1|safe }}"     ></table>
-    <table id="4_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_2|safe }}"           />
-    <table id="4_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_3|safe }}"       />
-</div>
-
-
-<h6 class="border-bottom border-gray pb-2 mb-0" >営業社数</h6>
-
-<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart41" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-    </canvas>
-<h6 class="border-bottom border-gray pb-2 mb-0" >受注案件数</h6>
-
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart42" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-
-    </canvas>
-
-<h6 class="border-bottom border-gray pb-2 mb-0" >平均単価</h6>
-
-    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart43" width="1108" height="267" style="display: block; width: 1108px; height: 267px;">
-
-    </canvas>
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
 <script>
