@@ -160,6 +160,13 @@ body {
 </style>
 </head>
 <script type="text/javascript">
+function open(){
+    alert("a");
+document.getElementById('navb').setAttribute("style","width:500px");
+    }
+</script>
+<script type="text/javascript">
+
 function showTab(selected, total)
 {
   for(i = 1; i <= total; i += 1)
@@ -1972,139 +1979,67 @@ if(lvl1==4&&lvl2==4){
 <link rel="mask-icon" href="/assets/img/icons/safari-pinned-tab.svg" color="#dd3d31">
 <meta name="msapplication-TileColor" content="#dd3d31">
 <meta name="theme-color" content="#ffffff">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+   <link
+href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}"  rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="{{ url_for('static', filename='css/sb-admin-2.min.css') }}"rel="stylesheet">
 </head>
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
-          <!-- Sidebar - Brand -->
-          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-              <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-          </a>
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">HOME <sup>2</sup></div>
+      </a>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+      <!-- Nav Item - Dashboard -->
+      <li id="tabs1" onclick="showTab(1,4)" class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>月次進捗(事業ALL)</span></a>
+      </li>
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item" id="tabs2" onclick="showTab(2,4)">
+        <a class="nav-link" href="#" >
+          <i class="fas fa-fw fa-cog"></i>
+          <span>月次進捗 (営業ALL (018を除く)</span>
+        </a>
+      </li>
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item" id="tabs3" onclick="showTab(3,4)">
+        <a class="nav-link" href="#"  >
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>月次進捗 (営業 018生</span>
+        </a>
+      </li>
+      <li class="nav-item" id="tabs4" onclick="showTab(4,4)">
+        <a class="nav-link" href="#"  >
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>月次進捗 (SSALL</span>
+        </a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+    </ul>
 
-          <!-- Divider -->
-          <hr class="sidebar-divider my-0">
-
-          <!-- Nav Item - Dashboard -->
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">
-              <i class="fas fa-fw fa-tachometer-alt"></i>
-              <span>Dashboard</span></a>
-          </li>
-
-          <!-- Divider -->
-          <hr class="sidebar-divider">
-
-          <!-- Heading -->
-          <div class="sidebar-heading">
-            Interface
-          </div>
-
-          <!-- Nav Item - Pages Collapse Menu -->
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-              <i class="fas fa-fw fa-cog"></i>
-              <span>Components</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Nav Item - Utilities Collapse Menu -->
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-              <i class="fas fa-fw fa-wrench"></i>
-              <span>Utilities</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Divider -->
-          <hr class="sidebar-divider">
-
-          <!-- Heading -->
-          <div class="sidebar-heading">
-            Addons
-          </div>
-
-          <!-- Nav Item - Pages Collapse Menu -->
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-              <i class="fas fa-fw fa-folder"></i>
-              <span>Pages</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Nav Item - Charts -->
-          <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-              <i class="fas fa-fw fa-chart-area"></i>
-              <span>Charts</span></a>
-          </li>
-
-          <!-- Nav Item - Tables -->
-          <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-              <i class="fas fa-fw fa-table"></i>
-              <span>Tables</span></a>
-          </li>
-
-          <!-- Divider -->
-          <hr class="sidebar-divider d-none d-md-block">
-
-          <!-- Sidebar Toggler (Sidebar) -->
-          <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-          </div>
-
-                    </ul>
-            <div class="nav-side-menu">
-                <div class="brand">顧問</div>
-                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-
-                <div class="menu-list">
-
-                        <ul id="menu-content" class="menu-content collapse out">
-
-
-                            <ul class="sub-menu" id="products">
-                                <li id="tabs1" onclick="showTab(1,4)"><a >月次進捗(事業ALL)</a></li>
-                                <li id="tabs2" onclick="showTab(2,4)"><a href="#">月次進捗 (営業ALL (018を除く)</a></li>
-                                <li id="tabs3" onclick="showTab(3,4)" ><a href="#">月次進捗 (営業 018生</a></li>
-                                <li id="tabs4" onclick="showTab(4,4)" ><a href="#">月次進捗 (SSALL</a></li>
-                            </ul>
-                        </ul>
-                 </div>
-            </div>
-
-                        <div id="tabs-1" class="content">
+            <div id="content-wrapper" class="d-flex flex-column">
+                        <div id="tabs-1" class="content" >
                           <header>
                             <div class="navbar navbar-dark bg-dark shadow-sm">
                               <div class="container-fluid d-flex justify-content-between">
@@ -2116,14 +2051,15 @@ if(lvl1==4&&lvl2==4){
                           </header>
                         <div class="my-3 p-3 bg-white rounded shadow-sm table-responsive">
                           <h6 class="border-bottom border-gray pb-2 mb-0">シエ商材全体ポイント内訳</h6>
-                            <button onclick="showtable1(1,1,4)" >全体</button>
-                            <button onclick="showtable1(1,2,4)" >【源泉ALL】</button>
-                            <button onclick="showtable1(1,3,4)" >【管SALL】</button>
-                            <button  onclick="showtable1(1,4,4)" >【反響・現S元S・紹介】</button>
-                            <table id="1_1" class ="table table-condensed table-hover" value="{{ df|safe }} "         ></table>
-                            <table id="1_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df_1|safe }}"     ></table>
-                            <table id="1_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df_2|safe }}"           />
-                            <table id="1_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df_3|safe }}"       />
+                            <button onclick="showtable1(1,1,4)">全体</button>
+                            <button onclick="showtable1(1,2,4)">【源泉ALL】</button>
+                            <button onclick="showtable1(1,3,4)">【管SALL】</button>
+                            <button  onclick="showtable1(1,4,4)">【反響・現S元S・紹介】</button><font color="white">
+
+                            <table id="1_1" style="color: black;" class ="table table-condensed table-hover" value="{{ df | safe}} "></table>
+                            <table id="1_2" style = "display : none;color: black;" class ="table table-condensed table-hover" value="{{ df_1|safe }}"></table>
+                            <table id="1_3" style = "display : none;color: black;" class ="table table-condensed table-hover" value="{{ df_2|safe }}"/>
+                            <table id="1_4" style = "display : none;color: black;" class ="table table-condensed table-hover" value="{{ df_3|safe }}"/></font>
                         </div>
 
 
@@ -2160,11 +2096,11 @@ if(lvl1==4&&lvl2==4){
                                                 <button onclick="showtable1(2,1,4)" >全体</button>
                                                 <button onclick="showtable1(2,2,4)" >【源泉ALL】</button>
                                                 <button onclick="showtable1(2,3,4)" >【管SALL】</button>
-                                                <button  onclick="showtable1(2,4,4)" >【反響・現S元S・紹介】</button>
-                                                <table id="2_1" class ="table table-condensed table-hover" value="{{ df2|safe }} "         ></table>
-                                                <table id="2_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_1|safe }}"     ></table>
-                                                <table id="2_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_2|safe }}"           />
-                                                <table id="2_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df2_3|safe }}"       />
+                                                <button  onclick="showtable1(2,4,4)" >【反響・現S元S・紹介】</button><font color="white">
+                                                <table id="2_1" style="color: black;"class ="table table-condensed table-hover" value="{{ df2|safe }} "         ></table>
+                                                <table id="2_2" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df2_1|safe }}"     ></table>
+                                                <table id="2_3" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df2_2|safe }}"           />
+                                                <table id="2_4" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df2_3|safe }}"       /></font>
                                             </div>
 
 
@@ -2202,11 +2138,11 @@ if(lvl1==4&&lvl2==4){
                                             <button onclick="showtable1(3,1,4)" >全体</button>
                                             <button onclick="showtable1(3,2,4)" >【源泉ALL】</button>
                                             <button onclick="showtable1(3,3,4)" >【管SALL】</button>
-                                            <button  onclick="showtable1(3,4,4)" >【反響・現S元S・紹介】</button>
-                                            <table id="3_1" class ="table table-condensed table-hover" value="{{ df3|safe }} "         ></table>
-                                            <table id="3_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_1|safe }}"     ></table>
-                                            <table id="3_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_2|safe }}"           />
-                                            <table id="3_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df3_3|safe }}"       />
+                                            <button  onclick="showtable1(3,4,4)" >【反響・現S元S・紹介】</button><font color="white">
+                                            <table id="3_1" style="color: black"class ="table table-condensed table-hover" value="{{ df3|safe }} "         ></table>
+                                            <table id="3_2" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df3_1|safe }}"     ></table>
+                                            <table id="3_3" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df3_2|safe }}"           />
+                                            <table id="3_4" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df3_3|safe }}"       /></font>
                                         </div>
 
 
@@ -2243,11 +2179,11 @@ if(lvl1==4&&lvl2==4){
                     <button onclick="showtable1(4,1,4)" >全体</button>
                     <button onclick="showtable1(4,2,4)" >【源泉ALL】</button>
                     <button onclick="showtable1(4,3,4)" >【管SALL】</button>
-                    <button  onclick="showtable1(4,4,4)" >【反響・現S元S・紹介】</button>
-                    <table id="4_1" class ="table table-condensed table-hover" value="{{ df4|safe }} "         ></table>
-                    <table id="4_2" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_1|safe }}"     ></table>
-                    <table id="4_3" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_2|safe }}"           />
-                    <table id="4_4" style = "display : none" class ="table table-condensed table-hover" value="{{ df4_3|safe }}"       />
+                    <button  onclick="showtable1(4,4,4)" >【反響・現S元S・紹介】</button> <font color="white">
+                    <table id="4_1" style="color: black"class ="table table-condensed table-hover" value="{{ df4|safe }} "         ></table>
+                    <table id="4_2" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df4_1|safe }}"     ></table>
+                    <table id="4_3" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df4_2|safe }}"           />
+                    <table id="4_4" style = "display : none;color: black" class ="table table-condensed table-hover" value="{{ df4_3|safe }}"       /></font>
                 </div>
 
 
@@ -2267,7 +2203,20 @@ if(lvl1==4&&lvl2==4){
 
                     </canvas>
                 </div>
+             </div>
+
     </div>
+
+  <script
+src="{{ url_for('static', filename='tablefilter.js') }}" src="vendor/jquery/jquery.min.js"></script>
+  <script
+src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script
+src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <!-- Custom scripts for all pages-->
+  <script
+src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
 <script>
